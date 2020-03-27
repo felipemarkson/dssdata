@@ -20,9 +20,9 @@ Realize o clone do repositório e execute o seguinte comando na pasta:
 ```python
 from PowerFlow import PowerFlow
 
-path_ovelhas = 'sua_pasta/seu_sistema.dss'
+path_of_system = 'sua_pasta/seu_sistema.dss'
 
-distSys = PowerFlow(path = path_ovelhas, kV = 13.8, loadmult = 1.2)
+distSys = PowerFlow(path = path_of_system, kV = 13.8, loadmult = 1.2)
 
 distSys.run_power_flow()
 
