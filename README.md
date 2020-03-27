@@ -7,7 +7,6 @@ No momento, executa apenas o fluxo de potência estático e retorna apenas a inf
 
 [Python 3](https://www.python.org/)
 
-[Poetry](http://python-poetry.org/)
 
 ## Instalação
 
@@ -81,3 +80,8 @@ Dê preferência por criar funções (métodos) pequenas que possuem apenas uma 
 Os nomes dos atributos e dos métodos devem ser claros e legíveis, não precisa economizar no tamanho do nome ;).
 
 Envie commits pequenos com poucas alterações por vez.
+
+## Requisitos para Desenvolvimento
+
+
+[Poetry](https://python-poetry.org/)
