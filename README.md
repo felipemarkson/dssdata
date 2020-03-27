@@ -1,6 +1,6 @@
 # Power flow analysis
 
-Um modulo que possui uma classe que retorna dados organizados para análises em regime permanente de sistemas de distribuição de energia elétrica utilizando como base o [OpenDSS](https://www.epri.com/#/pages/sa/opendss?lang=en).
+Um módulo que possui uma classe que retorna dados organizados para análises em regime permanente de sistemas de distribuição de energia elétrica utilizando como base o [OpenDSS](https://www.epri.com/#/pages/sa/opendss?lang=en).
 No momento, executa apenas o fluxo de potência estático e retorna apenas a informação de tensão.
 
 ## Requisitos
@@ -64,3 +64,20 @@ Retorna um [pandas.Dataframe](https://pandas.pydata.org/pandas-docs/stable/refer
 valores de tensão em pu, ângulo em graus e a configuração das fases (abc, ab, ac, bc).
 
 
+## Como contribuir
+
+Esteja livre para criar outras classes além do PowerFlow.
+
+Todos atributos das classes devem ser privados, ou seja, iniciar com __ (dois underlines).
+
+O acesso ou mudança de um atributo deve ser feita por um método público.
+
+Deve-se definir quais métodos devem ser públicos e quais devem ser privados.
+
+Os métodos privados devem iniciar com __ (dois underlines).
+
+Dê preferência por criar funções (métodos) pequenas que possuem apenas uma única responsabilidade.
+
+Os nomes dos atributos e dos métodos devem ser claros e legíveis, não precisa economizar no tamanho do nome ;).
+
+Envie commits pequenos com poucas alterações por vez.
