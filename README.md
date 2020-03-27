@@ -13,7 +13,7 @@ No momento, executa apenas o fluxo de potência estático e retorna apenas a inf
 
 Realize o clone do repositório e execute o seguinte comando na pasta:
 
-    $ poetry install
+    $ pip3 install -r requirements.txt
 
 ## Uso básico
 
