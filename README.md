@@ -26,7 +26,7 @@ distSys = PowerFlow(path = path_of_system, kV = 13.8, loadmult = 1.2)
 
 distSys.run_power_flow()
 
-dataFrame = distSys.get_all_v_pu_pandas()
+dataFrame = distSys.get_all_v_pu_angle_pandas()
 ```
 
 ## Documentação
