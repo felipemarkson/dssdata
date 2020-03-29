@@ -116,19 +116,23 @@ class PowerFlow:
         all_num_ph = []
         for bus in all_bus_names:
             ph = self.__get_bus_ph(bus)
-            # print(ph)
-            if ph == [1, 2, 3]:
-                ph_abc = 'abc'
-            elif ph == [1, 2]:
-                ph_abc = 'ab'
-            elif ph == [1, 3]:
-                ph_abc = 'ac'
-            elif ph == [2, 3]:
-                ph_abc = 'bc'
-            else:
-                ph_abc = 'ERR'
+            ph_config = self.__identify_ph_config(ph)
 
-            all_num_ph.append(ph_abc)
+            all_num_ph.append(ph_config)
 
         return all_num_ph
+
+    def __identify_ph_config(self, ph:list):
+
+        if ph == [1, 2, 3]:
+            ph_config = 'abc'
+        elif ph == [1, 2]:
+            ph_config = 'ab'
+        elif ph == [1, 3]:
+            ph_config = 'ac'
+        elif ph == [2, 3]:
+            ph_config = 'bc'
+        else:
+            raise Exception('Configuração de fases não identificada')
+        return ph_config
 
