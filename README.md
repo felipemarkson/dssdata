@@ -60,7 +60,15 @@ Retorna uma lista com todos os nomes das barras do sistema
 
 #### ```PowerFlow.get_all_v_pu_angle_pandas():```
 Retorna um [pandas.Dataframe](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html) com os nomes de cada barra, 
+valores de tensão em pu, ângulo em graus e a configuração das fases (abc, ab, ac, bc) de todo o sistema de distribuição.
+
+#### ```PowerFlow.get_bus_v_pu_ang_pandas(buses: list):```
+
+   ```buses```: Lista com os nomes das barras
+
+Retorna um [pandas.Dataframe](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html) com os nomes de cada barra, 
 valores de tensão em pu, ângulo em graus e a configuração das fases (abc, ab, ac, bc).
+
 
 
 ## Como contribuir
@@ -83,7 +91,7 @@ Envie commits pequenos com poucas alterações por vez.
 
 ## To do
 
-- Método para obter a tensão, ângulo e fases em apenas uma barra ou barras selecionadas do sistema. 
+- ~Método para obter a tensão, ângulo e fases em apenas uma barra ou barras selecionadas do sistema~. 
 
 - Método para obter as perdas totais do sistema.
 
