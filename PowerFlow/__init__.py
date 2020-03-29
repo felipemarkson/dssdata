@@ -52,6 +52,39 @@ class PowerFlow:
         result['phases']  = self.__get_all_num_ph()    
         return result
 
+   
+    def get_bus_v_pu_ang_pandas(self,  buses: list):
+        list_verify = self.__verify_bus_list(buses)
+        if not all(list_verify):
+            for (verify, bus) in zip(list_verify, buses):
+                if not verify:          
+                    raise Exception(f"A barra {bus} não está declarada no sistema de distribuição")
+
+        v_pu_list = []
+        ang_list = []
+        ph_list = []
+
+        for bus in buses:
+            v_pu_list.append(self.__get_bus_ang(bus))
+            ang_list.append(self.__get_bus_v_pu(bus))
+            ph = self.__get_bus_ph(bus)
+            ph_config = self.__identify_ph_config(ph)
+            ph_list.append(ph_config)
+
+        df_bus_names = pd.DataFrame(buses, columns =['bus_names'])
+        df_v_pu = pd.DataFrame(v_pu_list, columns =['v_pu_a','v_pu_b', 'v_pu_c'])
+        df_ang = pd.DataFrame(ang_list, columns =['ang_a', 'ang_b', 'ang_c'])
+        df_ph = pd.DataFrame(ph_list, columns =['phases'])
+        
+        result = pd.concat([df_bus_names, df_v_pu, df_ang, df_ph], axis=1, sort=False)
+        return result
+
+    def __verify_bus_list(self, buses:list):
+        all_bus_names = self.get_all_bus_names()
+        verify_per_bus = list(map(lambda bus: bus in all_bus_names, buses))
+        return verify_per_bus
+        
+
     def __get_bus_v_pu_ang(self, bus: str):
         self.dss.Circuit.SetActiveBus(bus)
         return self.dss.Bus.puVmagAngle()
@@ -116,19 +149,23 @@ class PowerFlow:
         all_num_ph = []
         for bus in all_bus_names:
             ph = self.__get_bus_ph(bus)
-            # print(ph)
-            if ph == [1, 2, 3]:
-                ph_abc = 'abc'
-            elif ph == [1, 2]:
-                ph_abc = 'ab'
-            elif ph == [1, 3]:
-                ph_abc = 'ac'
-            elif ph == [2, 3]:
-                ph_abc = 'bc'
-            else:
-                ph_abc = 'ERR'
+            ph_config = self.__identify_ph_config(ph)
 
-            all_num_ph.append(ph_abc)
+            all_num_ph.append(ph_config)
 
         return all_num_ph
+
+    def __identify_ph_config(self, ph:list):
+
+        if ph == [1, 2, 3]:
+            ph_config = 'abc'
+        elif ph == [1, 2]:
+            ph_config = 'ab'
+        elif ph == [1, 3]:
+            ph_config = 'ac'
+        elif ph == [2, 3]:
+            ph_config = 'bc'
+        else:
+            raise Exception('Configuração de fases não identificada')
+        return ph_config
 
