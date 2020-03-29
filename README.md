@@ -40,25 +40,25 @@ Define o classe para análise.
   
   ```loadmult```: Valor em que todas as cargas do sistema serão multiplicadas. 
     
-### ```PowerFlow.get_path():```
+#### ```PowerFlow.get_path():```
 Retorna o caminho do arquivo.
     
-### ```PowerFlow.get_kV():```
+#### ```PowerFlow.get_kV():```
 Retorna o valor da tensão de base em kilovolts.
     
-### ```PowerFlow.get_loadmult():```
+#### ```PowerFlow.get_loadmult():```
 Retorna  o valor de loadmult.
 
-### ```PowerFlow.run_power_flow():```
+#### ```PowerFlow.run_power_flow():```
 Executa o fluxo de potência. Deve ser executado antes de qualquer método.
 
-### ```PowerFlow.get_erros():```
+#### ```PowerFlow.get_erros():```
 Retorna algum erro encontrado na resolução do fluxo de potência.
 
-### ```PowerFlow.get_all_bus_names():```
+#### ```PowerFlow.get_all_bus_names():```
 Retorna uma lista com todos os nomes das barras do sistema
 
-### ```PowerFlow.get_all_v_pu_angle_pandas():```
+#### ```PowerFlow.get_all_v_pu_angle_pandas():```
 Retorna um [pandas.Dataframe](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html) com os nomes de cada barra, 
 valores de tensão em pu, ângulo em graus e a configuração das fases (abc, ab, ac, bc).
 
@@ -80,6 +80,20 @@ Dê preferência por criar funções (métodos) pequenas que possuem apenas uma 
 Os nomes dos atributos e dos métodos devem ser claros e legíveis, não precisa economizar no tamanho do nome ;).
 
 Envie commits pequenos com poucas alterações por vez.
+
+## To do
+
+- Método para obter a tensão, ângulo e fases em apenas uma barra ou barras selecionadas do sistema. 
+
+- Método para obter as perdas totais do sistema.
+
+- Método para obter as perdas de linhas do sistema.
+
+- Método para obter porcentagem de carregamento das linhas.
+
+- Método para obter a quantidade de chaveamento dos reguladores.
+
+- Desenvolver análise de fluxo de potência temporal.
 
 ## Requisitos para Desenvolvimento
 
