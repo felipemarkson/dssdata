@@ -67,7 +67,7 @@ valores de tensão em pu, ângulo em graus e a configuração das fases (abc, ab
 
 Esteja livre para criar outras classes além do PowerFlow.
 
-Todos atributos das classes devem ser privados, ou seja, iniciar com __ (dois underlines).
+Todos atributos das classes devem ser privados, ou seja, iniciar com __ (dois underlines). Com exceção dos atributos que dão acesso ao [OpenDSSDirect.py](https://github.com/dss-extensions/OpenDSSDirect.py)
 
 O acesso ou mudança de um atributo deve ser feita por um método público.
 
