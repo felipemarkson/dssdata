@@ -52,6 +52,32 @@ class PowerFlow:
         result['phases']  = self.__get_all_num_ph()    
         return result
 
+   
+    def get_bus_v_pu_ang_pandas(self,  buses: list):
+        list_verify = self.__verify_bus_list(buses)
+        if not all(list_verify):
+            for (verify, bus) in zip(list_verify, buses):
+                if not verify:          
+                    raise Exception(f"A barra {bus} não está declarada no sistema de distribuição")
+
+        v_pu_list = []
+        ang_list = []
+        ph_list = []
+
+        for bus in buses:
+            v_pu_list.append(self.__get_bus_ang(bus))
+            ang_list.append(self.__get_bus_v_pu(bus))
+            ph = self.__get_bus_ph(bus)
+            ph_config = self.__identify_ph_config(ph)
+            ph_list.append(ph_config)
+
+        df_bus_names = pd.DataFrame(buses, columns =['bus_names'])
+        df_v_pu = pd.DataFrame(v_pu_list, columns =['v_pu_a','v_pu_b', 'v_pu_c'])
+        df_ang = pd.DataFrame(ang_list, columns =['ang_a', 'ang_b', 'ang_c'])
+        df_ph = pd.DataFrame(ph_list, columns =['phases'])
+        
+        result = pd.concat([df_bus_names, df_v_pu, df_ang, df_ph], axis=1, sort=False)
+        return result
 
     def __verify_bus_list(self, buses:list):
         all_bus_names = self.get_all_bus_names()
