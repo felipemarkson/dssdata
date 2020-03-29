@@ -12,7 +12,7 @@ class PowerFlow:
         
         self.__path = path
         self.__kV = kV
-        self.__dss = opendssdirect
+        self.dss = opendssdirect
         self.__loadmult = loadmult
 
 
@@ -27,18 +27,18 @@ class PowerFlow:
 
     def run_power_flow(self):
         directory = getcwd()
-        self.__dss.run_command(f"Compile {self.__path}")
-        self.__dss.run_command(f"Set voltagebases=[{self.__kV}]")
-        self.__dss.run_command("calcv")
-        self.__dss.run_command(f"Set loadmult = {self.__loadmult}")
-        self.__dss.Solution.Solve()
+        self.dss.run_command(f"Compile {self.__path}")
+        self.dss.run_command(f"Set voltagebases=[{self.__kV}]")
+        self.dss.run_command("calcv")
+        self.dss.run_command(f"Set loadmult = {self.__loadmult}")
+        self.dss.Solution.Solve()
         chdir(directory)
 
     def get_erros(self):
-        return self.__dss.Error.Description()
+        return self.dss.Error.Description()
 
     def get_all_bus_names(self):
-        return self.__dss.Circuit.AllBusNames()
+        return self.dss.Circuit.AllBusNames()
 
     def get_all_v_pu_angle_pandas(self):  
         all_v_pu = self.__get_all_v_pu()
@@ -53,12 +53,12 @@ class PowerFlow:
         return result
 
     def __get_bus_v_pu_ang(self, bus: str):
-        self.__dss.Circuit.SetActiveBus(bus)
-        return self.__dss.Bus.puVmagAngle()
+        self.dss.Circuit.SetActiveBus(bus)
+        return self.dss.Bus.puVmagAngle()
 
     def __get_bus_ph(self, bus: str):
-        self.__dss.Circuit.SetActiveBus(bus)
-        return self.__dss.Bus.Nodes()
+        self.dss.Circuit.SetActiveBus(bus)
+        return self.dss.Bus.Nodes()
     
 
     def __get_bus_v_pu(self, bus: str):
