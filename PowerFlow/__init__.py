@@ -52,6 +52,13 @@ class PowerFlow:
         result['phases']  = self.__get_all_num_ph()    
         return result
 
+
+    def __verify_bus_list(self, buses:list):
+        all_bus_names = self.get_all_bus_names()
+        verify_per_bus = list(map(lambda bus: bus in all_bus_names, buses))
+        return verify_per_bus
+        
+
     def __get_bus_v_pu_ang(self, bus: str):
         self.dss.Circuit.SetActiveBus(bus)
         return self.dss.Bus.puVmagAngle()
