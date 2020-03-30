@@ -1,6 +1,6 @@
 # Power flow analysis
 
-Um módulo que possui uma classe que retorna dados organizados para análises em regime permanente de sistemas de distribuição de energia elétrica utilizando como base o [OpenDSS](https://www.epri.com/#/pages/sa/opendss?lang=en).
+Um módulo para organização e análises dos dados em regime permanente de sistemas de distribuição de energia elétrica utilizando como base o [OpenDSS](https://www.epri.com/#/pages/sa/opendss?lang=en).
 No momento, executa apenas o fluxo de potência estático e retorna apenas a informação de tensão.
 
 ## Requisitos
