@@ -28,7 +28,7 @@ class PowerFlow:
     def run_power_flow(self):
         directory = getcwd()
         self.dss.run_command(f"Compile {self.__path}")
-        self.dss.run_command(f"Set voltagebases=[{self.__kV}]")
+        self.dss.run_command(f"Set voltagebases={self.__kV}")
         self.dss.run_command("calcv")
         self.dss.run_command(f"Set loadmult = {self.__loadmult}")
         self.dss.Solution.Solve()
@@ -65,8 +65,8 @@ class PowerFlow:
         ph_list = []
 
         for bus in buses:
-            v_pu_list.append(self.__get_bus_ang(bus))
-            ang_list.append(self.__get_bus_v_pu(bus))
+            ang_list.append(self.__get_bus_ang(bus))
+            v_pu_list.append(self.__get_bus_v_pu(bus))
             ph = self.__get_bus_ph(bus)
             ph_config = self.__identify_ph_config(ph)
             ph_list.append(ph_config)
@@ -97,14 +97,14 @@ class PowerFlow:
     def __get_bus_v_pu(self, bus: str):
         v_pu_ang_dss = self.__get_bus_v_pu_ang(bus)
         list_ph = self.__get_bus_ph(bus)
-        v_pu = [np.NaN , np.NaN , np.NaN]
+        v_pu = [None , None , None]
         v_pu_dss = []
         for indx in range(0, len(v_pu_ang_dss), 2):
             v_pu_dss.append(v_pu_ang_dss[indx])
         
         indx = 0
         for ph in list_ph:
-            v_pu[ph-1] = v_pu_dss[indx]
+            v_pu[ph-1] = round(v_pu_dss[indx],5)
             indx += 1
 
         return v_pu
@@ -112,7 +112,7 @@ class PowerFlow:
     def __get_bus_ang(self, bus: str):
         v_pu_ang_dss = self.__get_bus_v_pu_ang(bus)
         list_ph = self.__get_bus_ph(bus)
-        ang = [np.NaN  , np.NaN , np.NaN ]    
+        ang = [None  , None , None ]    
         ang_dss = []
 
         for indx in range(1, len(v_pu_ang_dss)+1, 2):
@@ -120,7 +120,7 @@ class PowerFlow:
         
         indx = 0
         for ph in list_ph:
-            ang[ph-1] = ang_dss[indx]
+            ang[ph-1] = round(ang_dss[indx],1)
             indx += 1
 
         return ang
@@ -165,6 +165,12 @@ class PowerFlow:
             ph_config = 'ac'
         elif ph == [2, 3]:
             ph_config = 'bc'
+        elif ph == [1]:
+            ph_config = 'a'
+        elif ph == [2]:
+            ph_config = 'b'
+        elif ph == [3]:
+            ph_config = 'c'
         else:
             raise Exception('Configuração de fases não identificada')
         return ph_config
