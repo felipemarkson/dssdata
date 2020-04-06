@@ -110,4 +110,6 @@ Envie commits pequenos com poucas alterações por vez.
 
 [Poetry](https://python-poetry.org/)
 
-.
+
+##Contribuidor: JonasVil
+=======
