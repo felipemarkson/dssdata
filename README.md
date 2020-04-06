@@ -111,4 +111,4 @@ Envie commits pequenos com poucas alterações por vez.
 [Poetry](https://python-poetry.org/)
 
 
-Contribuidor: JonasVil
+Contribuidor: [JonasVil](https://github.com/felipemarkson/power-flow-analysis/commits?author=JonasVil)
