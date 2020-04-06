@@ -108,5 +108,6 @@ Envie commits pequenos com poucas alterações por vez.
 
 ## Requisitos para Desenvolvimento
 
-
 [Poetry](https://python-poetry.org/)
+
+.
