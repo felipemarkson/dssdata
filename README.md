@@ -100,8 +100,6 @@ Envie commits pequenos com poucas alterações por vez.
 
 - Método para obter as informações das linhas do sistema.
 
-- Método para obter porcentagem de carregamento das linhas.
-
 - Método para obter a quantidade de chaveamento dos reguladores.
 
 - Desenvolver análise de fluxo de potência temporal.
