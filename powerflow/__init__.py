@@ -1,20 +1,19 @@
 import opendssdirect
-import numpy as np
 import pandas as pd
 from os import getcwd, chdir
 
+
 class PowerFlow:
-    def __init__(self, path:str , kV, loadmult:float = 1):
+    def __init__(self, path: str, kV, loadmult: float = 1):
         try:
-            open(path,'r')
-        except:
+            open(path, 'r')
+        except FileNotFoundError:
             raise Exception("O arquivo não existe")
-        
+
         self.__path = path
         self.__kV = kV
         self.dss = opendssdirect
         self.__loadmult = loadmult
-
 
     def get_path(self):
         return self.__path
@@ -40,25 +39,27 @@ class PowerFlow:
     def get_all_bus_names(self):
         return self.dss.Circuit.AllBusNames()
 
-    def get_all_v_pu_angle_pandas(self):  
+    def get_all_v_pu_angle_pandas(self):
         all_v_pu = self.__get_all_v_pu()
         all_ang = self.__get_all_ang()
-        
-        df_bus_names = pd.DataFrame(self.get_all_bus_names(), columns =['bus_names'])
-        df_v_pu = pd.DataFrame(all_v_pu, columns =['v_pu_a','v_pu_b', 'v_pu_c'])
-        df_ang = pd.DataFrame(all_ang, columns =['ang_a', 'ang_b', 'ang_c'])
+
+        df_bus_names = pd.DataFrame(
+            self.get_all_bus_names(), columns=['bus_names'])
+        df_v_pu = pd.DataFrame(
+            all_v_pu, columns=['v_pu_a', 'v_pu_b', 'v_pu_c'])
+        df_ang = pd.DataFrame(all_ang, columns=['ang_a', 'ang_b', 'ang_c'])
         result = pd.concat([df_bus_names, df_v_pu, df_ang], axis=1, sort=False)
 
-        result['phases']  = self.__get_all_num_ph()    
+        result['phases'] = self.__get_all_num_ph()
         return result
 
-   
     def get_bus_v_pu_ang_pandas(self,  buses: list):
         list_verify = self.__verify_bus_list(buses)
         if not all(list_verify):
             for (verify, bus) in zip(list_verify, buses):
-                if not verify:          
-                    raise Exception(f"A barra {bus} não está declarada no sistema de distribuição")
+                if not verify:
+                    raise Exception(
+                        f"A barra {bus} não está declarada no sistema")
 
         v_pu_list = []
         ang_list = []
@@ -71,19 +72,20 @@ class PowerFlow:
             ph_config = self.__identify_ph_config(ph)
             ph_list.append(ph_config)
 
-        df_bus_names = pd.DataFrame(buses, columns =['bus_names'])
-        df_v_pu = pd.DataFrame(v_pu_list, columns =['v_pu_a','v_pu_b', 'v_pu_c'])
-        df_ang = pd.DataFrame(ang_list, columns =['ang_a', 'ang_b', 'ang_c'])
-        df_ph = pd.DataFrame(ph_list, columns =['phases'])
-        
-        result = pd.concat([df_bus_names, df_v_pu, df_ang, df_ph], axis=1, sort=False)
+        df_bus_names = pd.DataFrame(buses, columns=['bus_names'])
+        df_v_pu = pd.DataFrame(v_pu_list, columns=[
+                               'v_pu_a', 'v_pu_b', 'v_pu_c'])
+        df_ang = pd.DataFrame(ang_list, columns=['ang_a', 'ang_b', 'ang_c'])
+        df_ph = pd.DataFrame(ph_list, columns=['phases'])
+
+        result = pd.concat(
+            [df_bus_names, df_v_pu, df_ang, df_ph], axis=1, sort=False)
         return result
 
-    def __verify_bus_list(self, buses:list):
+    def __verify_bus_list(self, buses: list):
         all_bus_names = self.get_all_bus_names()
         verify_per_bus = list(map(lambda bus: bus in all_bus_names, buses))
         return verify_per_bus
-        
 
     def __get_bus_v_pu_ang(self, bus: str):
         self.dss.Circuit.SetActiveBus(bus)
@@ -92,19 +94,18 @@ class PowerFlow:
     def __get_bus_ph(self, bus: str):
         self.dss.Circuit.SetActiveBus(bus)
         return self.dss.Bus.Nodes()
-    
 
     def __get_bus_v_pu(self, bus: str):
         v_pu_ang_dss = self.__get_bus_v_pu_ang(bus)
         list_ph = self.__get_bus_ph(bus)
-        v_pu = [None , None , None]
+        v_pu = [None, None, None]
         v_pu_dss = []
         for indx in range(0, len(v_pu_ang_dss), 2):
             v_pu_dss.append(v_pu_ang_dss[indx])
-        
+
         indx = 0
         for ph in list_ph:
-            v_pu[ph-1] = round(v_pu_dss[indx],5)
+            v_pu[ph-1] = round(v_pu_dss[indx], 5)
             indx += 1
 
         return v_pu
@@ -112,19 +113,18 @@ class PowerFlow:
     def __get_bus_ang(self, bus: str):
         v_pu_ang_dss = self.__get_bus_v_pu_ang(bus)
         list_ph = self.__get_bus_ph(bus)
-        ang = [None  , None , None ]    
+        ang = [None, None, None]
         ang_dss = []
 
         for indx in range(1, len(v_pu_ang_dss)+1, 2):
             ang_dss.append(v_pu_ang_dss[indx])
-        
+
         indx = 0
         for ph in list_ph:
-            ang[ph-1] = round(ang_dss[indx],1)
+            ang[ph-1] = round(ang_dss[indx], 1)
             indx += 1
 
         return ang
-
 
     def __get_all_v_pu(self):
         all_bus_names = self.get_all_bus_names()
@@ -143,7 +143,7 @@ class PowerFlow:
             all_ang.append(ang)
 
         return all_ang
-    
+
     def __get_all_num_ph(self):
         all_bus_names = self.get_all_bus_names()
         all_num_ph = []
@@ -155,7 +155,7 @@ class PowerFlow:
 
         return all_num_ph
 
-    def __identify_ph_config(self, ph:list):
+    def __identify_ph_config(self, ph: list):
 
         if ph == [1, 2, 3]:
             ph_config = 'abc'
@@ -174,4 +174,3 @@ class PowerFlow:
         else:
             raise Exception('Configuração de fases não identificada')
         return ph_config
-
