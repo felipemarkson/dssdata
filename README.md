@@ -98,7 +98,7 @@ Envie commits pequenos com poucas alterações por vez.
 
 - Método para obter as perdas totais do sistema.
 
-- Método para obter as perdas de linhas do sistema.
+- Método para obter as informações das linhas do sistema.
 
 - Método para obter porcentagem de carregamento das linhas.
 
