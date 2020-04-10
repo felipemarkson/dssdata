@@ -10,10 +10,12 @@ python = "^3.7"
 "OpenDSSDirect.py" = {extras = ["extras"], version = "^0.3.7"}
 
 [tool.poetry.dev-dependencies]
+flake8 = "^3.7.9"
+
+
+[tool.poetry.scripts]
+test = "scripts-poetry:test"
 
 [build-system]
 requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"
-
-[tool.poetry.scripts]
-test = "scripts-poetry:test"
