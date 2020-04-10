@@ -145,7 +145,7 @@ python-versions = "*"
 version = "0.3.7"
 
 [package.dependencies]
-dss_python = "0.10.1"
+dss_python >= "0.10.1"
 future = "*"
 six = "*"
 
