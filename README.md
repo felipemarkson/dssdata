@@ -108,5 +108,7 @@ Envie commits pequenos com poucas alterações por vez.
 
 ## Requisitos para Desenvolvimento
 
-
 [Poetry](https://python-poetry.org/)
+
+
+Contribuidor: [JonasVil](https://github.com/felipemarkson/power-flow-analysis/commits?author=JonasVil)
