@@ -26,16 +26,14 @@ jobs:
     - name: Setup Python      
       uses: actions/setup-python@v1.2.0
       
-    - name: Install Poetry
-      uses: dschep/install-poetry-action@v1.3
-      with:
-        create_virtualenvs: true
-    
-    - name: Install Requiriments
-      run: poetry install
+    - name: Install flake8 
+      run: pip install flake8
       
-    - name: Linting 
-      run: poetry run flake8 .
+    - name: Install Requiriments
+      run: pip install -r requirements.txt   
+      
+    - name: Install Requiriments
+    - run: flake8 .
       
     - name: Run Tests
-      run: poetry run test
+      run: python -m unittest
