@@ -98,7 +98,7 @@ Envie commits pequenos com poucas alterações por vez.
 
 - Método para obter as perdas totais do sistema.
 
-- Método para obter as perdas de linhas do sistema.
+- Método para obter as informações das linhas do sistema.
 
 - Método para obter porcentagem de carregamento das linhas.
 
@@ -108,5 +108,7 @@ Envie commits pequenos com poucas alterações por vez.
 
 ## Requisitos para Desenvolvimento
 
-
 [Poetry](https://python-poetry.org/)
+
+
+Contribuidor: [JonasVil](https://github.com/felipemarkson/power-flow-analysis/commits?author=JonasVil)
