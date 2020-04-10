@@ -17,7 +17,7 @@ Realize o clone do repositório e execute o seguinte comando na pasta:
 ## Uso básico
 
 ```python
-from PowerFlow import PowerFlow
+from powerflow import PowerFlow
 
 path_of_system = 'sua_pasta/seu_sistema.dss'
 
