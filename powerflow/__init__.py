@@ -95,35 +95,43 @@ class PowerFlow:
         self.dss.Circuit.SetActiveBus(bus)
         return self.dss.Bus.Nodes()
 
-    def __get_bus_v_pu(self, bus: str):
-        v_pu_ang_dss = self.__get_bus_v_pu_ang(bus)
+    def __get_mag_vanish(self, bus: str, data: list):
         list_ph = self.__get_bus_ph(bus)
-        v_pu = [None, None, None]
-        v_pu_dss = []
-        for indx in range(0, len(v_pu_ang_dss), 2):
-            v_pu_dss.append(v_pu_ang_dss[indx])
+        mag = [None, None, None]
+        mag_dss = []
+        for indx in range(0, len(data), 2):
+            mag_dss.append(data[indx])
 
         indx = 0
         for ph in list_ph:
-            v_pu[ph-1] = round(v_pu_dss[indx], 5)
+            mag[ph-1] = round(mag_dss[indx], 5)
             indx += 1
 
-        return v_pu
+        return mag
 
-    def __get_bus_ang(self, bus: str):
-        v_pu_ang_dss = self.__get_bus_v_pu_ang(bus)
+    def __get_ang_vanish(self, bus: str, data: list):
         list_ph = self.__get_bus_ph(bus)
         ang = [None, None, None]
         ang_dss = []
 
-        for indx in range(1, len(v_pu_ang_dss)+1, 2):
-            ang_dss.append(v_pu_ang_dss[indx])
+        for indx in range(1, len(data)+1, 2):
+            ang_dss.append(data[indx])
 
         indx = 0
         for ph in list_ph:
             ang[ph-1] = round(ang_dss[indx], 1)
             indx += 1
 
+        return ang
+
+    def __get_bus_v_pu(self, bus: str):
+        v_pu_ang_dss = self.__get_bus_v_pu_ang(bus)
+        v_pu = self.__get_mag_vanish(bus, v_pu_ang_dss)
+        return v_pu
+
+    def __get_bus_ang(self, bus: str):
+        v_pu_ang_dss = self.__get_bus_v_pu_ang(bus)
+        ang = self.__get_ang_vanish(bus, v_pu_ang_dss)
         return ang
 
     def __get_all_v_pu(self):
