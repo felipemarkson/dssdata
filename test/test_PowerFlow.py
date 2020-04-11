@@ -9,6 +9,9 @@ value_of_load_mult = 1
 bus_names = ['sourcebus', '650', 'rg60', '633', '634', '671', '645',
              '646', '692', '675', '611', '652', '670', '632', '680', '684']
 
+line_names = ['650632', '632670', '670671', '671680', '632633',
+              '632645', '645646', '692675', '671684', '684611', '684652', '671692']
+
 
 distSys = PowerFlow(path=path_of_system, kV=value_of_kV,
                     loadmult=value_of_load_mult)
@@ -36,7 +39,7 @@ class Verifica_meth_gets(unittest.TestCase):
         data = {
             'bus_names': ['684', '692'],
             'v_pu_a': [0.98087, 0.98279],
-            'v_pu_b': [None, 1.0403],
+            'v_pu_b': [None, 1.04028],
             'v_pu_c': [0.96284, 0.96487],
             'ang_a': [-5.4, -5.4],
             'ang_b': [None, -122.4],
@@ -47,7 +50,7 @@ class Verifica_meth_gets(unittest.TestCase):
         esperado = pd.DataFrame.from_dict(data)
         resultado = distSys.get_bus_v_pu_ang_pandas(['684', '692'])
 
-        self.assertTrue(all(esperado == resultado))
+        self.assertTrue(esperado.equals(resultado))
 
     def test_get_all_v_pu_ang_pandas(self):
         df_all_bus = distSys.get_all_v_pu_angle_pandas()
