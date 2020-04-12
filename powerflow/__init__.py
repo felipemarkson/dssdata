@@ -82,6 +82,98 @@ class PowerFlow:
             [df_bus_names, df_v_pu, df_ang, df_ph], axis=1, sort=False)
         return result
 
+    def get_all_lines_names(self):
+        return self.dss.Lines.AllNames()
+
+    def get_line_infos(self, lines_names: list):
+
+        def vanish_line_infos(bus_raw: list, current_raw: list):
+            bus_name = bus_raw[0]
+            phs_raw = list(map(lambda bus: int(bus), bus_raw[1:]))
+            if phs_raw == []:
+                phs_raw = [1, 2, 3]
+            phs = self.__identify_ph_config(phs_raw)
+            currents_mag = self.__get_mag_vanish(
+                phs_raw, bus_name, current_raw)
+            currents_ang = self.__get_ang_vanish(
+                phs_raw, bus_name, current_raw)
+
+            return (bus_name, phs, currents_mag, currents_ang)
+
+        data_list = []
+
+        for line_name in lines_names:
+            self.dss.Lines.Name(line_name)
+            losses = self.dss.CktElement.Losses()
+            normalAmps = self.dss.CktElement.NormalAmps()
+            emergAmps = self.dss.CktElement.EmergAmps()
+            currents_raw = self.dss.CktElement.CurrentsMagAng()
+            currents_raw_bus1 = currents_raw[:int(len(currents_raw)/2)]
+            currents_raw_bus2 = currents_raw[int(len(currents_raw)/2):]
+
+            bus_raw = self.dss.Lines.Bus1().split('.')
+            (bus_name1, phs1,
+             currents_mag1, currents_ang1) = vanish_line_infos(
+                bus_raw, currents_raw_bus1)
+            bus_raw = self.dss.Lines.Bus2().split('.')
+            (bus_name2, phs2,
+             currents_mag2, currents_ang2) = vanish_line_infos(
+                bus_raw, currents_raw_bus2)
+
+            currents_mag1_calc = currents_mag1.copy()
+            while None in currents_mag1_calc:
+                currents_mag1_calc.remove(None)
+            currents_mag2_calc = currents_mag2.copy()
+            while None in currents_mag2_calc:
+                currents_mag2_calc.remove(None)
+
+            data = {
+                'name': line_name,
+                'bus1': bus_name1,
+                'ph_bus1': phs1,
+                'bus2': bus_name2,
+                'ph_bus2': phs2,
+                'I(A)_bus1_ph_a': round(currents_mag1[0], 3)
+                if currents_mag1[0] != None else None,
+                'I(A)_bus1_ph_b': round(currents_mag1[1], 3)
+                if currents_mag1[1] != None else None,
+                'I(A)_bus1_ph_c': round(currents_mag1[2], 3)
+                if currents_mag1[2] != None else None,
+                'I(A)_bus2_ph_a': round(currents_mag2[0], 3)
+                if currents_mag2[0] != None else None,
+                'I(A)_bus2_ph_b': round(currents_mag2[1], 3)
+                if currents_mag2[1] != None else None,
+                'I(A)_bus2_ph_c': round(currents_mag2[2], 3)
+                if currents_mag2[2] != None else None,
+                'ang_bus1_ph_a': round(currents_ang1[0], 2)
+                if currents_ang1[0] != None else None,
+                'ang_bus1_ph_b': round(currents_ang1[1], 2)
+                if currents_ang1[1] != None else None,
+                'ang_bus1_ph_c': round(currents_ang1[2], 2)
+                if currents_ang1[2] != None else None,
+                'ang_bus2_ph_a': round(currents_ang2[0], 2)
+                if currents_ang2[0] != None else None,
+                'ang_bus2_ph_b': round(currents_ang2[1], 2)
+                if currents_ang2[1] != None else None,
+                'ang_bus2_ph_c': round(currents_ang2[2], 2)
+                if currents_ang2[2] != None else None,
+                'kw_losses': round(losses[0]/1000, 3),
+                'kvar_losses': round(losses[1]/1000, 3),
+                'emergAmps': round(emergAmps, 3),
+                'normAmps': round(normalAmps, 3),
+                'perc_NormAmps': round(
+                    max(currents_mag1_calc + currents_mag2_calc)/normalAmps, 3),
+                'perc_EmergAmps': round(
+                    max(currents_mag1_calc + currents_mag2_calc)/emergAmps, 3),
+            }
+            data_list.append(data)
+
+        return pd.DataFrame(data_list)
+
+    def get_all_line_infos(self):
+        line_names = self.get_all_lines_names()
+        return self.get_line_infos(line_names)
+
     def __verify_bus_list(self, buses: list):
         all_bus_names = self.get_all_bus_names()
         verify_per_bus = list(map(lambda bus: bus in all_bus_names, buses))
@@ -95,8 +187,7 @@ class PowerFlow:
         self.dss.Circuit.SetActiveBus(bus)
         return self.dss.Bus.Nodes()
 
-    def __get_mag_vanish(self, bus: str, data: list):
-        list_ph = self.__get_bus_ph(bus)
+    def __get_mag_vanish(self, list_ph: list, bus: str, data: list):
         mag = [None, None, None]
         mag_dss = []
         for indx in range(0, len(data), 2):
@@ -109,8 +200,7 @@ class PowerFlow:
 
         return mag
 
-    def __get_ang_vanish(self, bus: str, data: list):
-        list_ph = self.__get_bus_ph(bus)
+    def __get_ang_vanish(self, list_ph: list, bus: str, data: list):
         ang = [None, None, None]
         ang_dss = []
 
@@ -126,12 +216,14 @@ class PowerFlow:
 
     def __get_bus_v_pu(self, bus: str):
         v_pu_ang_dss = self.__get_bus_v_pu_ang(bus)
-        v_pu = self.__get_mag_vanish(bus, v_pu_ang_dss)
+        list_ph = self.__get_bus_ph(bus)
+        v_pu = self.__get_mag_vanish(list_ph, bus, v_pu_ang_dss)
         return v_pu
 
     def __get_bus_ang(self, bus: str):
         v_pu_ang_dss = self.__get_bus_v_pu_ang(bus)
-        ang = self.__get_ang_vanish(bus, v_pu_ang_dss)
+        list_ph = self.__get_bus_ph(bus)
+        ang = self.__get_ang_vanish(list_ph, bus, v_pu_ang_dss)
         return ang
 
     def __get_all_v_pu(self):
@@ -180,5 +272,6 @@ class PowerFlow:
         elif ph == [3]:
             ph_config = 'c'
         else:
-            raise Exception('Configuração de fases não identificada')
+
+            raise Exception(f'Configuração de fases {ph} não identificada')
         return ph_config
