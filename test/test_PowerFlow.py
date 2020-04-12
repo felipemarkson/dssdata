@@ -56,4 +56,42 @@ class Verifica_meth_gets(unittest.TestCase):
     def test_get_all_v_pu_ang_pandas(self):
         df_all_bus = distSys.get_all_v_pu_angle_pandas()
         df_buses_all = distSys.get_bus_v_pu_ang_pandas(bus_names)
-        self.assertTrue(all(df_all_bus == df_buses_all))
+        self.assertTrue(df_all_bus.equals(df_buses_all))
+
+    def test_get_all_lines_names(self):
+        self.assertEqual(line_names, distSys.get_all_lines_names())
+
+    def test_get_line_infos(self):
+        data = {
+            'name': ['670671'],
+            'bus1': ['670'],
+            'ph_bus1': ['abc'],
+            'bus2': ['671'],
+            'ph_bus2': ['abc'],
+            'I(A)_bus1_ph_a': [473.795],
+            'I(A)_bus1_ph_b': [188.824],
+            'I(A)_bus1_ph_c': [424.942],
+            'I(A)_bus2_ph_a': [473.795],
+            'I(A)_bus2_ph_b': [188.824],
+            'I(A)_bus2_ph_c': [424.942],
+            'ang_bus1_ph_a': [-27.0],
+            'ang_bus1_ph_b': [-132.6],
+            'ang_bus1_ph_c': [101.3],
+            'ang_bus2_ph_a': [153.0],
+            'ang_bus2_ph_b': [47.4],
+            'ang_bus2_ph_c': [-78.7],
+            'kw_losses': [22.729],
+            'kvar_losses': [72.334],
+            'emergAmps': [600.],
+            'normAmps': [400.],
+            'perc_NormAmps': [1.184],
+            'perc_EmergAmps': [0.79]
+        }
+        esperado = pd.DataFrame(data)
+        retorno = distSys.get_line_infos(['670671'])
+        self.assertTrue(esperado.equals(retorno))
+
+    def test_get_all_lines_infos(self):
+        esperado = distSys.get_line_infos(line_names)
+        retorno = distSys.get_all_line_infos()
+        self.assertTrue(esperado.equals(retorno))
