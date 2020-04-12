@@ -134,37 +134,41 @@ class PowerFlow:
                 'bus2': bus_name2,
                 'ph_bus2': phs2,
                 'I(A)_bus1_ph_a': round(currents_mag1[0], 3)
-                if currents_mag1[0] != None else None,
+                if currents_mag1[0] is not None else None,
                 'I(A)_bus1_ph_b': round(currents_mag1[1], 3)
-                if currents_mag1[1] != None else None,
+                if currents_mag1[1] is not None else None,
                 'I(A)_bus1_ph_c': round(currents_mag1[2], 3)
-                if currents_mag1[2] != None else None,
+                if currents_mag1[2] is not None else None,
                 'I(A)_bus2_ph_a': round(currents_mag2[0], 3)
-                if currents_mag2[0] != None else None,
+                if currents_mag2[0] is not None else None,
                 'I(A)_bus2_ph_b': round(currents_mag2[1], 3)
-                if currents_mag2[1] != None else None,
+                if currents_mag2[1] is not None else None,
                 'I(A)_bus2_ph_c': round(currents_mag2[2], 3)
-                if currents_mag2[2] != None else None,
+                if currents_mag2[2] is not None else None,
                 'ang_bus1_ph_a': round(currents_ang1[0], 2)
-                if currents_ang1[0] != None else None,
+                if currents_ang1[0] is not None else None,
                 'ang_bus1_ph_b': round(currents_ang1[1], 2)
-                if currents_ang1[1] != None else None,
+                if currents_ang1[1] is not None else None,
                 'ang_bus1_ph_c': round(currents_ang1[2], 2)
-                if currents_ang1[2] != None else None,
+                if currents_ang1[2] is not None else None,
                 'ang_bus2_ph_a': round(currents_ang2[0], 2)
-                if currents_ang2[0] != None else None,
+                if currents_ang2[0] is not None else None,
                 'ang_bus2_ph_b': round(currents_ang2[1], 2)
-                if currents_ang2[1] != None else None,
+                if currents_ang2[1] is not None else None,
                 'ang_bus2_ph_c': round(currents_ang2[2], 2)
-                if currents_ang2[2] != None else None,
+                if currents_ang2[2] is not None else None,
                 'kw_losses': round(losses[0]/1000, 3),
                 'kvar_losses': round(losses[1]/1000, 3),
                 'emergAmps': round(emergAmps, 3),
                 'normAmps': round(normalAmps, 3),
                 'perc_NormAmps': round(
-                    max(currents_mag1_calc + currents_mag2_calc)/normalAmps, 3),
+                    max(
+                        currents_mag1_calc + currents_mag2_calc)/normalAmps, 3
+                    ),
                 'perc_EmergAmps': round(
-                    max(currents_mag1_calc + currents_mag2_calc)/emergAmps, 3),
+                    max(
+                        currents_mag1_calc + currents_mag2_calc)/emergAmps, 3
+                    ),
             }
             data_list.append(data)
 
