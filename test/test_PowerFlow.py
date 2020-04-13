@@ -1,5 +1,6 @@
 import unittest
-from powerflow import SystemClass, run_power_flow
+from powerflow.systemclass import SystemClass
+from powerflow.pf_modes import run_power_flow
 from powerflow.line_tools import get_all_line_infos, get_line_infos
 from powerflow.voltage_tools import get_all_v_pu_ang, get_bus_v_pu_ang
 
