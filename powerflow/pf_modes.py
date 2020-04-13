@@ -1,6 +1,5 @@
 import pandas as pd
 from functools import reduce
-from .voltage_tools import get_all_v_pu_ang, get_bus_v_pu_ang
 from .systemclass import SystemClass
 
 
@@ -13,8 +12,9 @@ def cfg_tspf(distSys: SystemClass,
              step_size: str = '',
              initial_time: tuple = (0, 0)):
 
-    distSys.dss.run_command(
-        f'set mode=daily stepsize={step_size} time = "{initial_time[0]}, {initial_time[1]}"')
+    cmd = f'set mode=daily stepsize={step_size} '
+    cmd2 = f'time = "{initial_time[0]}, {initial_time[1]}"'
+    distSys.dss.run_command(cmd + cmd2)
 
 
 def run_onestep_tspf(distSys: SystemClass):
