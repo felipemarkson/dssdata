@@ -7,7 +7,7 @@ from .tools import __get_bus_v_pu, __get_bus_ph
 from .formatters import __identify_ph_config
 
 
-def get_all_v_pu_angle(distSys: SystemClass):
+def get_all_v_pu_ang(distSys: SystemClass):
     buses = distSys.get_all_bus_names()
     return get_bus_v_pu_ang(distSys, buses)
 
