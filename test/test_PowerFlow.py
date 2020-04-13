@@ -1,5 +1,8 @@
 import unittest
-from powerflow import PowerFlow
+from powerflow import SystemClass, run_power_flow
+from powerflow.line_tools import get_all_line_infos, get_line_infos
+from powerflow.voltage_tools import get_all_v_pu_angle, get_bus_v_pu_ang
+
 import pandas as pd
 
 path_of_system = 'test/syste_test_IEEE13bus/IEEE13Nodeckt.dss'
@@ -14,12 +17,13 @@ line_names = ['650632', '632670', '670671', '671680', '632633',
               '671692']
 
 
-distSys = PowerFlow(path=path_of_system, kV=value_of_kV,
-                    loadmult=value_of_load_mult)
-distSys.run_power_flow()
+distSys = SystemClass(path=path_of_system, kV=value_of_kV,
+                      loadmult=value_of_load_mult)
+
+run_power_flow(distSys)
 
 
-class Verifica_meth_gets(unittest.TestCase):
+class Verifica_Class(unittest.TestCase):
 
     def test_get_path(self):
         self.assertTrue(distSys.get_path() == path_of_system)
@@ -31,11 +35,13 @@ class Verifica_meth_gets(unittest.TestCase):
         self.assertTrue(distSys.get_loadmult() == value_of_load_mult)
 
     def test_get_all_bus_names(self):
-        self.assertTrue(bus_names == distSys.get_all_bus_names())
+        self.assertEqual(bus_names, distSys.get_all_bus_names())
 
-    def test_get_erros(self):
-        self.assertTrue('' == distSys.get_erros())
+    def test_get_all_lines_names(self):
+        self.assertEqual(line_names, distSys.get_all_lines_names())
 
+
+class Verifica_Voltage_tools(unittest.TestCase):
     def test_get_bus_v_pu_ang_pandas(self):
         data = {
             'bus_names': ['684', '692'],
@@ -49,18 +55,17 @@ class Verifica_meth_gets(unittest.TestCase):
         }
 
         esperado = pd.DataFrame.from_dict(data)
-        resultado = distSys.get_bus_v_pu_ang_pandas(['684', '692'])
+        resultado = get_bus_v_pu_ang(distSys, ['684', '692'])
 
         self.assertTrue(esperado.equals(resultado))
 
     def test_get_all_v_pu_ang_pandas(self):
-        df_all_bus = distSys.get_all_v_pu_angle_pandas()
-        df_buses_all = distSys.get_bus_v_pu_ang_pandas(bus_names)
+        df_all_bus = get_all_v_pu_angle(distSys)
+        df_buses_all = get_bus_v_pu_ang(distSys, bus_names)
         self.assertTrue(df_all_bus.equals(df_buses_all))
 
-    def test_get_all_lines_names(self):
-        self.assertEqual(line_names, distSys.get_all_lines_names())
 
+class Verifica_line_tools(unittest.TestCase):
     def test_get_line_infos(self):
         data = {
             'name': ['670671'],
@@ -88,10 +93,10 @@ class Verifica_meth_gets(unittest.TestCase):
             'perc_EmergAmps': [0.79]
         }
         esperado = pd.DataFrame(data)
-        retorno = distSys.get_line_infos(['670671'])
+        retorno = get_line_infos(distSys, ['670671'])
         self.assertTrue(esperado.equals(retorno))
 
     def test_get_all_lines_infos(self):
-        esperado = distSys.get_line_infos(line_names)
-        retorno = distSys.get_all_line_infos()
+        esperado = get_line_infos(distSys, line_names)
+        retorno = get_all_line_infos(distSys)
         self.assertTrue(esperado.equals(retorno))
