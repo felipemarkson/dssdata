@@ -9,11 +9,14 @@ def get_total_pd_elements_losses(distSys: SystemClass):
     kW_Losses_Total = 0
     kVar_Losses_Total = 0
     for pd_el in range(distSys.dss.PDElements.Count()):
-        if distSys.dss.PDElements.Name().replace('Capacitor.', '') in capacitors:
+        if (distSys.dss.PDElements.Name().replace('Capacitor.', '') in
+           capacitors):
             distSys.dss.PDElements.Next()
             continue
-        kW_Losses_Total = kW_Losses_Total + round(distSys.dss.CktElement.Losses()[0]/1000, 3)
-        kVar_Losses_Total = kVar_Losses_Total + round(distSys.dss.CktElement.Losses()[1]/1000, 3)
+        kW_Losses_Total = kW_Losses_Total + \
+            round(distSys.dss.CktElement.Losses()[0]/1000, 3)
+        kVar_Losses_Total = kVar_Losses_Total + \
+            round(distSys.dss.CktElement.Losses()[1]/1000, 3)
         distSys.dss.PDElements.Next()
 
     data = {
