@@ -1,5 +1,6 @@
 import unittest
-from powerflow import SystemClass, run_power_flow
+from powerflow.systemclass import SystemClass
+from powerflow.pf_modes import run_power_flow
 from powerflow.line_tools import get_all_line_infos, get_line_infos
 from powerflow.voltage_tools import get_all_v_pu_ang, get_bus_v_pu_ang
 
@@ -56,7 +57,6 @@ class Verifica_Voltage_tools(unittest.TestCase):
 
         esperado = pd.DataFrame.from_dict(data)
         resultado = get_bus_v_pu_ang(distSys, ['684', '692'])
-
         self.assertTrue(esperado.equals(resultado))
 
     def test_get_all_v_pu_ang_pandas(self):

@@ -1,5 +1,6 @@
 import pandas as pd
 from .systemclass import SystemClass
+from .decorators import pf_tools
 
 from .formatters import (
     __identify_ph_config,
@@ -7,6 +8,7 @@ from .formatters import (
     __get_ang_vanish)
 
 
+@pf_tools
 def get_line_infos(distSys: SystemClass, lines_names: list):
 
     def vanish_line_infos(bus_raw: list, current_raw: list):
@@ -95,6 +97,7 @@ def get_line_infos(distSys: SystemClass, lines_names: list):
     return pd.DataFrame(data_list)
 
 
+@pf_tools
 def get_all_line_infos(distSys: SystemClass):
     line_names = distSys.get_all_lines_names()
     return get_line_infos(distSys, line_names)
