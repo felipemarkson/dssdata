@@ -19,17 +19,17 @@ Realize o clone do repositório e execute o seguinte comando na pasta:
 ```python
 from powerflow import SystemClass, run_power_flow
 from powerflow.line_tools import get_all_line_infos
-from powerflow.voltage_tools import get_all_v_pu_angle
+from powerflow.voltage_tools import get_all_v_pu_ang
 
 
 path_of_system = 'sua_pasta/seu_sistema_sem_solve.dss'
 
 distSys = SystemClass(path = path_of_system, kV = 13.8, loadmult = 1.2)
 
-run_power_flow(SystemClass)
+run_power_flow(distSys)
 
-lineDataFrame = get_all_line_infos(SystemClass)
-voltageDataFrame = get_all_v_pu_angle(SystemClass)
+lineDataFrame = get_all_line_infos(distSys)
+voltageDataFrame = get_all_v_pu_ang(distSys)
 ```
 
 ## Documentação
