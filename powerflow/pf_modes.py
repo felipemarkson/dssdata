@@ -1,13 +1,16 @@
 import pandas as pd
 from functools import reduce
 from .systemclass import SystemClass
+from .decorators import pf_tools
 
 
+@pf_tools
 def run_power_flow(distSys: SystemClass):
     distSys.dss.run_command("set mode=Snap")
     distSys.dss.Solution.Solve()
 
 
+@pf_tools
 def cfg_tspf(distSys: SystemClass,
              step_size: str = '',
              initial_time: tuple = (0, 0)):
@@ -17,11 +20,13 @@ def cfg_tspf(distSys: SystemClass,
     distSys.dss.run_command(cmd + cmd2)
 
 
+@pf_tools
 def run_onestep_tspf(distSys: SystemClass):
     distSys.dss.Solution.Number(1)
     distSys.dss.Solution.Solve()
 
 
+@pf_tools
 def buil_dataset_tspf(distSys: SystemClass, funcs_list: list, num_steps: int):
 
     def run_funcs(func, step):

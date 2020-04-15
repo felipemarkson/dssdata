@@ -1,17 +1,19 @@
 import pandas as pd
 from .systemclass import SystemClass
-
+from .decorators import pf_tools
 
 from .tools import __verify_bus_list, __get_bus_ang
 from .tools import __get_bus_v_pu, __get_bus_ph
 from .formatters import __identify_ph_config
 
 
+@pf_tools
 def get_all_v_pu_ang(distSys: SystemClass):
     buses = distSys.get_all_bus_names()
     return get_bus_v_pu_ang(distSys, buses)
 
 
+@pf_tools
 def get_bus_v_pu_ang(distSys: SystemClass, buses: list):
     list_verify = __verify_bus_list(distSys, buses)
     if not all(list_verify):

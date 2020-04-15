@@ -57,7 +57,6 @@ class Verifica_Voltage_tools(unittest.TestCase):
 
         esperado = pd.DataFrame.from_dict(data)
         resultado = get_bus_v_pu_ang(distSys, ['684', '692'])
-
         self.assertTrue(esperado.equals(resultado))
 
     def test_get_all_v_pu_ang_pandas(self):

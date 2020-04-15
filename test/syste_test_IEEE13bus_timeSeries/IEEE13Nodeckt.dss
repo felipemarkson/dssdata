@@ -5,7 +5,7 @@ Clear
 ! Tyler Patton, Jon Wood, and David Woods, April 2009
 !
 
-new circuit.IEEE13Nodeckt
+new circuit.IEEE13Nodeckt__TS
 ~ basekv=115 pu=1.0001 phases=3 bus1=SourceBus
 ~ Angle=30                                                         ! advance angle 30 deg so result agree with published angle
 ~ MVAsc3=20000 MVASC1=21000    ! stiffen the source to approximate inf source
@@ -68,31 +68,31 @@ New linecode.mtx605 nphases=1 BaseFreq=60
 ~ xmatrix = (1.3475 )
 ~ units=mi
 
-/*********** Original 606 Linecode *********************
+// /*********** Original 606 Linecode *********************
 
-You have to use this to match Kersting's results:
+// You have to use this to match Kersting's results:
 
-New linecode.mtx606 nphases=3 BaseFreq=60
-~ rmatrix = (0.7982 | 0.3192 0.7891 | 0.2849 0.3192 0.7982 )
-~ xmatrix = (0.4463 | 0.0328 0.4041 | -0.0143 0.0328 0.4463 )
-~ Cmatrix = [257 | 0 257 | 0 0 257]  ! <--- This is too low by 1.5
-~ units=mi
+// New linecode.mtx606 nphases=3 BaseFreq=60
+// ~ rmatrix = (0.7982 | 0.3192 0.7891 | 0.2849 0.3192 0.7982 )
+// ~ xmatrix = (0.4463 | 0.0328 0.4041 | -0.0143 0.0328 0.4463 )
+// ~ Cmatrix = [257 | 0 257 | 0 0 257]  ! <--- This is too low by 1.5
+// ~ units=mi
 
-Corrected mtx606  Feb 3 2016 by RDugan
+// Corrected mtx606  Feb 3 2016 by RDugan
 
-The new LineCode.606 is computed using the following CN cable definition and
-LineGeometry definition:
+// The new LineCode.606 is computed using the following CN cable definition and
+// LineGeometry definition:
 
-New CNDATA.250_1/3 k=13 DiaStrand=0.064 Rstrand=2.816666667 epsR=2.3
-~ InsLayer=0.220 DiaIns=1.06 DiaCable=1.16 Rac=0.076705 GMRac=0.20568 diam=0.573
-~ Runits=kft Radunits=in GMRunits=in
+// New CNDATA.250_1/3 k=13 DiaStrand=0.064 Rstrand=2.816666667 epsR=2.3
+// ~ InsLayer=0.220 DiaIns=1.06 DiaCable=1.16 Rac=0.076705 GMRac=0.20568 diam=0.573
+// ~ Runits=kft Radunits=in GMRunits=in
 
-New LineGeometry.606 nconds=3 nphases=3 units=ft
-~ cond=1 cncable=250_1/3 x=-0.5 h= -4
-~ cond=2 cncable=250_1/3 x=0   h= -4
-~ cond=3 cncable=250_1/3 x=0.5  h= -4
+// New LineGeometry.606 nconds=3 nphases=3 units=ft
+// ~ cond=1 cncable=250_1/3 x=-0.5 h= -4
+// ~ cond=2 cncable=250_1/3 x=0   h= -4
+// ~ cond=3 cncable=250_1/3 x=0.5  h= -4
 
-****End Comment******/
+// ****End Comment******/
 
 New Linecode.mtx606 nphases=3  Units=mi
 ~ Rmatrix=[0.791721  |0.318476  0.781649  |0.28345  0.318476  0.791721  ]
@@ -167,11 +167,11 @@ New Line.671692    Phases=3 Bus1=671   Bus2=692  Switch=y  r1=1e-4 r0=1e-4 x1=0.
 ! Alternate Solution Script
 ! To force the taps to be same as published results, set the transformer taps manually and disable the controls
 !---------------------------------------------------------------------------------------------------------------------------------------------------
-/*
-Transformer.Reg1.Taps=[1.0 1.0625]
-Transformer.Reg2.Taps=[1.0 1.0500]
-Transformer.Reg3.Taps=[1.0 1.06875]
-Set Controlmode=OFF
+// /*
+// Transformer.Reg1.Taps=[1.0 1.0625]
+// Transformer.Reg2.Taps=[1.0 1.0500]
+// Transformer.Reg3.Taps=[1.0 1.06875]
+// Set Controlmode=OFF
 
-Solve
-*/
+// Solve
+// */

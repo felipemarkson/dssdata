@@ -1,24 +1,29 @@
 from .systemclass import SystemClass
 from .formatters import __get_mag_vanish, __get_ang_vanish
 from .formatters import __identify_ph_config
+from .decorators import pf_tools
 
 
+@pf_tools
 def __verify_bus_list(distSys: SystemClass, buses: list):
     all_bus_names = distSys.get_all_bus_names()
     verify_per_bus = list(map(lambda bus: bus in all_bus_names, buses))
     return verify_per_bus
 
 
+@pf_tools
 def __get_bus_v_pu_ang(distSys: SystemClass, bus: str):
     distSys.dss.Circuit.SetActiveBus(bus)
     return distSys.dss.Bus.puVmagAngle()
 
 
+@pf_tools
 def __get_bus_ph(distSys: SystemClass, bus: str):
     distSys.dss.Circuit.SetActiveBus(bus)
     return distSys.dss.Bus.Nodes()
 
 
+@pf_tools
 def __get_bus_v_pu(distSys: SystemClass, bus: str):
     v_pu_ang_dss = __get_bus_v_pu_ang(distSys, bus)
     list_ph = __get_bus_ph(distSys, bus)
@@ -26,6 +31,7 @@ def __get_bus_v_pu(distSys: SystemClass, bus: str):
     return v_pu
 
 
+@pf_tools
 def __get_bus_ang(distSys: SystemClass, bus: str):
     v_pu_ang_dss = __get_bus_v_pu_ang(distSys, bus)
     list_ph = __get_bus_ph(distSys, bus)
@@ -33,6 +39,7 @@ def __get_bus_ang(distSys: SystemClass, bus: str):
     return ang
 
 
+@pf_tools
 def __get_all_v_pu(distSys: SystemClass):
     all_bus_names = distSys.get_all_bus_names()
     all_v_pu = []
@@ -43,6 +50,7 @@ def __get_all_v_pu(distSys: SystemClass):
     return all_v_pu
 
 
+@pf_tools
 def __get_all_ang(distSys: SystemClass):
     all_bus_names = distSys.get_all_bus_names()
     all_ang = []
@@ -53,6 +61,7 @@ def __get_all_ang(distSys: SystemClass):
     return all_ang
 
 
+@pf_tools
 def __get_all_num_ph(distSys: SystemClass):
     all_bus_names = distSys.get_all_bus_names()
     all_num_ph = []
