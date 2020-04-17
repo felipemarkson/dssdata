@@ -19,8 +19,7 @@ def get_bus_v_pu_ang(distSys: SystemClass, buses: list):
     if not all(list_verify):
         for (verify, bus) in zip(list_verify, buses):
             if not verify:
-                raise Exception(
-                    f"A barra {bus} não está declarada no sistema")
+                raise Exception(f"A barra {bus} não está declarada no sistema")
 
     v_pu_list = []
     ang_list = []
@@ -33,12 +32,12 @@ def get_bus_v_pu_ang(distSys: SystemClass, buses: list):
         ph_config = __identify_ph_config(ph)
         ph_list.append(ph_config)
 
-    df_bus_names = pd.DataFrame(buses, columns=['bus_names'])
-    df_v_pu = pd.DataFrame(v_pu_list, columns=[
-        'v_pu_a', 'v_pu_b', 'v_pu_c'])
-    df_ang = pd.DataFrame(ang_list, columns=['ang_a', 'ang_b', 'ang_c'])
-    df_ph = pd.DataFrame(ph_list, columns=['phases'])
+    df_bus_names = pd.DataFrame(buses, columns=["bus_names"])
+    df_v_pu = pd.DataFrame(v_pu_list, columns=["v_pu_a", "v_pu_b", "v_pu_c"])
+    df_ang = pd.DataFrame(ang_list, columns=["ang_a", "ang_b", "ang_c"])
+    df_ph = pd.DataFrame(ph_list, columns=["phases"])
 
     result = pd.concat(
-        [df_bus_names, df_v_pu, df_ang, df_ph], axis=1, sort=False)
+        [df_bus_names, df_v_pu, df_ang, df_ph], axis=1, sort=False
+    )
     return result
