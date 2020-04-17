@@ -6,7 +6,7 @@ from .decorators import pf_tools
 class SystemClass:
     def __init__(self, path: str, kV, loadmult: float = 1):
         try:
-            with open(path, 'rt') as file:
+            with open(path, "rt") as file:
                 self._dsscontent = file.read().splitlines()
         except FileNotFoundError:
             raise Exception("O arquivo não existe")
@@ -32,12 +32,15 @@ class SystemClass:
 
     def compile(self):
         directory = getcwd()
-        newdir = self.__path[:self.__path.rfind(directory[0])]
+        newdir = self.__path[: self.__path.rfind(directory[0])]
         chdir(newdir)
-        list(map(lambda command: self.dss.run_command(command),
-                 self._dsscontent))
+        list(
+            map(
+                lambda command: self.dss.run_command(command), self._dsscontent
+            )
+        )
         erro = self.dss.Error.Description()
-        if erro != '':
+        if erro != "":
             raise Exception(erro)
         chdir(directory)
         self.dss.run_command(f"Set voltagebases={self.__kV}")
