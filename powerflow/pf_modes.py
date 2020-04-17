@@ -21,7 +21,7 @@ def cfg_tspf(distSys: SystemClass,
 
 
 @pf_tools
-def run_onestep_tspf(distSys: SystemClass):
+def __run_onestep_tspf(distSys: SystemClass):
     distSys.dss.Solution.Number(1)
     distSys.dss.Solution.Solve()
 
@@ -40,7 +40,7 @@ def buil_dataset_tspf(distSys: SystemClass, funcs_list: list, num_steps: int):
         return df_lists
 
     def df_each_step(step):
-        run_onestep_tspf(distSys)
+        __run_onestep_tspf(distSys)
         df_lists_step = list(
             map(lambda func: run_funcs(func, step), funcs_list))
         return df_lists_step
