@@ -12,7 +12,7 @@ def run_power_flow(distSys: SystemClass):
 
 @pf_tools
 def cfg_tspf(distSys: SystemClass,
-             step_size: str = '',
+             step_size: str = '1h',
              initial_time: tuple = (0, 0)):
 
     cmd = f'set mode=daily stepsize={step_size} '
@@ -27,7 +27,7 @@ def __run_onestep_tspf(distSys: SystemClass):
 
 
 @pf_tools
-def buil_dataset_tspf(distSys: SystemClass, funcs_list: list, num_steps: int):
+def buil_dataset_tspf(distSys: SystemClass, *,funcs_list: list = [lambda distSys:pd.Dataframe()] , num_steps: int) -> list:
 
     def run_funcs(func, step):
         df = func(distSys)
