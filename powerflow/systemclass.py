@@ -32,6 +32,7 @@ class SystemClass:
 
     def compile(self):
         directory = getcwd()
+        self.dss.Basic.ClearAll()
         newdir = self.__path[: self.__path.rfind(directory[0])]
         chdir(newdir)
         list(

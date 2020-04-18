@@ -94,7 +94,7 @@ Retorna uma lista com todos os nomes das linhas do sistema
 ### ```powerflow.voltage_tools.get_all_v_pu_ang(powerflow.SystemClass)```
 Retorna um [pandas.Dataframe](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html) com as informações de tensão de todas as barras. Ex:
 
-|    | bus_names | v_pu_a  | v_pu_b  | v_pu_c  | ang_a | ang_b  | ang_c | phases |
+|    | bus_name | v_pu_a  | v_pu_b  | v_pu_c  | ang_a | ang_b  | ang_c | phases |
 |----|-----------|---------|---------|---------|-------|--------|-------|--------|
 | 0  | sourcebus | 0.99997 | 0.99999 | 0.99995 | 30.0  | -90.0  | 150.0 | abc    |
 | 1  | 646       |   NaN      | 1.01803 | 1.00026 |   NaN    | -122.0 | 117.8 | bc     |

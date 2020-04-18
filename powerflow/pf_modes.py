@@ -33,12 +33,7 @@ def buil_dataset_tspf(
     funcs_list: list = [lambda distSys: pd.Dataframe()],
     num_steps: int,
 ) -> list:
-    def run_funcs(func, step):
-        df = func(distSys)
-        df["step"] = step
-        return df
-
-    def concat(list1, list2):
+    def concat_dfs(list1, list2):
         df_lists = map(
             lambda df1, df2: pd.concat([df1, df2], ignore_index=True),
             list1,
@@ -46,15 +41,24 @@ def buil_dataset_tspf(
         )
         return df_lists
 
-    def df_each_step(step):
+    @pf_tools
+    def df_each_step(distSys: SystemClass, funcs_list, step):
+        def run_funcs(distSys: SystemClass, func: callable, step: int):
+            df = func(distSys)
+            df["step"] = step
+            return df
+
         __run_onestep_tspf(distSys)
-        df_lists_step = list(
-            map(lambda func: run_funcs(func, step), funcs_list)
+
+        return list(
+            map(lambda func: run_funcs(distSys, func, step), funcs_list)
         )
-        return df_lists_step
 
-    all_steps_df = map(df_each_step, range(0, num_steps))
+    all_steps_df = map(
+        lambda step: df_each_step(distSys, funcs_list, step),
+        range(0, num_steps),
+    )
 
-    data_list = reduce(concat, all_steps_df)
+    data_list = reduce(concat_dfs, all_steps_df)
 
     return list(data_list)
