@@ -6,7 +6,7 @@ def __get_mag_vanish(list_ph: list, data: list):
 
     indx = 0
     for ph in list_ph:
-        mag[ph - 1] = round(mag_dss[indx], 5)
+        mag[ph - 1] = __format_mag(mag_dss[indx])
         indx += 1
 
     return mag
@@ -21,7 +21,7 @@ def __get_ang_vanish(list_ph: list, data: list):
 
     indx = 0
     for ph in list_ph:
-        ang[ph - 1] = round(ang_dss[indx], 1)
+        ang[ph - 1] = __format_ang(ang_dss[indx])
         indx += 1
 
     return ang
@@ -43,7 +43,23 @@ def __identify_ph_config(ph: list):
         ph_config = "b"
     elif ph == [3]:
         ph_config = "c"
+    elif ph == []:
+        ph_config = "abc"
     else:
-
         raise Exception(f"Configuração de fases {ph} não identificada")
     return ph_config
+
+
+def __format_mag(value: float) -> float:
+    return round(value, 4)  # Valor padrão do  OpenDSS
+
+
+def __format_ang(value: float) -> float:
+    return round(value, 2)  # Valor padrão do  OpenDSS
+
+
+def __remove_nones_from_lists(data: list) -> list:
+    data_new = data.copy()
+    while None in data_new:
+        data_new.remove(None)
+    return data_new

@@ -6,25 +6,23 @@ from .formatters import (
     __identify_ph_config,
     __get_mag_vanish,
     __get_ang_vanish,
+    __remove_nones_from_lists,
 )
 
 
 @pf_tools
-def get_line_infos(distSys: SystemClass, lines_names: list):
-    def vanish_line_infos(bus_raw: list, current_raw: list):
+def get_line_infos(distSys: SystemClass, lines_names: list) -> pd.DataFrame:
+    def vanish_line_infos(bus_raw: list, current_raw: list) -> tuple:
         bus_name = bus_raw[0]
         phs_raw = list(map(lambda bus: int(bus), bus_raw[1:]))
-        if phs_raw == []:
-            phs_raw = [1, 2, 3]
-        phs = __identify_ph_config(phs_raw)
-        currents_mag = __get_mag_vanish(phs_raw, current_raw)
-        currents_ang = __get_ang_vanish(phs_raw, current_raw)
+        phs_data = phs_raw if phs_raw != [] else [1, 2, 3]
+        phs = __identify_ph_config(phs_data)
+        currents_mag = __get_mag_vanish(phs_data, current_raw)
+        currents_ang = __get_ang_vanish(phs_data, current_raw)
 
         return (bus_name, phs, currents_mag, currents_ang)
 
-    data_list = []
-
-    for line_name in lines_names:
+    def build_line_dicts(distSys: SystemClass, line_name: str) -> dict:
         distSys.dss.Lines.Name(line_name)
         losses = distSys.dss.CktElement.Losses()
         normalAmps = distSys.dss.CktElement.NormalAmps()
@@ -34,6 +32,7 @@ def get_line_infos(distSys: SystemClass, lines_names: list):
         currents_raw_bus2 = currents_raw[int(len(currents_raw) / 2):]
 
         bus_raw = distSys.dss.Lines.Bus1().split(".")
+
         (bus_name1, phs1, currents_mag1, currents_ang1) = vanish_line_infos(
             bus_raw, currents_raw_bus1
         )
@@ -42,72 +41,48 @@ def get_line_infos(distSys: SystemClass, lines_names: list):
             bus_raw, currents_raw_bus2
         )
 
-        currents_mag1_calc = currents_mag1.copy()
-        while None in currents_mag1_calc:
-            currents_mag1_calc.remove(None)
-        currents_mag2_calc = currents_mag2.copy()
-        while None in currents_mag2_calc:
-            currents_mag2_calc.remove(None)
+        currents_mag1_calc = __remove_nones_from_lists(currents_mag1)
+        currents_mag2_calc = __remove_nones_from_lists(currents_mag2)
 
-        data = {
+        return {
             "name": line_name,
             "bus1": bus_name1,
             "ph_bus1": phs1,
             "bus2": bus_name2,
             "ph_bus2": phs2,
-            "I(A)_bus1_ph_a": round(currents_mag1[0], 3)
-            if currents_mag1[0] is not None
-            else None,
-            "I(A)_bus1_ph_b": round(currents_mag1[1], 3)
-            if currents_mag1[1] is not None
-            else None,
-            "I(A)_bus1_ph_c": round(currents_mag1[2], 3)
-            if currents_mag1[2] is not None
-            else None,
-            "I(A)_bus2_ph_a": round(currents_mag2[0], 3)
-            if currents_mag2[0] is not None
-            else None,
-            "I(A)_bus2_ph_b": round(currents_mag2[1], 3)
-            if currents_mag2[1] is not None
-            else None,
-            "I(A)_bus2_ph_c": round(currents_mag2[2], 3)
-            if currents_mag2[2] is not None
-            else None,
-            "ang_bus1_ph_a": round(currents_ang1[0], 2)
-            if currents_ang1[0] is not None
-            else None,
-            "ang_bus1_ph_b": round(currents_ang1[1], 2)
-            if currents_ang1[1] is not None
-            else None,
-            "ang_bus1_ph_c": round(currents_ang1[2], 2)
-            if currents_ang1[2] is not None
-            else None,
-            "ang_bus2_ph_a": round(currents_ang2[0], 2)
-            if currents_ang2[0] is not None
-            else None,
-            "ang_bus2_ph_b": round(currents_ang2[1], 2)
-            if currents_ang2[1] is not None
-            else None,
-            "ang_bus2_ph_c": round(currents_ang2[2], 2)
-            if currents_ang2[2] is not None
-            else None,
-            "kw_losses": round(losses[0] / 1000, 3),
-            "kvar_losses": round(losses[1] / 1000, 3),
-            "emergAmps": round(emergAmps, 3),
-            "normAmps": round(normalAmps, 3),
-            "perc_NormAmps": round(
-                max(currents_mag1_calc + currents_mag2_calc) / normalAmps, 3
-            ),
-            "perc_EmergAmps": round(
-                max(currents_mag1_calc + currents_mag2_calc) / emergAmps, 3
-            ),
+            "I(A)_bus1_ph_a": currents_mag1[0],
+            "I(A)_bus1_ph_b": currents_mag1[1],
+            "I(A)_bus1_ph_c": currents_mag1[2],
+            "I(A)_bus2_ph_a": currents_mag2[0],
+            "I(A)_bus2_ph_b": currents_mag2[1],
+            "I(A)_bus2_ph_c": currents_mag2[2],
+            "ang_bus1_ph_a": currents_ang1[0],
+            "ang_bus1_ph_b": currents_ang1[1],
+            "ang_bus1_ph_c": currents_ang1[2],
+            "ang_bus2_ph_a": currents_ang2[0],
+            "ang_bus2_ph_b": currents_ang2[1],
+            "ang_bus2_ph_c": currents_ang2[2],
+            "kw_losses": losses[0] / 1000,
+            "kvar_losses": losses[1] / 1000,
+            "emergAmps": emergAmps,
+            "normAmps": normalAmps,
+            "perc_NormAmps": max(currents_mag1_calc + currents_mag2_calc)
+            / normalAmps,
+            "perc_EmergAmps": max(currents_mag1_calc + currents_mag2_calc)
+            / emergAmps,
         }
-        data_list.append(data)
 
-    return pd.DataFrame(data_list)
+    return pd.DataFrame(
+        list(
+            map(
+                lambda line_name: build_line_dicts(distSys, line_name),
+                lines_names,
+            )
+        )
+    )
 
 
 @pf_tools
-def get_all_line_infos(distSys: SystemClass):
+def get_all_line_infos(distSys: SystemClass) -> pd.DataFrame:
     line_names = distSys.get_all_lines_names()
     return get_line_infos(distSys, line_names)

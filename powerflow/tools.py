@@ -40,35 +40,32 @@ def __get_bus_ang(distSys: SystemClass, bus: str):
 
 
 @pf_tools
-def __get_all_v_pu(distSys: SystemClass):
-    all_bus_names = distSys.get_all_bus_names()
-    all_v_pu = []
-    for bus in all_bus_names:
-        v_pu = __get_bus_v_pu(distSys, bus)
-        all_v_pu.append(v_pu)
+def __get_all_v_pu(distSys: SystemClass) -> list:
 
-    return all_v_pu
-
-
-@pf_tools
-def __get_all_ang(distSys: SystemClass):
-    all_bus_names = distSys.get_all_bus_names()
-    all_ang = []
-    for bus in all_bus_names:
-        ang = __get_bus_ang(distSys, bus)
-        all_ang.append(ang)
-
-    return all_ang
+    return list(
+        map(
+            lambda bus: __get_bus_v_pu(distSys, bus),
+            distSys.get_all_bus_names(),
+        )
+    )
 
 
 @pf_tools
-def __get_all_num_ph(distSys: SystemClass):
-    all_bus_names = distSys.get_all_bus_names()
-    all_num_ph = []
-    for bus in all_bus_names:
-        ph = __get_bus_ph(distSys, bus)
-        ph_config = __identify_ph_config(ph)
+def __get_all_ang(distSys: SystemClass) -> list:
+    return list(
+        map(
+            lambda bus: __get_bus_ang(distSys, bus),
+            distSys.get_all_bus_names(),
+        )
+    )
 
-        all_num_ph.append(ph_config)
 
-    return all_num_ph
+@pf_tools
+def __get_all_num_ph(distSys: SystemClass) -> list:
+
+    return list(
+        map(
+            lambda bus: __identify_ph_config(__get_bus_ph(distSys, bus)),
+            distSys.get_all_bus_names(),
+        )
+    )
