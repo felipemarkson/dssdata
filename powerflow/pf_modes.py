@@ -6,7 +6,7 @@ from .decorators import pf_tools
 
 @pf_tools
 def run_power_flow(distSys: SystemClass):
-    distSys.dss.run_command("set mode=Snap")
+    distSys.run_command("set mode=Snap")
     distSys.dss.Solution.Solve()
 
 
@@ -17,7 +17,7 @@ def cfg_tspf(
 
     cmd = f"set mode=daily stepsize={step_size} "
     cmd2 = f'time = "{initial_time[0]}, {initial_time[1]}"'
-    distSys.dss.run_command(cmd + cmd2)
+    distSys.run_command(cmd + cmd2)
 
 
 @pf_tools

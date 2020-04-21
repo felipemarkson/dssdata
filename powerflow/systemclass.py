@@ -3,7 +3,7 @@ from os import getcwd, chdir
 from .decorators import pf_tools
 
 
-class SystemClass:
+class SystemClass(object):
     def __init__(self, path: str, kV, loadmult: float = 1):
         try:
             with open(path, "rt") as file:
@@ -30,23 +30,22 @@ class SystemClass:
     def get_loadmult(self):
         return self.__loadmult
 
+    def run_command(self, cmd: str):
+        self.dss.run_command(cmd)
+        erro = self.dss.Error.Description()
+        if erro != "":
+            raise Exception(erro)
+
     def compile(self):
         directory = getcwd()
         self.dss.Basic.ClearAll()
         newdir = self.__path[: self.__path.rfind(directory[0])]
         chdir(newdir)
-        list(
-            map(
-                lambda command: self.dss.run_command(command), self._dsscontent
-            )
-        )
-        erro = self.dss.Error.Description()
-        if erro != "":
-            raise Exception(erro)
+        list(map(lambda cmd: self.run_command(cmd), self._dsscontent,))
         chdir(directory)
-        self.dss.run_command(f"Set voltagebases={self.__kV}")
-        self.dss.run_command("calcv")
-        self.dss.run_command(f"Set loadmult = {self.__loadmult}")
+        self.run_command(f"Set voltagebases={self.__kV}")
+        self.run_command("calcv")
+        self.run_command(f"Set loadmult = {self.__loadmult}")
 
     @pf_tools
     def get_erros(self):
