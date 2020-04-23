@@ -3,6 +3,11 @@ from .formatters import __get_mag_vanish, __get_ang_vanish
 from .formatters import __identify_ph_config
 from .decorators import pf_tools
 
+"""
+TODO:   Remover todos os __verifys e utilizar .formatters.__check_elements
+        Ex: Veja reg_tools.py
+"""
+
 
 @pf_tools
 def __verify_bus_list(distSys: SystemClass, buses: list):
