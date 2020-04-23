@@ -133,6 +133,7 @@ Retorna um [pandas.Dataframe](https://pandas.pydata.org/pandas-docs/stable/refer
 |--------------------|-------------------|-------------------|
 |   all_pd_elements  |       112.398     |      327.926      |
 
+Obs: Apesar dos capacitores serem tratados como um elemento do tipo PD, eles não são considerados.
 
 ### ```powerflow.pf_modes.run_power_flow(powerflow.systemclass.SystemClass)```
 Executa o fluxo de potência em modo estático.
