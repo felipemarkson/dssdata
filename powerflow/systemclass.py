@@ -1,17 +1,24 @@
 import opendssdirect
 from os import getcwd, chdir
+from os import path as pathfunc
 from .decorators import pf_tools
 
 
 class SystemClass(object):
-    def __init__(self, path: str, kV, loadmult: float = 1):
+    """
+    TODO:   Na ultima versão quando lançar o build, trocar o nome path
+            para outro e alterar o import pathfunc
+    """
+
+    def __init__(self, *, path: str, kV, loadmult: float = 1):
         try:
             with open(path, "rt") as file:
                 self._dsscontent = file.read().splitlines()
         except FileNotFoundError:
             raise Exception("O arquivo não existe")
-
         self.__path = path
+        self.__folder = pathfunc.split(path)[0]
+        self.__dss_file = pathfunc.split(path)[1]
         self.__kV = kV
         self.dss = opendssdirect
         self.__loadmult = loadmult
@@ -39,8 +46,7 @@ class SystemClass(object):
     def compile(self):
         directory = getcwd()
         self.dss.Basic.ClearAll()
-        newdir = self.__path[: self.__path.rfind(directory[0])]
-        chdir(newdir)
+        chdir(self.__folder)
         list(map(lambda cmd: self.run_command(cmd), self._dsscontent,))
         chdir(directory)
         self.run_command(f"Set voltagebases={self.__kV}")
