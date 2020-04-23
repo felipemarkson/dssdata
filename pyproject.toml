@@ -6,7 +6,7 @@ authors = ["Felipe Markson <fmarkson@outlook.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "~3.7"
 "OpenDSSDirect.py" = {extras = ["extras"], version = "^0.3.7"}
 
 [tool.poetry.dev-dependencies]
