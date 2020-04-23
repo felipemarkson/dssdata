@@ -125,6 +125,16 @@ Retorna um [pandas.Dataframe](https://pandas.pydata.org/pandas-docs/stable/refer
 Retorna um [pandas.Dataframe](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html) com os dados das linhas da lista.
 
 
+### ```powerflow.losses_tools.get_total_pd_elements_losses(powerflow.systemclass.SystemClass)```
+
+Retorna um [pandas.Dataframe](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html) com os dados do somatório das perdas de todos os elementos do tipo PD (Power Delivery). Apresenta as perdas ativas(kW) e reativas(kVAr). Ex:
+
+|         name       |  kw_losses_total  | kvar_losses_total |
+|--------------------|-------------------|-------------------|
+|   all_pd_elements  |       112.398     |      327.926      |
+
+Obs: Apesar dos capacitores serem tratados como um elemento do tipo PD, eles não são considerados.
+
 ### ```powerflow.pf_modes.run_power_flow(powerflow.systemclass.SystemClass)```
 Executa o fluxo de potência em modo estático.
 
