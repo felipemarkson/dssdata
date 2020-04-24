@@ -16,11 +16,11 @@ def get_all_taps_number(distSys: SystemClass) -> pandas.DataFrame:
     Returns:
         pandas.DataFrame -- Valor do tap para todos os reguladores
     """
-    return get_reg_tap_number(distSys, distSys.dss.RegControls.AllNames())
+    return get_tap_number(distSys, distSys.dss.RegControls.AllNames())
 
 
 @pf_tools
-def get_reg_tap_number(
+def get_tap_number(
     distSys: SystemClass, reg_names: List[str]
 ) -> pandas.DataFrame:
     """Gera o valor do tap para os reguladores requisitados.
