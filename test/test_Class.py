@@ -16,7 +16,14 @@ class Verifica_Class(unittest.TestCase):
             loadmult=self.value_of_load_mult,
         )
 
-        (self.bus_names, self.line_names, _, _,) = load_data_static()
+        (
+            self.bus_names,
+            self.line_names,
+            self.reg_names,
+            _,
+            _,
+            _,
+        ) = load_data_static()
 
     def test_get_path(self):
         self.assertTrue(self.distSys.get_path() == self.path_of_system)
@@ -32,6 +39,9 @@ class Verifica_Class(unittest.TestCase):
 
     def test_get_all_lines_names(self):
         self.assertEqual(self.line_names, self.distSys.get_all_lines_names())
+
+    def test_get_all_reg_names(self):
+        self.assertEqual(self.reg_names, self.distSys.get_all_regs_names())
 
 
 if __name__ == "__main__":

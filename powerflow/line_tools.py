@@ -12,6 +12,9 @@ from .formatters import (
 
 @pf_tools
 def get_line_infos(distSys: SystemClass, lines_names: list) -> pd.DataFrame:
+    """
+    TODO: Verificação se todos os items do line_names existe no sistema
+    """
     def vanish_line_infos(bus_raw: list, current_raw: list) -> tuple:
         bus_name = bus_raw[0]
         phs_raw = list(map(lambda bus: int(bus), bus_raw[1:]))

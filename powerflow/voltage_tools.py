@@ -15,6 +15,10 @@ def get_all_v_pu_ang(distSys: SystemClass):
 
 @pf_tools
 def get_bus_v_pu_ang(distSys: SystemClass, buses: list):
+    """
+    TODO: Utilizar novo .tool.__check_elements
+    """
+
     list_verify = __verify_bus_list(distSys, buses)
     if not all(list_verify):
         for (verify, bus) in zip(list_verify, buses):

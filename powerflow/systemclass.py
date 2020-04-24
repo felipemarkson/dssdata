@@ -64,3 +64,7 @@ class SystemClass(object):
     @pf_tools
     def get_all_lines_names(self):
         return self.dss.Lines.AllNames()
+
+    @pf_tools
+    def get_all_regs_names(self):
+        return self.dss.RegControls.AllNames()

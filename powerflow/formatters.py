@@ -63,3 +63,25 @@ def __remove_nones_from_lists(data: list) -> list:
     while None in data_new:
         data_new.remove(None)
     return data_new
+
+
+def __check_elements(element_names: list, all_elements_names: list) -> None:
+    """
+    Verifica se todos os elementos da lista estão em um outra lista.
+    Args:
+        element_names: lista menor a ser verificada.
+        all_elements_names:lista maior contendo todo o conteúdo
+    Returns:
+        None
+    Raises:
+        Exception:  Se algum item de element_names não estiver em
+                    all_elements_names
+    """
+
+    def check_one(element_name):
+        if element_name not in all_elements_names:
+            raise Exception(
+                f"O Elemento {element_name} não está declarado no sistema"
+            )
+
+    list(map(check_one, element_names))

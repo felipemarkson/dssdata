@@ -9,9 +9,16 @@ def load_data_static():
             .tolist()
         )
 
-    with open("test/test_datas/list_names.json") as json_file:
+    with open("test/test_datas/line_names.json") as json_file:
         line_names = (
             pd.read_json(json_file, dtype="str")["line_name"]
+            .sort_index()
+            .tolist()
+        )
+
+    with open("test/test_datas/reg_names.json") as json_file:
+        reg_names = (
+            pd.read_json(json_file, dtype="str")["reg_name"]
             .sort_index()
             .tolist()
         )
@@ -60,7 +67,20 @@ def load_data_static():
                 "perc_EmergAmps": float,
             },
         )
-    return bus_names, line_names, all_v_pu_ang, all_line_infos
+
+    with open("test/test_datas/taps_number.json") as json_file:
+        taps_number = pd.read_json(
+            json_file, dtype={"reg_name": str, "tap": int}
+        )
+
+    return (
+        bus_names,
+        line_names,
+        reg_names,
+        all_v_pu_ang,
+        all_line_infos,
+        taps_number,
+    )
 
 
 def load_data_TS():
@@ -72,9 +92,16 @@ def load_data_TS():
             .tolist()
         )
 
-    with open("test/test_datas/list_names.json") as json_file:
+    with open("test/test_datas/line_names.json") as json_file:
         line_names = (
             pd.read_json(json_file, dtype="str")["line_name"]
+            .sort_index()
+            .tolist()
+        )
+
+    with open("test/test_datas/reg_names.json") as json_file:
+        reg_names = (
+            pd.read_json(json_file, dtype="str")["reg_name"]
             .sort_index()
             .tolist()
         )
@@ -126,4 +153,22 @@ def load_data_TS():
             },
         )
 
-    return bus_names, line_names, all_v_pu_ang, all_line_infos
+    with open("test/test_datas/taps_numberTS.json") as json_file:
+        taps_number = pd.read_json(
+            json_file, dtype={"reg_name": str, "tap": int, "step": int}
+        )
+
+    with open("test/test_datas/taps_changesTS.json") as json_file:
+        taps_chgs = pd.read_json(
+            json_file, dtype={"reg_name": str, "tap": int}
+        )
+
+    return (
+        bus_names,
+        line_names,
+        reg_names,
+        all_v_pu_ang,
+        all_line_infos,
+        taps_number,
+        taps_chgs,
+    )
