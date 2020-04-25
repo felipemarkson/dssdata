@@ -40,15 +40,25 @@ def get_tap_number(
     __check_elements(reg_names, distSys.get_all_regs_names())
 
     return pandas.DataFrame(
-        data=list(map(get_one, reg_names)), columns=["reg_name", "tap"]
+        data=tuple(map(get_one, reg_names)), columns=["reg_name", "tap"]
     )
 
 
 def get_taps_changes(tapDataFrame: pandas.DataFrame) -> pandas.DataFrame:
-    def calc_one_step_chgs(first: list, second: list) -> list:
+    """Conta a quantidade de mudança de taps ocorreram.
+
+    Arguments:
+        tapDataFrame {pandas.DataFrame} -- Retorno no modo timeseries da função
+        powerflow.reg_tools.get_tap_number.
+
+    Returns:
+        pandas.DataFrame -- Valor da contagem de mudança dos taps.
+    """
+
+    def calc_one_step_chgs(first: list, second: list):
         return map(lambda data1, data2: abs(data1 - data2), first, second)
 
-    def sum_changes_taps(list_df: List[list]) -> list:
+    def sum_changes_taps(list_df: List[list]):
         first = list_df[0]
         second = list_df[1]
         if len(list_df) == 2:
@@ -62,12 +72,12 @@ def get_taps_changes(tapDataFrame: pandas.DataFrame) -> pandas.DataFrame:
 
     iter_by_step = tapDataFrame.groupby(["step"])
 
-    list_df = list(map(lambda data: data[1]["tap"].to_list(), iter_by_step))
-    reg_names = list(
+    list_df = tuple(map(lambda data: data[1]["tap"].to_list(), iter_by_step))
+    reg_names = tuple(
         map(lambda data: data[1]["reg_name"].to_list(), iter_by_step)
     )[0]
 
     return pandas.DataFrame(
-        data=list(zip(reg_names, sum_changes_taps(list_df))),
+        data=tuple(zip(reg_names, sum_changes_taps(list_df))),
         columns=["reg_name", "number_changes_tap"],
     )
