@@ -1,53 +1,62 @@
-def __get_mag_vanish(list_ph: list, data: list):
-    mag = [None, None, None]
-    mag_dss = []
-    for indx in range(0, len(data), 2):
-        mag_dss.append(data[indx])
-
-    indx = 0
-    for ph in list_ph:
-        mag[ph - 1] = __format_mag(mag_dss[indx])
-        indx += 1
-
-    return mag
+from functools import partial
 
 
-def __get_ang_vanish(list_ph: list, data: list):
-    ang = [None, None, None]
-    ang_dss = []
-
-    for indx in range(1, len(data) + 1, 2):
-        ang_dss.append(data[indx])
-
-    indx = 0
-    for ph in list_ph:
-        ang[ph - 1] = __format_ang(ang_dss[indx])
-        indx += 1
-
-    return ang
+def __isodd(value):
+    return value % 2 != 0
 
 
-def __identify_ph_config(ph: list):
+def __iseven(value):
+    return value % 2 == 0
 
-    if ph == [1, 2, 3]:
-        ph_config = "abc"
-    elif ph == [1, 2]:
-        ph_config = "ab"
-    elif ph == [1, 3]:
-        ph_config = "ac"
-    elif ph == [2, 3]:
-        ph_config = "bc"
-    elif ph == [1]:
-        ph_config = "a"
-    elif ph == [2]:
-        ph_config = "b"
-    elif ph == [3]:
-        ph_config = "c"
-    elif ph == []:
-        ph_config = "abc"
-    else:
-        raise Exception(f"Configuração de fases {ph} não identificada")
-    return ph_config
+
+def __aux_vanish(list_ph: list, mag_or_ang: list, indx: int):
+    try:
+        return mag_or_ang[list_ph.index(indx + 1)]
+    except ValueError:
+        return None
+
+
+def __get_mag_vanish(list_ph: list, data: list) -> tuple:
+    # The mags is in even indexes
+    mag_indexes = filter(__iseven, range(0, len(data)))
+
+    mag_formatted = tuple(
+        map(lambda indx: __format_mag(data[indx]), mag_indexes)
+    )
+
+    func_aux = partial(__aux_vanish, list_ph, mag_formatted)
+
+    return tuple(map(func_aux, range(0, 3)))
+
+
+def __get_ang_vanish(list_ph: list, data: list) -> tuple:
+    # The angs is in isodd indexes
+    ang_indexes = filter(__isodd, range(0, len(data)))
+
+    ang_formatted = tuple(
+        map(lambda indx: __format_ang(data[indx]), ang_indexes)
+    )
+
+    func_aux = partial(__aux_vanish, list_ph, ang_formatted)
+
+    return tuple(map(func_aux, range(0, 3)))
+
+
+def __identify_ph_config(phs: list) -> str:
+    def aux_ph(ph: int):
+        if ph == 1:
+            return "a"
+        elif ph == 2:
+            return "b"
+        elif ph == 3:
+            return "c"
+        else:
+            raise Exception(
+                f"The phase {ph} is not a valid number. "
+                + "Only 1, 2 or 3 is aceppted."
+            )
+
+    return "".join(map(aux_ph, phs))
 
 
 def __format_mag(value: float) -> float:
@@ -58,11 +67,8 @@ def __format_ang(value: float) -> float:
     return round(value, 2)  # Valor padrão do  OpenDSS
 
 
-def __remove_nones_from_lists(data: list) -> list:
-    data_new = data.copy()
-    while None in data_new:
-        data_new.remove(None)
-    return data_new
+def __remove_nones_from_lists(data: list) -> tuple:
+    return tuple(filter(lambda value: value is not None, data))
 
 
 def __check_elements(element_names: list, all_elements_names: list) -> None:
@@ -77,11 +83,9 @@ def __check_elements(element_names: list, all_elements_names: list) -> None:
         Exception:  Se algum item de element_names não estiver em
                     all_elements_names
     """
-
-    def check_one(element_name):
+    for element_name in element_names:
         if element_name not in all_elements_names:
-            raise Exception(
-                f"O Elemento {element_name} não está declarado no sistema"
+            raise ValueError(
+                f"The element {element_name} is not declared"
+                + "on distribution system"
             )
-
-    list(map(check_one, element_names))

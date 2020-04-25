@@ -7,31 +7,32 @@ from .formatters import (
     __get_mag_vanish,
     __get_ang_vanish,
     __remove_nones_from_lists,
+    __check_elements,
 )
 
 
 @pf_tools
 def get_line_infos(distSys: SystemClass, lines_names: list) -> pd.DataFrame:
-    """
-    TODO: Verificação se todos os items do line_names existe no sistema
-    """
-    def vanish_line_infos(bus_raw: list, current_raw: list) -> tuple:
-        bus_name = bus_raw[0]
-        phs_raw = list(map(lambda bus: int(bus), bus_raw[1:]))
-        phs_data = phs_raw if phs_raw != [] else [1, 2, 3]
-        phs = __identify_ph_config(phs_data)
-        currents_mag = __get_mag_vanish(phs_data, current_raw)
-        currents_ang = __get_ang_vanish(phs_data, current_raw)
 
-        return (bus_name, phs, currents_mag, currents_ang)
+    __check_elements(lines_names, distSys.get_all_lines_names())
 
     def build_line_dicts(distSys: SystemClass, line_name: str) -> dict:
+        def vanish_line_infos(bus_raw: list, current_raw: list) -> tuple:
+            bus_name = bus_raw[0]
+            phs_raw = list(map(lambda bus: int(bus), bus_raw[1:]))
+            phs_data = phs_raw if phs_raw != [] else [1, 2, 3]
+            phs = __identify_ph_config(phs_data)
+            currents_mag = __get_mag_vanish(phs_data, current_raw)
+            currents_ang = __get_ang_vanish(phs_data, current_raw)
+
+            return (bus_name, phs, currents_mag, currents_ang)
+
         distSys.dss.Lines.Name(line_name)
         losses = distSys.dss.CktElement.Losses()
         normalAmps = distSys.dss.CktElement.NormalAmps()
         emergAmps = distSys.dss.CktElement.EmergAmps()
         currents_raw = distSys.dss.CktElement.CurrentsMagAng()
-        currents_raw_bus1 = currents_raw[:int(len(currents_raw) / 2)]
+        currents_raw_bus1 = currents_raw[: int(len(currents_raw) / 2)]
         currents_raw_bus2 = currents_raw[int(len(currents_raw) / 2):]
 
         bus_raw = distSys.dss.Lines.Bus1().split(".")
@@ -76,7 +77,7 @@ def get_line_infos(distSys: SystemClass, lines_names: list) -> pd.DataFrame:
         }
 
     return pd.DataFrame(
-        list(
+        tuple(
             map(
                 lambda line_name: build_line_dicts(distSys, line_name),
                 lines_names,
