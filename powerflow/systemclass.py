@@ -8,22 +8,36 @@ class SystemClass(object):
     """
     TODO:   Na ultima versão quando lançar o build, trocar o nome path
             para outro e alterar o import pathfunc
+    TODO:   Na ultima versão quando lançar o build.
+            Utilizar o @propetry na classe.
     """
 
     def __init__(self, *, path: str, kV, loadmult: float = 1):
         try:
             with open(path, "rt") as file:
                 self._dsscontent = file.read().splitlines()
-        except FileNotFoundError:
-            raise Exception("O arquivo não existe")
+        except FileNotFoundError as err:
+            raise err
         self.__path = path
         self.__folder = pathfunc.split(path)[0]
         self.__dss_file = pathfunc.split(path)[1]
         self.__kV = kV
-        self.dss = opendssdirect
+        self.__dss = opendssdirect
         self.__loadmult = loadmult
-        self.compile()
+        self.init_sys()
         self.__name = self.dss.Circuit.Name()
+
+    @property
+    def dss(self):
+        return self.__dss
+
+    @property
+    def dsscontent(self):
+        return self._dsscontent
+
+    @dsscontent.setter
+    def dsscontent(self, content):
+        self._dsscontent = content
 
     def get_name(self):
         return self.__name
@@ -39,21 +53,23 @@ class SystemClass(object):
 
     def run_command(self, cmd: str):
         self.dss.run_command(cmd)
-        erro = self.dss.Error.Description()
+        erro = self.get_erros()
         if erro != "":
             raise Exception(erro)
 
-    def compile(self):
-        directory = getcwd()
-        self.dss.Basic.ClearAll()
-        chdir(self.__folder)
-        list(map(lambda cmd: self.run_command(cmd), self._dsscontent,))
-        chdir(directory)
+    def cfg_system(self):
         self.run_command(f"Set voltagebases={self.__kV}")
         self.run_command("calcv")
         self.run_command(f"Set loadmult = {self.__loadmult}")
 
-    @pf_tools
+    def init_sys(self):
+        directory = getcwd()
+        self.dss.Basic.ClearAll()
+        chdir(self.__folder)
+        list(map(self.run_command, self.dsscontent,))
+        chdir(directory)
+        self.cfg_system()
+
     def get_erros(self):
         return self.dss.Error.Description()
 
