@@ -2,105 +2,96 @@ import pandas as pd
 from .systemclass import SystemClass
 
 
-def get_total_pd_elements_losses(distSys: SystemClass):
-    data_loss = []
-    capacitors = distSys.dss.Capacitors.AllNames()
-    distSys.dss.PDElements.First()
-    kW_Losses_Total = 0
-    kVar_Losses_Total = 0
-    for pd_el in range(distSys.dss.PDElements.Count()):
-        if (
-            distSys.dss.PDElements.Name().replace("Capacitor.", "")
-            in capacitors
-        ):
-            distSys.dss.PDElements.Next()
-            continue
-        kW_Losses_Total = kW_Losses_Total + round(
-            distSys.dss.CktElement.Losses()[0] / 1000, 4
-        )
-        kVar_Losses_Total = kVar_Losses_Total + round(
-            distSys.dss.CktElement.Losses()[1] / 1000, 4
-        )
-        distSys.dss.PDElements.Next()
+def build_pd_dicts(
+    distSys: SystemClass, element_name: str, element_type: str
+) -> dict:
 
+    if element_type == 'transformer':
+        distSys.dss.Transformers.Name(element_name)
+        typ = distSys.dss.CktElement.Name().replace("."+str(element_name), "")
+    elif element_type == 'line':
+        distSys.dss.Lines.Name(element_name)
+        typ = distSys.dss.CktElement.Name().replace("."+str(element_name), "")
+
+    losses = distSys.dss.CktElement.Losses()
+
+    return {
+        'type': typ,
+        'name': element_name,
+        'kw_losses': losses[0] / 1000,
+        'kvar_losses': losses[1] / 1000,
+        }
+
+
+def pd_element_loss(
+    distSys: SystemClass, element_name: str, element_type: str
+) -> pd.DataFrame:
+
+    pd_loss = []
+    pd_loss.append(
+        build_pd_dicts(
+            distSys, element_name, element_type
+            )
+    )
+    return pd.DataFrame(pd_loss)
+
+
+def get_all_line_losses(
+    distSys: SystemClass, lines_names: list
+) -> pd.DataFrame:
+    element_type = 'line'
+
+    return pd.DataFrame(
+        tuple(
+            map(
+                lambda element_name: build_pd_dicts(
+                    distSys, element_name, element_type
+                ), lines_names
+            )
+        )
+    )
+
+
+def get_all_transformers_losses(
+    distSys: SystemClass, transformes_names: list
+) -> pd.DataFrame:
+    element_type = 'transformer'
+
+    return pd.DataFrame(
+        tuple(
+            map(
+                lambda element_name: build_pd_dicts(
+                    distSys, element_name, element_type
+                ), transformes_names
+            )
+        )
+    )
+
+
+def get_all_pd_elements_losses(distSys: SystemClass) -> pd.DataFrame:
+
+    line_losses = get_all_line_losses(
+        distSys, distSys.dss.Lines.AllNames()
+    )
+
+    transformer_losses = get_all_transformers_losses(
+        distSys, distSys.dss.Transformers.AllNames()
+    )
+
+    return pd.concat([transformer_losses, line_losses])
+
+
+def get_total_pd_elements_losses(distSys: SystemClass) -> pd.DataFrame:
+    data_loss = []
     data = {
         "name": "all_pd_elements",
-        "kw_losses_total": kW_Losses_Total,
-        "kvar_losses_total": kVar_Losses_Total,
+        "kw_losses_total": sum(
+            get_all_pd_elements_losses(distSys)['kw_losses']
+        ),
+        "kvar_losses_total": sum(
+            get_all_pd_elements_losses(distSys)['kw_losses']
+        ),
     }
 
     data_loss.append(data)
     return pd.DataFrame(data_loss)
-
-
-def get_all_pd_elements_losses(distSys: SystemClass):
-    capacitors = distSys.dss.Capacitors.AllNames()
-    data_loss = []
-    distSys.dss.PDElements.First()
-    for pd_el in range(distSys.dss.PDElements.Count()):
-        if (
-            distSys.dss.PDElements.Name().replace("Capacitor.", "")
-            in capacitors
-        ):
-            distSys.dss.PDElements.Next()
-            continue
-        data_aux = {
-            'name': distSys.dss.PDElements.Name(),
-            'kw_loss': round(distSys.dss.CktElement.Losses()[0] / 1000, 4),
-            'kvar_loss': round(distSys.dss.CktElement.Losses()[1] / 1000, 4),
-            }
-        data_loss.append(data_aux.copy())
-        distSys.dss.PDElements.Next()
-    data_aux = {
-        'name': 'total_pd_elements_losses',
-        'kw_loss': (
-            get_total_pd_elements_losses(distSys)['kw_losses_total'][0]
-            ),
-        'kvar_loss': (
-            get_total_pd_elements_losses(distSys)['kvar_losses_total'][0]
-            ),
-        }
-    data_loss.append(data_aux.copy())
-
-    return pd.DataFrame(data_loss)
-
-
-def get_transformer_losses(distSys: SystemClass):
-    if distSys.dss.Transformers.Count() > 0:
-        transformers_losses = []
-        kW_transformers_total = 0
-        kVar_transformers_total = 0
-        distSys.dss.Transformers.First()
-        for pd_trafos in range(distSys.dss.Transformers.Count()):
-            kW_transformers_total = kW_transformers_total + round(
-                distSys.dss.CktElement.Losses()[0] / 1000, 4
-                )
-            kVar_transformers_total = kVar_transformers_total + round(
-                distSys.dss.CktElement.Losses()[1] / 1000, 4
-                )
-            data_trafo = {
-                'name': distSys.dss.Transformers.Name(),
-                'kw_loss': round(
-                    distSys.dss.CktElement.Losses()[0]/1000, 4
-                    ),
-                'kvar_loss': round(
-                    distSys.dss.CktElement.Losses()[1]/1000, 4
-                    ),
-            }
-
-            transformers_losses.append(data_trafo.copy())
-            distSys.dss.Transformers.Next()
-
-        data_trafo = {
-            'name': 'total_transformers_losses',
-            'kw_loss': kW_transformers_total,
-            'kvar_loss': kVar_transformers_total,
-        }
-
-        transformers_losses.append(data_trafo.copy())
-    else:
-        return print(
-            "Não foram encontrados transformadores conectados à rede."
-            )
-
-    return pd.DataFrame(transformers_losses)
