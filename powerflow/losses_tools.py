@@ -3,7 +3,6 @@ from .systemclass import SystemClass
 from .formatters import __check_elements
 
 
-
 def __build_pd_dicts(
     distSys: SystemClass, element_name: str, element_type: str
 ) -> dict:
