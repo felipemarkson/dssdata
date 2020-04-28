@@ -65,9 +65,12 @@ class SystemClass(object):
     def init_sys(self):
         directory = getcwd()
         self.dss.Basic.ClearAll()
-        chdir(self.__folder)
-        list(map(self.run_command, self.dsscontent,))
-        chdir(directory)
+        if self.__folder != "":
+            chdir(self.__folder)
+            list(map(self.run_command, self.dsscontent,))
+            chdir(directory)
+        else:
+            list(map(self.run_command, self.dsscontent,))
         self.cfg_system()
 
     def get_erros(self):
