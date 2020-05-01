@@ -19,30 +19,27 @@ Realize o clone do repositório e execute o seguinte comando na pasta:
 ### Fluxo de potência: Estático
 
 ```python
-from powerflow.systemclass import SystemClass
-from powerflow.pf_modes import run_power_flow
-from powerflow.line_tools import get_all_line_infos
-from powerflow.voltage_tools import get_all_v_pu_ang
+from powerflow import SystemClass
+from powerflow.pf_modes import run_static_pf
+from powerflow.tools import lines, voltages
 
 
 path_of_system = 'sua_pasta/seu_sistema_sem_solve.dss'
 
 distSys = SystemClass(path = path_of_system, kV = 13.8, loadmult = 1.2)
 
-run_power_flow(distSys)
+run_static_pf(distSys)
 
-lineDataFrame = get_all_line_infos(distSys)
-voltageDataFrame = get_all_v_pu_ang(distSys)
+lineDataFrame = line.get_all_infos(distSys)
+voltageDataFrame = voltages.get_all(distSys)
 ```
 
 ### Fluxo de potência: Time series
 
 ```python
-from powerflow.systemclass import SystemClass
-from powerflow.pf_modes import cfg_tspf, buil_dataset_tspf
-from powerflow.line_tools import get_all_line_infos
-from powerflow.voltage_tools import get_all_v_pu_ang
-
+from powerflow import SystemClass
+from powerflow.pf_modes import cfg_tspf, build_dataset_tspf
+from powerflow.tools import lines, voltages
 
 path_of_system = 'sua_pasta/seu_sistema_sem_solve.dss'
 
@@ -50,10 +47,16 @@ distSys = SystemClass(path = path_of_system, kV = 13.8, loadmult = 1.2)
 
 cfg_tspf(distSys, step_size = '5m', initial_time = (0,0))
 
-[voltageDataFrame, lineDataFrame] = buil_dataset_tspf(distSys, funcs_list = [get_all_v_pu_ang, get_all_line_infos], num_steps = 288)
+funcs = (line.get_all_infos, voltages.get_all)
+
+[voltageDataFrame, lineDataFrame] = buil_dataset_tspf(
+                                      distSys, 
+                                      funcs_list = funcs, 
+                                      num_steps = 288
+                                    )
 
 ```
-
+<!--
 ## Documentação
 
 ### ```powerflow.systemclass.SystemClass(path:str , kV:float/list, loadmult:float = 1)```
@@ -160,7 +163,7 @@ Retorna uma lista com o retorno das funções nas listas.
 ```funcs_list```: lista com as funções de aquisição de informação.
 
 ```num_steps```: Quantidade de passos de integração que serão realizados.
-
+ --> 
 
 ## Como contribuir
 
@@ -180,17 +183,6 @@ Os nomes dos atributos e dos métodos devem ser claros e legíveis, não precisa
 
 Envie commits pequenos com poucas alterações por vez.
 
-## To do
-
-- ~Método para obter a tensão, ângulo e fases em apenas uma barra ou barras selecionadas do sistema~. 
-
-- ~Método para obter as perdas totais do sistema~. 
-
-- ~Método para obter as informações das linhas do sistema~.
-
-- Método para obter a quantidade de chaveamento dos reguladores.
-
-- ~Desenvolver análise de fluxo de potência temporal~.
 
 ## Requisitos para Desenvolvimento
 
