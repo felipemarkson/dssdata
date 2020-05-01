@@ -1,6 +1,6 @@
 import pandas as pd
-from .systemclass import SystemClass
-from .formatters import __check_elements
+from .. import SystemClass
+from ._formatters import __check_elements
 
 
 def __build_pd_dicts(

@@ -1,8 +1,8 @@
 import pandas as pd
-from .systemclass import SystemClass
-from .decorators import pf_tools
+from .. import SystemClass
+from ..decorators import pf_tools
 
-from .formatters import (
+from .._formatters import (
     __identify_ph_config,
     __get_mag_vanish,
     __get_ang_vanish,
@@ -12,7 +12,7 @@ from .formatters import (
 
 
 @pf_tools
-def get_line_infos(distSys: SystemClass, lines_names: list) -> pd.DataFrame:
+def get_infos(distSys: SystemClass, lines_names: list) -> pd.DataFrame:
 
     __check_elements(lines_names, distSys.get_all_lines_names())
 
@@ -87,6 +87,6 @@ def get_line_infos(distSys: SystemClass, lines_names: list) -> pd.DataFrame:
 
 
 @pf_tools
-def get_all_line_infos(distSys: SystemClass) -> pd.DataFrame:
+def get_all_infos(distSys: SystemClass) -> pd.DataFrame:
     line_names = distSys.get_all_lines_names()
-    return get_line_infos(distSys, line_names)
+    return get_infos(distSys, line_names)

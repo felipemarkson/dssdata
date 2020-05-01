@@ -1,11 +1,11 @@
 import pandas as pd
 from functools import reduce
-from .systemclass import SystemClass
-from .decorators import pf_tools
+from .. import SystemClass
+from ..decorators import pf_tools
 
 
 @pf_tools
-def run_power_flow(distSys: SystemClass) -> None:
+def run_static_pf(distSys: SystemClass) -> None:
     distSys.run_command("set mode=Snap")
     distSys.dss.Solution.Solve()
 
@@ -27,7 +27,7 @@ def __run_onestep_tspf(distSys: SystemClass) -> None:
 
 
 @pf_tools
-def buil_dataset_tspf(
+def build_dataset_tspf(
     distSys: SystemClass,
     *,
     funcs_list: list = [lambda distSys: pd.Dataframe()],
