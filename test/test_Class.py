@@ -1,5 +1,5 @@
 import unittest
-from powerflow.systemclass import SystemClass
+from powerflow import SystemClass
 from .load_datas import load_data_static
 
 
