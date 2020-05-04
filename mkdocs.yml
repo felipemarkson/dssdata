@@ -4,7 +4,7 @@ site_description: Organizing OpenDSS data
 site_author: Felipe M. S. Monteiro
 repo_name: felipemarkson/power-flow-analysis
 repo_url: https://github.com/felipemarkson/power-flow-analysis
-site_url: https://github.com/felipemarkson/power-flow-analysis
+site_url: https://felipemarkson.github.io/power-flow-analysis/
 
 # Copyright
 copyright: Copyright &copy; 2020 Felipe M. S. Monteiro
