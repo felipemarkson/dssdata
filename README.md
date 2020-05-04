@@ -1,62 +1,36 @@
-# Power flow analysis
+# DSSData
 
-Um módulo para organização e análises dos dados em regime permanente de sistemas de distribuição de energia elétrica utilizando como base o [OpenDSS](https://www.epri.com/#/pages/sa/opendss?lang=en).
+A python module for organizing data from electrical distribution systems modeled on [OpenDSS](https://www.epri.com/#/pages/sa/opendss?lang=en).
 
-Suporta os modos: Estáticos e Time series
-
-## Requisitos
-
-[Python 3](https://www.python.org/)
+Mode support: Static and Time-series
 
 
-## Instalação
+## Documentation
 
-Realize o clone do repositório e execute o seguinte comando na pasta:
+See [DSSData Documentation](https://felipemarkson.github.io/power-flow-analysis/).
 
-    $ pip install -r requirements.txt
+## Installation
 
-## Uso básico
-
-### Fluxo de potência: Estático
-
-```python
-from powerflow import SystemClass
-from powerflow.pf_modes import run_static_pf
-from powerflow.tools import lines, voltages
+We strongly recommend the use of virtual environments manager.
 
 
-path_of_system = "sua_pasta/seu_sistema_sem_solve.dss"
+### Using pip
 
-distSys = SystemClass(path=path_of_system, kV=13.8, loadmult=1.2)
-
-run_static_pf(distSys)
-
-lineDataFrame = lines.get_all_infos(distSys)
-voltageDataFrame = voltages.get_all(distSys)
-
+```console
+pip install git+https://github.com/felipemarkson/power-flow-analysis
 ```
 
-### Fluxo de potência: Time series
+### Using poetry
 
-```python
-from powerflow import SystemClass
-from powerflow.pf_modes import cfg_tspf, build_dataset_tspf
-from powerflow.tools import lines, voltages
-
-path_of_system = "sua_pasta/seu_sistema_sem_solve.dss"
-
-distSys = SystemClass(path=path_of_system, kV=13.8, loadmult=1.2)
-
-cfg_tspf(distSys, step_size="5m", initial_time=(0, 0))
-
-funcs = (lines.get_all_infos, voltages.get_all)
-
-[voltageDataFrame, lineDataFrame] = build_dataset_tspf(
-    distSys, funcs_list=funcs, num_steps=288
-)
-
+```console
+poetry add git+https://github.com/felipemarkson/power-flow-analysis
 ```
 
+Contributors: 
+
+- [JonasVil](https://github.com/felipemarkson/power-flow-analysis/commits?author=JonasVil)
+
+<!--
 ### ```powerflow.losses_tools.get_total_pd_elements_losses(powerflow.systemclass.SystemClass)```
 
 Retorna um [pandas.Dataframe](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html) com os dados do somatório das perdas de todos os elementos do tipo PD (Power Delivery). Apresenta as perdas ativas(kW) e reativas(kVAr). Ex:
@@ -100,5 +74,4 @@ Envie commits pequenos com poucas alterações por vez.
 
 [Poetry](https://python-poetry.org/)
 
-
-Contribuidor: [JonasVil](https://github.com/felipemarkson/power-flow-analysis/commits?author=JonasVil)
+-->
