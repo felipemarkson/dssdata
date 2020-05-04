@@ -1,8 +1,8 @@
 import pandas as pd
-from .systemclass import SystemClass
-from .decorators import pf_tools
+from ... import SystemClass
+from ...decorators import pf_tools
 
-from .formatters import (
+from ..._formatters import (
     __identify_ph_config,
     __get_mag_vanish,
     __get_ang_vanish,
@@ -10,11 +10,30 @@ from .formatters import (
     __check_elements,
 )
 
+from typing import List
+
 
 @pf_tools
-def get_line_infos(distSys: SystemClass, lines_names: list) -> pd.DataFrame:
+def get_infos(distSys: SystemClass, names: List[str]) -> pd.DataFrame:
+    """
+    Get some relevant infos from lines.
+    Ex:
 
-    __check_elements(lines_names, distSys.get_all_lines_names())
+    |    | name   | bus1 | ph_bus1 | bus2 | ph_bus2 | I(A)_bus1_ph_a | I(A)_bus1_ph_b | I(A)_bus1_ph_c | I(A)_bus2_ph_a | I(A)_bus2_ph_b | I(A)_bus2_ph_c | ang_bus1_ph_a | ang_bus1_ph_b | ang_bus1_ph_c | ang_bus2_ph_a | ang_bus2_ph_b | ang_bus2_ph_c | kw_losses | kvar_losses | emergAmps | normAmps | perc_NormAmps | perc_EmergAmps |
+    |----|--------|------|---------|------|---------|----------------|----------------|----------------|----------------|----------------|----------------|---------------|---------------|---------------|---------------|---------------|---------------|-----------|-------------|-----------|----------|---------------|----------------|
+    | 0  | 650632 | rg60 | abc     | 632  | abc     | 562.609        | 419.029        | 591.793        | 562.61         | 419.03         | 591.794        | -28.7         | -141.3        | 93.4          | 151.3         | 38.7          | -86.6         | 60.737    | 196.015     | 600.0     | 400.0    | 1.479         | 0.986          |
+    | 1  | 632670 | 632  | abc     | 670  | abc     | 481.916        | 218.055        | 480.313        | 481.916        | 218.055        | 480.313        | -27.2         | -135.2        | 99.6          | 152.8         | 44.8          | -80.4         | 12.991    | 41.495      | 600.0     | 400.0    | 1.205         | 0.803          |
+    | 2  | 670671 | 670  | abc     | 671  | abc     | 473.795        | 188.824        | 424.942        | 473.795        | 188.824        | 424.942        | -27.0         | -132.6        | 101.3         | 153.0         | 47.4          | -78.7         | 22.729    | 72.334      | 600.0     | 400.0    | 1.184         | 0.79           |
+
+    Args:
+        distSys : An instance of [SystemClass][dssdata.SystemClass].
+        names : Lines names.
+
+    Returns:
+        Lines infos.
+    """  # noqa
+
+    __check_elements(names, distSys.get_all_lines_names())
 
     def build_line_dicts(distSys: SystemClass, line_name: str) -> dict:
         def vanish_line_infos(bus_raw: list, current_raw: list) -> tuple:
@@ -78,15 +97,21 @@ def get_line_infos(distSys: SystemClass, lines_names: list) -> pd.DataFrame:
 
     return pd.DataFrame(
         tuple(
-            map(
-                lambda line_name: build_line_dicts(distSys, line_name),
-                lines_names,
-            )
+            map(lambda line_name: build_line_dicts(distSys, line_name), names,)
         )
     )
 
 
 @pf_tools
-def get_all_line_infos(distSys: SystemClass) -> pd.DataFrame:
+def get_all_infos(distSys: SystemClass) -> pd.DataFrame:
+    """
+    Get some relevant infos from all lines. See [get_infos][dssdata.tools.lines.get_infos].
+
+    Args:
+        distSys: An instance of  [SystemClass][dssdata.SystemClass]
+
+    Returns:
+        All lines infos
+    """  # noqa
     line_names = distSys.get_all_lines_names()
-    return get_line_infos(distSys, line_names)
+    return get_infos(distSys, line_names)

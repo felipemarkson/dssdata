@@ -1,6 +1,9 @@
-from .systemclass import SystemClass
-from .formatters import __get_mag_vanish, __get_ang_vanish
-from .formatters import __identify_ph_config
+from . import SystemClass
+from ._formatters import (
+    __get_mag_vanish,
+    __get_ang_vanish,
+    __identify_ph_config,
+)
 from .decorators import pf_tools
 
 

@@ -1,5 +1,5 @@
 import unittest
-from powerflow.systemclass import SystemClass
+from dssdata import SystemClass
 from .load_datas import load_data_static
 
 
@@ -26,13 +26,13 @@ class Verifica_Class(unittest.TestCase):
         ) = load_data_static()
 
     def test_get_path(self):
-        self.assertTrue(self.distSys.get_path() == self.path_of_system)
+        self.assertTrue(self.distSys.path == self.path_of_system)
 
     def test_get_kV(self):
-        self.assertTrue(self.distSys.get_kV() == self.value_of_kV)
+        self.assertTrue(self.distSys.kV == self.value_of_kV)
 
     def test_get_loadmult(self):
-        self.assertTrue(self.distSys.get_loadmult() == self.value_of_load_mult)
+        self.assertTrue(self.distSys.loadmult == self.value_of_load_mult)
 
     def test_get_all_bus_names(self):
         self.assertEqual(self.bus_names, self.distSys.get_all_bus_names())

@@ -1,0 +1,49 @@
+# Project information
+site_name: DSSData
+site_description: Organizing OpenDSS data
+site_author: Felipe M. S. Monteiro
+repo_name: felipemarkson/power-flow-analysis
+repo_url: https://github.com/felipemarkson/power-flow-analysis
+site_url: https://felipemarkson.github.io/power-flow-analysis/
+
+# Copyright
+copyright: Copyright &copy; 2020 Felipe M. S. Monteiro
+
+theme:
+  name: material
+  language: en
+  features:
+    - tabs
+
+markdown_extensions:
+  - codehilite
+
+
+
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          rendering:
+            show_source: true
+      watch:
+        - meutest
+
+nav:
+  - Home: index.md
+  - Getting start: gettingstart/gettingstart.md 
+  - The main concept: gettingstart/ideas.md
+  - Create your tools: gettingstart/createtools.md
+  - Insert your element: gettingstart/createlements.md
+  - Make more with datas: gettingstart/makedatas.md
+  - API Reference: api/index.md
+  - License: LICENSE.md
+
+
+extra_css:
+  - css/termynal.css
+  - css/custom.css
+extra_javascript:
+  - js/termynal.js
