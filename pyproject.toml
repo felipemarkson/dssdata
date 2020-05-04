@@ -1,20 +1,21 @@
 [tool.poetry]
-name = "powerFlow"
+name = "dssdata"
 version = "0.1.0"
-description = ""
-authors = ["Felipe Markson <fmarkson@outlook.com>"]
+description = "Organizing OpenDSS data"
+authors = ["Felipe M. S. Monteiro <fmarkson@outlook.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
 python = "~3.7"
 "OpenDSSDirect.py" = {extras = ["extras"], version = "^0.3.7"}
+mkdocstrings = "^0.11.0"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^3.7.9"
 black = "^19.10b0"
 ipython = "^7.13.0"
 ipykernel = "^5.2.1"
-guzzle_sphinx_theme = "^0.7.11"
+mkdocs-material = "^5.1.4"
 
 [build-system]
 requires = ["poetry>=0.12"]

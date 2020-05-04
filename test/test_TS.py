@@ -1,7 +1,8 @@
 import unittest
-from powerflow import SystemClass
-from powerflow.pf_modes import cfg_tspf, build_dataset_tspf
-from powerflow.tools import lines, voltages, regs
+from dssdata import SystemClass
+from dssdata.pfmodes import cfg_tspf, build_dataset_tspf
+from dssdata.tools import lines, voltages, regs
+from dssdata._reduces import regs as reg_redc
 from pandas._testing import assert_frame_equal
 from .load_datas import load_data_TS
 
@@ -170,7 +171,7 @@ class Verifica_reg_toolsTS(unittest.TestCase):
             raise err
 
     def test_buil_dataset_tspf_taps_chngs(self):
-        df_taps_chngs = regs.get_taps_changes(self.reg_number)
+        df_taps_chngs = reg_redc.get_taps_changes(self.reg_number)
         try:
             assert_frame_equal(
                 self.reg_chngs, df_taps_chngs, check_dtype=False

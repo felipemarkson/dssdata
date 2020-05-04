@@ -1,7 +1,7 @@
 import unittest
-from powerflow import SystemClass
-from powerflow.pf_modes import run_static_pf
-from powerflow.tools import lines, voltages, regs
+from dssdata import SystemClass
+from dssdata.pfmodes import run_static_pf
+from dssdata.tools import lines, voltages, regs
 from pandas._testing import assert_frame_equal
 from .load_datas import load_data_static
 
