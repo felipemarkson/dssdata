@@ -149,7 +149,9 @@ class Verifica_reg_tools(unittest.TestCase):
         for reg_name in self.reg_names:
             [df_tap_number] = run_static_pf(
                 self.distSys,
-                tools=[lambda distSys: regs.get_tap_number(distSys, [reg_name])],
+                tools=[
+                    lambda distSys: regs.get_tap_number(distSys, [reg_name])
+                ],
             )
             tap_number = self.all_taps_number.loc[
                 self.all_taps_number["reg_name"] == reg_name

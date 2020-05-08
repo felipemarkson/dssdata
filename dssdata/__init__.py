@@ -1,7 +1,7 @@
 from os import getcwd, chdir
 from os import path as pathfunc
-from .decorators import tools as _pf
 from typing import Iterable, List
+
 
 class SystemClass:
     """
@@ -132,33 +132,3 @@ class SystemClass:
             The error of the last OpenDSS command.
         """
         return cls.dss.Error.Description()
-
-    # @property
-    # def all_PCE_names(self) -> List[str]:
-    #     """
-    #     Returns:
-    #         All Power conversion elements names of the distribution systems. See ```POWER CONVERSION ELEMENTS``` in [OpenDSS User Manual](http://svn.code.sf.net/p/electricdss/code/trunk/Distrib/Doc/> OpenDSSManual.pdf).
-    #     """        
-    #     name = []
-    #     self.dss.Circuit.FirstPCElement()        
-    #     while True:
-    #         name.append(self.dss.Element.Name())
-    #         if not self.dss.Circuit.NextPCElement() > 0:
-    #             break
-    #     return name
-
-    
-    # @property
-    # @_pf
-    # def all_PDE_names(self) -> List[str]:
-    #     """
-    #     Returns:
-    #         All Power delivery elements names of the distribution systems. See ```POWER DELIVERY ELEMENTS``` in [OpenDSS User Manual](http://svn.code.sf.net/p/electricdss/code/trunk/Distrib/Doc/> OpenDSSManual.pdf).
-    #     """  
-    #     name = []
-    #     self.dss.Circuit.FirstPDElement()        
-    #     while True:
-    #         name.append(self.dss.Element.Name())
-    #         if not self.dss.Circuit.NextPDElement() > 0:
-    #             break
-    #     return name

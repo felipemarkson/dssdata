@@ -1,7 +1,7 @@
 import pandas
 from functools import reduce
 from .. import SystemClass
-from ..decorators import tools, actions, mode
+from ..decorators import actions, mode
 from typing import Iterable, Tuple, Callable
 
 
@@ -18,7 +18,7 @@ def run_static_pf(
     Args:
         distSys: An instance of [SystemClass][dssdata.SystemClass]
         actions: Actions functions.
-        tools: Tools functions.        
+        tools: Tools functions.
 
     Returns:
         Tools functions returns

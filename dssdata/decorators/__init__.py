@@ -1,6 +1,7 @@
 from functools import wraps
 from typing import Callable
 
+
 def tools(func: Callable) -> Callable:
     """
     See [Creating your first tool](/tutorial/#creating-your-first-tool).
@@ -30,7 +31,6 @@ def actions(func: Callable) -> Callable:
         func:  A action function
     """
 
-
     @wraps(func)
     def wrapper(distSys, *args, **kwds):
         if distSys.dss.Circuit.Name() != distSys.name:
@@ -38,6 +38,7 @@ def actions(func: Callable) -> Callable:
         func(distSys, *args, **kwds)
 
     return wrapper
+
 
 def mode(func: Callable) -> Callable:
     @wraps(func)
