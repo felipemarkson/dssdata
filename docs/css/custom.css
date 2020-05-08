@@ -36,3 +36,12 @@ td p {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
 }
+
+/* img center */
+p img{
+  text-align: center !important;
+}
+
+#termynal span{
+  font-size: 14px;
+}

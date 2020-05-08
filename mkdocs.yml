@@ -29,16 +29,19 @@ plugins:
           rendering:
             show_source: true
       watch:
-        - meutest
+        - dssdata
+
+  - mkdocs-jupyter
 
 nav:
   - Home: index.md
-  - Getting start: gettingstart/gettingstart.md 
-  - The main concept: gettingstart/ideas.md
-  - Create your tools: gettingstart/createtools.md
-  - Insert your element: gettingstart/createlements.md
-  - Make more with datas: gettingstart/makedatas.md
+
+  - Getting Started: gettingstart/index.md
+
+  - Learning DSSData: tutorial/index.ipynb
+
   - API Reference: api/index.md
+
   - License: LICENSE.md
 
 
