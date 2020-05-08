@@ -31,7 +31,7 @@ jobs:
       uses: dschep/install-poetry-action@v1.3
 
     - name: Install requirements
-      run: poetry install
+      run: poetry install --no-dev
 
     - name: Run Linting
       run: poetry run flake8 .
