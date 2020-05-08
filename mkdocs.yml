@@ -1,10 +1,10 @@
 # Project information
 site_name: DSSData
-site_description: Organizing OpenDSS data
+site_description: A python micro-framework for simulation and data analysis of electrical distribution systems modeled on OpenDSS
 site_author: Felipe M. S. Monteiro
-repo_name: felipemarkson/power-flow-analysis
-repo_url: https://github.com/felipemarkson/power-flow-analysis
-site_url: https://felipemarkson.github.io/power-flow-analysis/
+repo_name: felipemarkson/dssdata
+repo_url: https://github.com/felipemarkson/dssdata
+site_url: https://felipemarkson.github.io/dssdata/
 
 # Copyright
 copyright: Copyright &copy; 2020 Felipe M. S. Monteiro
@@ -13,7 +13,7 @@ theme:
   name: material
   language: en
   features:
-    - tabs
+    - instant
 
 markdown_extensions:
   - codehilite

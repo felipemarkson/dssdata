@@ -8,7 +8,7 @@ Mode support: Static and Time-series
 
 ## Documentation
 
-See [DSSData Documentation](https://felipemarkson.github.io/power-flow-analysis/).
+See [DSSData Documentation](https://felipemarkson.github.io/dssdata).
 
 ## Installation
 
@@ -18,13 +18,13 @@ We strongly recommend the use of virtual environments manager.
 ### Using pip
 
 ```console
-pip install git+https://github.com/felipemarkson/power-flow-analysis
+pip install dssdata
 ```
 
 ### Using poetry
 
 ```console
-poetry add git+https://github.com/felipemarkson/power-flow-analysis
+poetry add dssdata
 ```
 
 Contributors: 
