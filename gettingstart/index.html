@@ -5,25 +5,25 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Organizing OpenDSS data" name="description"/>
-<link href="https://felipemarkson.github.io/power-flow-analysis/gettingstart/gettingstart/" rel="canonical"/>
+<meta content="A python micro-framework for simulation and data analysis of electrical distribution systems modeled on OpenDSS" name="description"/>
+<link href="https://felipemarkson.github.io/dssdata/gettingstart/" rel="canonical"/>
 <meta content="Felipe M. S. Monteiro" name="author"/>
-<link href="../../assets/images/favicon.png" rel="shortcut icon"/>
-<meta content="mkdocs-1.1, mkdocs-material-5.1.4" name="generator"/>
-<title>Getting start - DSSData</title>
-<link href="../../assets/stylesheets/main.c4007cdc.min.css" rel="stylesheet"/>
+<link href="../assets/images/favicon.png" rel="shortcut icon"/>
+<meta content="mkdocs-1.1, mkdocs-material-5.1.5" name="generator"/>
+<title>Getting Started - DSSData</title>
+<link href="../assets/stylesheets/main.df84b5fe.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
 <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
-<link href="../../css/termynal.css" rel="stylesheet"/>
-<link href="../../css/custom.css" rel="stylesheet"/>
+<link href="../css/termynal.css" rel="stylesheet"/>
+<link href="../css/custom.css" rel="stylesheet"/>
 </head>
 <body dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#static-power-flow-snapshot">
+<a class="md-skip" href="#installation">
           Skip to content
         </a>
 </div>
@@ -31,7 +31,7 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Header" class="md-header-nav md-grid">
-<a aria-label="DSSData" class="md-header-nav__button md-logo" href="https://felipemarkson.github.io/power-flow-analysis/" title="DSSData">
+<a aria-label="DSSData" class="md-header-nav__button md-logo" href="https://felipemarkson.github.io/dssdata/" title="DSSData">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"></path></svg>
 </a>
 <label class="md-header-nav__button md-icon" for="__drawer">
@@ -44,7 +44,7 @@
           </span>
 <span class="md-header-nav__topic md-ellipsis">
             
-              Getting start
+              Getting Started
             
           </span>
 </div>
@@ -78,29 +78,18 @@
 </div>
 </div>
 <div class="md-header-nav__source">
-<a class="md-source" href="https://github.com/felipemarkson/power-flow-analysis/" title="Go to repository">
+<a class="md-source" href="https://github.com/felipemarkson/dssdata/" title="Go to repository">
 <div class="md-source__icon md-icon">
 <svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"></path></svg>
 </div>
 <div class="md-source__repository">
-    felipemarkson/power-flow-analysis
+    felipemarkson/dssdata
   </div>
 </a>
 </div>
 </nav>
 </header>
 <div class="md-container" data-md-component="container">
-<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
-<div class="md-tabs__inner md-grid">
-<ul class="md-tabs__list">
-<li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="../..">
-        Home
-      </a>
-</li>
-</ul>
-</div>
-</nav>
 <main class="md-main" data-md-component="main">
 <div class="md-main__inner md-grid">
 <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
@@ -108,37 +97,37 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="DSSData" class="md-nav__button md-logo" href="https://felipemarkson.github.io/power-flow-analysis/" title="DSSData">
+<a aria-label="DSSData" class="md-nav__button md-logo" href="https://felipemarkson.github.io/dssdata/" title="DSSData">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"></path></svg>
 </a>
     DSSData
   </label>
 <div class="md-nav__source">
-<a class="md-source" href="https://github.com/felipemarkson/power-flow-analysis/" title="Go to repository">
+<a class="md-source" href="https://github.com/felipemarkson/dssdata/" title="Go to repository">
 <div class="md-source__icon md-icon">
 <svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"></path></svg>
 </div>
 <div class="md-source__repository">
-    felipemarkson/power-flow-analysis
+    felipemarkson/dssdata
   </div>
 </a>
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../.." title="Home">
+<a class="md-nav__link" href=".." title="Home">
       Home
     </a>
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-        Getting start
+        Getting Started
         <span class="md-nav__icon md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"></path></svg>
 </span>
 </label>
-<a class="md-nav__link md-nav__link--active" href="./" title="Getting start">
-      Getting start
+<a class="md-nav__link md-nav__link--active" href="./" title="Getting Started">
+      Getting Started
     </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
@@ -148,6 +137,31 @@
       Table of contents
     </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installation">
+    Installation
+  </a>
+<nav aria-label="Installation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#using-pip">
+    Using pip
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#using-poetry">
+    Using poetry
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#samples">
+    Samples
+  </a>
+<nav aria-label="Samples" class="md-nav">
+<ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#static-power-flow-snapshot">
     Static Power Flow (Snapshot)
@@ -161,33 +175,21 @@
 </ul>
 </nav>
 </li>
+</ul>
+</nav>
+</li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../ideas/" title="The main concept">
-      The main concept
+<a class="md-nav__link" href="../tutorial/" title="Learning DSSData">
+      Learning DSSData
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../createtools/" title="Create your tools">
-      Create your tools
-    </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../createlements/" title="Insert your element">
-      Insert your element
-    </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../makedatas/" title="Make more with datas">
-      Make more with datas
-    </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../api/" title="API Reference">
+<a class="md-nav__link" href="../api/" title="API Reference">
       API Reference
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../LICENSE/" title="License">
+<a class="md-nav__link" href="../LICENSE/" title="License">
       License
     </a>
 </li>
@@ -208,6 +210,31 @@
     </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#installation">
+    Installation
+  </a>
+<nav aria-label="Installation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#using-pip">
+    Using pip
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#using-poetry">
+    Using poetry
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#samples">
+    Samples
+  </a>
+<nav aria-label="Samples" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
 <a class="md-nav__link" href="#static-power-flow-snapshot">
     Static Power Flow (Snapshot)
   </a>
@@ -219,43 +246,56 @@
 </li>
 </ul>
 </nav>
+</li>
+</ul>
+</nav>
 </div>
 </div>
 </div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/felipemarkson/power-flow-analysis/edit/master/docs/gettingstart/gettingstart.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/felipemarkson/dssdata/edit/master/docs/gettingstart/index.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
-<h1>Getting start</h1>
-<h2 id="static-power-flow-snapshot">Static Power Flow (Snapshot)</h2>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">openDSSData</span> <span class="kn">import</span> <span class="n">SystemClass</span>
-<span class="kn">from</span> <span class="nn">openDSSData.pf_modes</span> <span class="kn">import</span> <span class="n">run_static_pf</span>
-<span class="kn">from</span> <span class="nn">openDSSData.tools</span> <span class="kn">import</span> <span class="n">lines</span><span class="p">,</span> <span class="n">voltages</span>
+<h1>Getting Started</h1>
+<h2 id="installation">Installation</h2>
+<p>We strongly recommend the use of virtual environments manager.</p>
+<h3 id="using-pip">Using pip</h3>
+<div data-termynal="" id="termynal">
+<span data-ty="input">pip install git+https://github.com/felipemarkson/power-flow-analysis</span>
+</div>
+<h3 id="using-poetry">Using poetry</h3>
+<div data-termynal="" id="termynal">
+<span data-ty="input">poetry add git+https://github.com/felipemarkson/power-flow-analysis</span>
+</div>
+<h2 id="samples">Samples</h2>
+<h3 id="static-power-flow-snapshot">Static Power Flow (Snapshot)</h3>
+<p>Instance the class <a href="api/#dssdata.SystemClass"><code>SystemClass</code></a> indicating the path to the <code>.dss</code> file and the base system voltage.</p>
+<p>Execute a static power flow using <a href="#dssdata.pfmodes.run_static_pf"><code>run_static_pf</code></a>, informing the instance of <a href="api/#dssdata.SystemClass"><code>SystemClass</code></a> and a <a href="tutorial/#creating-your-first-tool"><code>Tool</code></a>. The DSSData provides some <a href="api/#dssdata.tools">tools</a> to a quick start. </p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">dssdata</span> <span class="kn">import</span> <span class="n">SystemClass</span>
+<span class="kn">from</span> <span class="nn">dssdata.pfmodes</span> <span class="kn">import</span> <span class="n">run_static_pf</span>
+<span class="kn">from</span> <span class="nn">dssdata.tools</span> <span class="kn">import</span> <span class="n">voltages</span>
 
 
-<span class="n">distSys</span> <span class="o">=</span> <span class="n">SystemClass</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">"master.dss"</span><span class="p">,</span> <span class="n">kV</span><span class="o">=</span><span class="mf">13.8</span><span class="p">,</span> <span class="n">loadmult</span><span class="o">=</span><span class="mf">1.2</span><span class="p">)</span>
+<span class="n">distSys</span> <span class="o">=</span> <span class="n">SystemClass</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">"master.dss"</span><span class="p">,</span> <span class="n">kV</span><span class="o">=</span><span class="p">[</span><span class="mf">13.8</span><span class="p">],</span> <span class="n">loadmult</span><span class="o">=</span><span class="mf">1.2</span><span class="p">)</span>
 
-<span class="n">run_static_pf</span><span class="p">(</span><span class="n">distSys</span><span class="p">)</span>
-
-<span class="n">lineDataFrame</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">get_all_infos</span><span class="p">(</span><span class="n">distSys</span><span class="p">)</span>
-<span class="n">voltageDataFrame</span> <span class="o">=</span> <span class="n">voltages</span><span class="o">.</span><span class="n">get_all</span><span class="p">(</span><span class="n">distSys</span><span class="p">)</span>
+<span class="p">[</span><span class="n">voltageDataFrame</span><span class="p">]</span> <span class="o">=</span> <span class="n">run_static_pf</span><span class="p">(</span><span class="n">distSys</span><span class="p">,</span> <span class="n">tools</span><span class="o">=</span><span class="p">[</span><span class="n">voltages</span><span class="o">.</span><span class="n">get_all</span><span class="p">])</span>
 </code></pre></div>
-<h2 id="time-series-power-flow">Time series Power Flow</h2>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">openDSSData</span> <span class="kn">import</span> <span class="n">SystemClass</span>
-<span class="kn">from</span> <span class="nn">openDSSData.pf_modes</span> <span class="kn">import</span> <span class="n">cfg_tspf</span><span class="p">,</span> <span class="n">build_dataset_tspf</span>
-<span class="kn">from</span> <span class="nn">openDSSData.tools</span> <span class="kn">import</span> <span class="n">lines</span><span class="p">,</span> <span class="n">voltages</span>
+<h3 id="time-series-power-flow">Time series Power Flow</h3>
+<p>Instance the class <a href="api/#dssdata.SystemClass"><code>SystemClass</code></a> indicating the path to the <code>.dss</code> file and the base system voltage.</p>
+<p>Execute a time series power flow using <a href="#dssdata.pfmodes.cfg_tspf"><code>cfg_tspf</code></a> and <a href="#dssdata.pfmodes.run_tspf"><code>run_tspf</code></a>, informing the instance of <a href="api/#dssdata.SystemClass"><code>SystemClass</code></a> and a <a href="tutorial/#creating-your-first-tool"><code>Tool</code></a>. The DSSData provides some <a href="api/#dssdata.tools">tools</a> to a quick start. </p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">dssdata</span> <span class="kn">import</span> <span class="n">SystemClass</span>
+<span class="kn">from</span> <span class="nn">dssdata.pfmodes</span> <span class="kn">import</span> <span class="n">cfg_tspf</span><span class="p">,</span> <span class="n">run_tspf</span>
+<span class="kn">from</span> <span class="nn">dssdata.tools</span> <span class="kn">import</span> <span class="n">lines</span><span class="p">,</span> <span class="n">voltages</span>
 
 
-<span class="n">distSys</span> <span class="o">=</span> <span class="n">SystemClass</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">"master.dss"</span><span class="p">,</span> <span class="n">kV</span><span class="o">=</span><span class="mf">13.8</span><span class="p">,</span> <span class="n">loadmult</span><span class="o">=</span><span class="mf">1.2</span><span class="p">)</span>
+<span class="n">distSys</span> <span class="o">=</span> <span class="n">SystemClass</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">"master.dss"</span><span class="p">,</span> <span class="n">kV</span><span class="o">=</span><span class="p">[</span><span class="mf">13.8</span><span class="p">],</span> <span class="n">loadmult</span><span class="o">=</span><span class="mf">1.2</span><span class="p">)</span>
 
 <span class="n">cfg_tspf</span><span class="p">(</span><span class="n">distSys</span><span class="p">,</span> <span class="n">step_size</span><span class="o">=</span><span class="s2">"5m"</span><span class="p">,</span> <span class="n">initial_time</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
 
-<span class="n">funcs</span> <span class="o">=</span> <span class="p">[</span><span class="n">lines</span><span class="o">.</span><span class="n">get_all_infos</span><span class="p">,</span> <span class="n">voltages</span><span class="o">.</span><span class="n">get_all</span><span class="p">]</span>
+<span class="n">tools</span> <span class="o">=</span> <span class="p">[</span><span class="n">voltages</span><span class="o">.</span><span class="n">get_all</span><span class="p">]</span>
 
-<span class="p">[</span><span class="n">voltageDataFrame</span><span class="p">,</span> <span class="n">lineDataFrame</span><span class="p">]</span> <span class="o">=</span> <span class="n">build_dataset_tspf</span><span class="p">(</span>
-    <span class="n">distSys</span><span class="p">,</span> <span class="n">funcs_list</span><span class="o">=</span><span class="n">funcs</span><span class="p">,</span> <span class="n">num_steps</span><span class="o">=</span><span class="mi">288</span>
-<span class="p">)</span>
+<span class="p">[</span><span class="n">voltageDataFrame</span><span class="p">]</span> <span class="o">=</span> <span class="n">run_tspf</span><span class="p">(</span><span class="n">distSys</span><span class="p">,</span> <span class="n">tools</span><span class="o">=</span><span class="n">tools</span><span class="p">,</span> <span class="n">num_steps</span><span class="o">=</span><span class="mi">288</span><span class="p">)</span>
 </code></pre></div>
 </article>
 </div>
@@ -264,7 +304,7 @@
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav aria-label="Footer" class="md-footer-nav__inner md-grid">
-<a class="md-footer-nav__link md-footer-nav__link--prev" href="../.." rel="prev" title="Home">
+<a class="md-footer-nav__link md-footer-nav__link--prev" href=".." rel="prev" title="Home">
 <div class="md-footer-nav__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
 </div>
@@ -277,13 +317,13 @@
               </div>
 </div>
 </a>
-<a class="md-footer-nav__link md-footer-nav__link--next" href="../ideas/" rel="next" title="The main concept">
+<a class="md-footer-nav__link md-footer-nav__link--next" href="../tutorial/" rel="next" title="Learning DSSData">
 <div class="md-footer-nav__title">
 <div class="md-ellipsis">
 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                The main concept
+                Learning DSSData
               </div>
 </div>
 <div class="md-footer-nav__button md-icon">
@@ -308,17 +348,17 @@
 </div>
 </footer>
 </div>
-<script src="../../assets/javascripts/vendor.83fe6e3c.min.js"></script>
-<script src="../../assets/javascripts/bundle.7e1cb91c.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+<script src="../assets/javascripts/vendor.83fe6e3c.min.js"></script>
+<script src="../assets/javascripts/bundle.7e1cb91c.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
 <script>
         app = initialize({
-          base: "../..",
-          features: ["tabs"],
+          base: "..",
+          features: ["instant"],
           search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.37585f48.min.js"
+            worker: "../assets/javascripts/worker/search.37585f48.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
-<script src="../../js/termynal.js"></script>
+<script src="../js/termynal.js"></script>
 </body>
 </html>
