@@ -7,14 +7,14 @@ We strongly recommend the use of virtual environments manager.
 ### Using pip
 
 <div id="termynal" data-termynal>
-    <span data-ty="input">pip install git+https://github.com/felipemarkson/power-flow-analysis</span>
+    <span data-ty="input">pip install dssdata</span>
 </div>
 
 
 ### Using poetry
 
 <div id="termynal" data-termynal>
-    <span data-ty="input">poetry add git+https://github.com/felipemarkson/power-flow-analysis</span>
+    <span data-ty="input">poetry add dssdata</span>
 </div>
 
 ## Samples
