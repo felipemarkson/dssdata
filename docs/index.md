@@ -1,27 +1,30 @@
 # DSSData
 
-A python module for organizing data from electrical distribution systems modeled on [OpenDSS](https://www.epri.com/#/pages/sa/opendss?lang=en).
 
-Mode support: Static and Time-series
+Welcome to DSSData's documentation. 
+
+If you want to run a simple power flow, you can go to [Get started](/gettingstart). 
+
+There is also a more detailed tutorial in [Learn DSSData](/tutorial) that shows how to run a simple but complete probabilistic power flow. 
+
+The rest of the docs describe each component of  DSSData in detail, with a full [API Reference](/api).
+
+Please, if you find some bug, report to us in our [Issues Section](https://github.com/felipemarkson/power-flow-analysis/issues).
+
+DSSData is built on [OpenDSSDirect.py](https://github.com/dss-extensions/OpenDSSDirect.py). The documentation for this library can be found [here](http://dss-extensions.org/OpenDSSDirect.py/).
 
 
-## Installation
+## Mode support
 
-We strongly recommend the use of virtual environments manager.
+- Static power flow.
+
+- Time series power flow.
+
+## Requirements
+
+- Python 3.7.x
 
 
-### Using pip
+## Contributors
 
-```console
-pip install git+https://github.com/felipemarkson/power-flow-analysis
-```
-
-### Using poetry
-
-```console
-poetry add git+https://github.com/felipemarkson/power-flow-analysis
-```
-
-Contributors: 
-
-- [JonasVil](https://github.com/felipemarkson/power-flow-analysis/commits?author=JonasVil)
+- [Jonas Villela](https://github.com/JonasVil) — [Contributions](https://github.com/felipemarkson/power-flow-analysis/commits?author=JonasVil).

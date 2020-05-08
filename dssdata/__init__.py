@@ -1,20 +1,12 @@
 from os import getcwd, chdir
 from os import path as pathfunc
-from .decorators import pf_tools as _pf
 from typing import Iterable, List
 
 
-class SystemClass(object):
+class SystemClass:
     """
     The distribution system abstraction class.
     """  # noqa: E501
-
-    """
-    TODO:   Na ultima versão quando lançar o build, trocar o nome path
-            para outro e alterar o import pathfunc
-    TODO:   Na ultima versão quando lançar o build.
-            Utilizar o @propetry na classe.
-    """
 
     import opendssdirect
 
@@ -61,6 +53,7 @@ class SystemClass(object):
     @dsscontent.setter
     def dsscontent(self, content: List[str]):
         self._dsscontent = content
+        self.init_sys()
 
     @property
     def name(self) -> str:
@@ -94,7 +87,7 @@ class SystemClass(object):
         """  # noqa: E501
         return self.__loadmult
 
-    def run_command(self, cmd: str) -> None:
+    def run_command(self, cmd: str) -> str:
         """
         Run a comand on OpenDSS.
 
@@ -103,23 +96,19 @@ class SystemClass(object):
 
         Raises:
             Exception: If the command is invalid.
+        Returns:
+            The OpenDSS command returns
         """  # noqa: E501
 
-        self.dss.run_command(cmd)
+        # value = self.dss.run_command(cmd, dss=self.dss)
+        self.dss.Text.Command(cmd)
         error = self.error
         if error != "":
             raise Exception(error)
 
-    def cfg_system(self) -> None:
-        """
-        Configure the base voltages and load multiplier
-        """
+        return self.dss.Text.Result()
 
-        self.run_command(f"Set voltagebases={self.__kV}")
-        self.run_command("calcv")
-        self.run_command(f"Set loadmult = {self.__loadmult}")
-
-    def init_sys(self) -> None:
+    def init_sys(self):
         """
         Run the commands in [dsscontent][dssdata.SystemClass.dsscontent].
         """
@@ -127,11 +116,14 @@ class SystemClass(object):
         self.dss.Basic.ClearAll()
         if self.__folder != "":
             chdir(self.__folder)
-            list(map(self.run_command, self.dsscontent,))
+            list(map(self.run_command, self._dsscontent,))
             chdir(directory)
         else:
-            list(map(self.run_command, self.dsscontent,))
-        self.cfg_system()
+            list(map(self.run_command, self._dsscontent,))
+
+        self.run_command(f"Set voltagebases={self.__kV}")
+        self.run_command("calcv")
+        self.run_command(f"Set loadmult = {self.__loadmult}")
 
     @property
     def error(cls) -> str:
@@ -140,27 +132,3 @@ class SystemClass(object):
             The error of the last OpenDSS command.
         """
         return cls.dss.Error.Description()
-
-    @_pf
-    def get_all_bus_names(self) -> List[str]:
-        """
-        Returns:
-            All bus names of the distribution systems.
-        """
-        return self.dss.Circuit.AllBusNames()
-
-    @_pf
-    def get_all_lines_names(self) -> List[str]:
-        """
-        Returns:
-            All line names of the distribution systems.
-        """
-        return self.dss.Lines.AllNames()
-
-    @_pf
-    def get_all_regs_names(self) -> List[str]:
-        """
-        Returns:
-            All regulator names of the distribution systems.
-        """
-        return self.dss.RegControls.AllNames()

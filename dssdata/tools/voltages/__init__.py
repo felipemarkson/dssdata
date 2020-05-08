@@ -1,13 +1,13 @@
 import pandas
 from ... import SystemClass
-from ...decorators import pf_tools
+from ...decorators import tools
 
 from ..._tools import __get_bus_v_pu, __get_bus_ph, __get_bus_ang
 from ..._formatters import __identify_ph_config, __check_elements
 from typing import List
 
 
-@pf_tools
+@tools
 def get_all(distSys: SystemClass) -> pandas.DataFrame:
     """
     Get line to neutral voltages (module and angle) in p.u. and phases configuration from buses. See [get_from_buses][dssdata.tools.voltages.get_from_buses].
@@ -19,11 +19,11 @@ def get_all(distSys: SystemClass) -> pandas.DataFrame:
         [type]: Line to neutral voltages (module and angle) in p.u. and phases configuration from buses. 
     """  # noqa
 
-    buses = distSys.get_all_bus_names()
+    buses = distSys.dss.Circuit.AllBusNames()
     return get_from_buses(distSys, buses)
 
 
-@pf_tools
+@tools
 def get_from_buses(distSys: SystemClass, buses: List[str]) -> pandas.DataFrame:
     """
 
@@ -45,7 +45,7 @@ def get_from_buses(distSys: SystemClass, buses: List[str]) -> pandas.DataFrame:
         [type]: Line to neutral voltages (module and angle) in p.u. and phases configuration from buses. 
     """  # noqa
 
-    __check_elements(buses, distSys.get_all_bus_names())
+    __check_elements(buses, distSys.dss.Circuit.AllBusNames())
 
     def agreggate(bus: str):
         return (

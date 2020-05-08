@@ -1,23 +1,35 @@
 import pandas
 from functools import reduce
 from .. import SystemClass
-from ..decorators import pf_tools
-from typing import Iterable, Tuple
+from ..decorators import actions, mode
+from typing import Iterable, Tuple, Callable
 
 
-@pf_tools
-def run_static_pf(distSys: SystemClass) -> None:
+@mode
+def run_static_pf(
+    distSys: SystemClass,
+    actions: Iterable[Callable] = (lambda distSys: None,),
+    tools: Iterable[Callable] = (lambda distSys: None,),
+) -> tuple:
     """
     Run the static power flow mode.
+    To see how it works, see [Learn DSSData](/tutorial/#static-power-flow).
 
     Args:
         distSys: An instance of [SystemClass][dssdata.SystemClass]
+        actions: Actions functions.
+        tools: Tools functions.
+
+    Returns:
+        Tools functions returns
     """
+    [action(distSys) for action in actions]
     distSys.run_command("set mode=Snap")
     distSys.dss.Solution.Solve()
+    return tuple(tool(distSys) for tool in tools)
 
 
-@pf_tools
+@actions
 def cfg_tspf(
     distSys: SystemClass, step_size: str = "1h", initial_time: tuple = (0, 0)
 ) -> None:
@@ -35,51 +47,62 @@ def cfg_tspf(
     distSys.run_command(cmd + cmd2)
 
 
-@pf_tools
-def build_dataset_tspf(
-    distSys: SystemClass, *, funcs_list: Iterable[callable], num_steps: int,
+@mode
+def run_tspf(
+    distSys: SystemClass,
+    num_steps: int,
+    actions: Iterable[Callable] = (lambda distSys: None,),
+    tools: Iterable[Callable] = (lambda distSys: None,),
 ) -> Tuple[pandas.DataFrame]:
     """
-    Build the datas of tools functions returns on time series mode. See [The main concept](../gettingstart/ideas.md).
+    Run the time series power flow.
+    To see how it works, see [Learn DSSData](/tutorial/#time-series-power-flow).
 
     Args:
         distSys: An instance of [SystemClass][dssdata.SystemClass]
-        funcs_list: Tools functions.
         num_steps : Number of time steps.
+        actions: Actions functions.
+        tools: Tools functions.
+        
 
     Returns:
-        [type]: Tools functions returns
+        Tools functions returns for all steps
     """  # noqa
 
-    def __run_onestep_tspf(distSys: SystemClass) -> None:
+    def concat_dfs(list_df1, list_df2):
+        """
+        Concatena dois conjuntos de DF par a par. Ex:
+        list_df1 = [df1, df2, df3]
+        list_df2 = [df4, df5, df6]
+        return [pd.concat(df1,df4), pd.concat(df2,df5), pd.concat(df3,df6)]
+
+        Args:
+            list_df1 ([type]): [description]
+            list_df2 ([type]): [description]
+
+        Returns:
+            [type]: [description]
+        """
+        return map(
+            lambda df1, df2: pandas.concat([df1, df2], ignore_index=True),
+            list_df1,
+            list_df2,
+        )
+
+    def runmode_one_step(distSys):
         distSys.dss.Solution.Number(1)
         distSys.dss.Solution.Solve()
 
-    def concat_dfs(list1, list2):
-        df_lists = map(
-            lambda df1, df2: pandas.concat([df1, df2], ignore_index=True),
-            list1,
-            list2,
-        )
-        return df_lists
+    def run_tool(distSys, tool, step):
+        df = tool(distSys)
+        df["step"] = step
+        return df
 
-    def df_each_step(distSys: SystemClass, funcs_list, step):
-        def run_funcs(distSys: SystemClass, func: callable, step: int):
-            df = func(distSys)
-            df["step"] = step
-            return df
+    def run_concetps(distSys, step):
+        [action(distSys) for action in actions]
+        runmode_one_step(distSys)
+        return tuple(run_tool(distSys, tool, step) for tool in tools)
 
-        __run_onestep_tspf(distSys)
+    all_steps = (run_concetps(distSys, step) for step in range(0, num_steps))
 
-        return tuple(
-            map(lambda func: run_funcs(distSys, func, step), funcs_list)
-        )
-
-    all_steps_df = map(
-        lambda step: df_each_step(distSys, funcs_list, step),
-        range(0, num_steps),
-    )
-
-    data_list = reduce(concat_dfs, all_steps_df)
-
-    return tuple(data_list)
+    return tuple(reduce(concat_dfs, all_steps))

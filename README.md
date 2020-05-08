@@ -1,6 +1,7 @@
 # DSSData
 
-A python module for organizing data from electrical distribution systems modeled on [OpenDSS](https://www.epri.com/#/pages/sa/opendss?lang=en).
+
+A python micro-framework for simulation and data analysis of electrical distribution systems modeled on [OpenDSS](https://www.epri.com/#/pages/sa/opendss?lang=en).
 
 Mode support: Static and Time-series
 

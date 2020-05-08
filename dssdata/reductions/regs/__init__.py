@@ -5,13 +5,13 @@ from operator import add
 
 def get_taps_changes(tapDataFrame: pandas.DataFrame) -> pandas.DataFrame:
     """
-    Count the taps changes. That function is a reduction function. See [The main concept](../gettingstart/ideas.md).
+    Count the taps changes. That function is a reduction function.
 
     Args:
-        tapDataFrame ([type]): Retorno no modo timeseries da função powerflow.reg_tools.get_tap_number.
+        tapDataFrame: The return of [get_all_taps_number][dssdata.tools.regs.get_all_taps_number] or [get_tap_number][dssdata.tools.regs.get_tap_number].
 
     Returns:
-         Valor da contagem de mudança dos taps.
+        The number of taps changes after time series power flow.
     """ # noqa
 
     def calc_one_step_chgs(first: list, second: list):
