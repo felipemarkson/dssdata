@@ -18,13 +18,13 @@ We strongly recommend the use of virtual environments manager.
 ### Using pip
 
 ```console
-pip install git+https://github.com/felipemarkson/power-flow-analysis
+pip install dssdata
 ```
 
 ### Using poetry
 
 ```console
-poetry add git+https://github.com/felipemarkson/power-flow-analysis
+poetry add dssdata
 ```
 
 Contributors: 
