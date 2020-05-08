@@ -5,7 +5,7 @@ from operator import add
 
 def get_taps_changes(tapDataFrame: pandas.DataFrame) -> pandas.DataFrame:
     """
-    Count the taps changes. That function is a reduction function. See [The main concept](../gettingstart/ideas.md).
+    Count the taps changes. That function is a reduction function.
 
     Args:
         tapDataFrame: The return of [get_all_taps_number][dssdata.tools.regs.get_all_taps_number] or [get_tap_number][dssdata.tools.regs.get_tap_number].

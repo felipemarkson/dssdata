@@ -1,6 +1,6 @@
 import pandas as pd
 from ... import SystemClass
-from ...decorators import pf_tools
+from ...decorators import tools
 
 from ..._formatters import (
     __identify_ph_config,
@@ -13,7 +13,7 @@ from ..._formatters import (
 from typing import List
 
 
-@pf_tools
+@tools
 def get_infos(distSys: SystemClass, names: List[str]) -> pd.DataFrame:
     """
     Get some relevant infos from lines.
@@ -33,7 +33,7 @@ def get_infos(distSys: SystemClass, names: List[str]) -> pd.DataFrame:
         Lines infos.
     """  # noqa
 
-    __check_elements(names, distSys.get_all_lines_names())
+    __check_elements(names, distSys.dss.Lines.AllNames())
 
     def build_line_dicts(distSys: SystemClass, line_name: str) -> dict:
         def vanish_line_infos(bus_raw: list, current_raw: list) -> tuple:
@@ -102,7 +102,7 @@ def get_infos(distSys: SystemClass, names: List[str]) -> pd.DataFrame:
     )
 
 
-@pf_tools
+@tools
 def get_all_infos(distSys: SystemClass) -> pd.DataFrame:
     """
     Get some relevant infos from all lines. See [get_infos][dssdata.tools.lines.get_infos].
@@ -113,5 +113,5 @@ def get_all_infos(distSys: SystemClass) -> pd.DataFrame:
     Returns:
         All lines infos
     """  # noqa
-    line_names = distSys.get_all_lines_names()
+    line_names = distSys.dss.Lines.AllNames()
     return get_infos(distSys, line_names)
