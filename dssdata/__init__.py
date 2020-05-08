@@ -4,6 +4,7 @@ from typing import Iterable, List
 
 __version__ = "0.1.2"
 
+
 class SystemClass:
     """
     The distribution system abstraction class.
