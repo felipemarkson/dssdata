@@ -8,7 +8,7 @@ Mode support: Static and Time-series
 
 ## Documentation
 
-See [DSSData Documentation](https://felipemarkson.github.io/power-flow-analysis/).
+See [DSSData Documentation](https://felipemarkson.github.io/dssdata).
 
 ## Installation
 
