@@ -103,7 +103,7 @@ def get_total_pd_elements_losses(distSys: SystemClass) -> pd.DataFrame:
             get_all_pd_elements_losses(distSys)["kw_losses"]
         ),
         "kvar_losses_total": sum(
-            get_all_pd_elements_losses(distSys)["kw_losses"]
+            get_all_pd_elements_losses(distSys)["kvar_losses"]
         ),
     }
 
