@@ -19,10 +19,6 @@ We built the DSSData for you just write what you want in a simple function, plug
 
 You don't need anymore write a routine to run each power flow per time. 
 
-### Used in a real system
-
-We have used this package in a real distribution system in the Program for Research and Technological Development of the Electric Energy Sector Regulated by ANEEL, Brazil. grant: PD-2866-0454/2016.
-
 ## Documentation
 
 See [DSSData Documentation](https://felipemarkson.github.io/dssdata).
