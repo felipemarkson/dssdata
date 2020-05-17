@@ -3,9 +3,9 @@
 
 Welcome to DSSData's documentation. 
 
-If you want to run a simple power flow, you can go to [Get started](./gettingstart). 
+If you want to run a simple power flow, you can go to [Getting started](./gettingstart). 
 
-There is also a more detailed tutorial in [Learn DSSData](./tutorial) that shows how to run a simple but complete probabilistic power flow. 
+There is also a more detailed tutorial in [Learning DSSData](./tutorial) that shows how to run a simple but complete probabilistic power flow. 
 
 The rest of the docs describe each component of  DSSData in detail, with a full [API Reference](./api).
 
