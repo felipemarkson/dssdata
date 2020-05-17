@@ -6425,7 +6425,7 @@ h6:hover .anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="learning-dssdata">Learning DSSData<a class="anchor-link" href="#Learning-DSSData">¶</a></h1><p>In this tutorial, we will learn the main concepts of DSSData. For that, we will run a probabilistic power flow on the <a href="https://site.ieee.org/pes-testfeeders/resources/">IEEE 13 bus</a> with two turbine wind generators to observe the impact on the transformer substation losses in the distribution system.</p>
+<h1 id="learning-dssdata">Learning DSSData<a class="anchor-link" href="#Learning-DSSData">¶</a></h1><p>In this tutorial, we will learn the main concepts of DSSData. For that, we will run a probabilistic power flow on the <a href="https://site.ieee.org/pes-testfeeders/resources/">IEEE 13 bus</a> (the <code>.dss</code> file can be found in OpenDSS install directory) with two turbine wind generators to observe the impact on the transformer substation losses in the distribution system.</p>
 <figure>
 <img alt="run_static_pf" src="IEEE-13-bus.png"/>
 </figure><h2 id="loading-your-dss-file">Loading your .dss file<a class="anchor-link" href="#Loading-your-.dss-file">¶</a></h2><p>To load your <code>.dss</code> file, we import the class <code>SystemClass</code>  and instantiate it, indicating the path to the <code>.dss</code> file and the base system voltage. If all goes well, you can see the name of the distribution system.</p>
@@ -6569,7 +6569,7 @@ h6:hover .anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="time-series-power-flow">Time series power flow<a class="anchor-link" href="#Time-series-power-flow">¶</a></h3><p>If you want run a time series power flow you can import <code>cfg_tspf</code> and <code>run_tspf</code>. The <code>cfg_tspf</code> will configure the OpenDSS to run proprely and <code>run_tspf</code> execute the time series power flow. You can see a simple exemple in <a href="/gettingstart/#time-series-power-flow">Getting Started</a>.</p>
+<h3 id="time-series-power-flow">Time series power flow<a class="anchor-link" href="#Time-series-power-flow">¶</a></h3><p>If you want run a time series power flow you can import <code>cfg_tspf</code> and <code>run_tspf</code>. The <code>cfg_tspf</code> will configure the OpenDSS to run proprely and <code>run_tspf</code> execute the time series power flow. You can see a simple exemple in <a href="../gettingstart/#time-series-power-flow">Getting Started</a>.</p>
 </div>
 </div>
 </div>
