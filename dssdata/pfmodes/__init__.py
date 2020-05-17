@@ -13,7 +13,7 @@ def run_static_pf(
 ) -> tuple:
     """
     Run the static power flow mode.
-    To see how it works, see [Learn DSSData](/tutorial/#static-power-flow).
+    To see how it works, see [Learning DSSData](../tutorial/#static-power-flow).
 
     Args:
         distSys: An instance of [SystemClass][dssdata.SystemClass]
@@ -22,7 +22,7 @@ def run_static_pf(
 
     Returns:
         Tools functions returns
-    """
+    """ # noqa
     [action(distSys) for action in actions]
     distSys.run_command("set mode=Snap")
     distSys.dss.Solution.Solve()
@@ -56,7 +56,7 @@ def run_tspf(
 ) -> Tuple[pandas.DataFrame]:
     """
     Run the time series power flow.
-    To see how it works, see [Learn DSSData](/tutorial/#time-series-power-flow).
+    To see how it works, see [Learning DSSData](../tutorial/#time-series-power-flow).
 
     Args:
         distSys: An instance of [SystemClass][dssdata.SystemClass]
