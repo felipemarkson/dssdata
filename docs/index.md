@@ -23,7 +23,7 @@ DSSData is built on [OpenDSSDirect.py](https://github.com/dss-extensions/OpenDSS
 
 ## Requirements
 
-- Python 3.7 +
+- Python >= 3.7 < 3.9
 
 
 ## Contributors
