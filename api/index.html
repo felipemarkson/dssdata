@@ -9,9 +9,9 @@
 <link href="https://felipemarkson.github.io/dssdata/api/" rel="canonical"/>
 <meta content="Felipe M. S. Monteiro" name="author"/>
 <link href="../assets/images/favicon.png" rel="shortcut icon"/>
-<meta content="mkdocs-1.1, mkdocs-material-5.1.5" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-5.4.0" name="generator"/>
 <title>API Reference - DSSData</title>
-<link href="../assets/stylesheets/main.df84b5fe.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.fe0cca5b.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
 <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
@@ -303,6 +303,45 @@
 </nav>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#dssdata.tools.losses">
+    losses
+  </a>
+<nav aria-label="losses" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dssdata.tools.losses.get_all_line_losses">
+    get_all_line_losses()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dssdata.tools.losses.get_all_pd_elements_losses">
+    get_all_pd_elements_losses()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dssdata.tools.losses.get_all_transformers_losses">
+    get_all_transformers_losses()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dssdata.tools.losses.get_total_pd_elements_losses">
+    get_total_pd_elements_losses()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dssdata.tools.losses.pd_element_loss">
+    pd_element_loss()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dssdata.tools.losses.pd_element_loss_list">
+    pd_element_loss_list()
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#dssdata.tools.regs">
     regs
   </a>
@@ -517,6 +556,45 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#dssdata.tools.lines.get_infos">
     get_infos()
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dssdata.tools.losses">
+    losses
+  </a>
+<nav aria-label="losses" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dssdata.tools.losses.get_all_line_losses">
+    get_all_line_losses()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dssdata.tools.losses.get_all_pd_elements_losses">
+    get_all_pd_elements_losses()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dssdata.tools.losses.get_all_transformers_losses">
+    get_all_transformers_losses()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dssdata.tools.losses.get_total_pd_elements_losses">
+    get_total_pd_elements_losses()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dssdata.tools.losses.pd_element_loss">
+    pd_element_loss()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dssdata.tools.losses.pd_element_loss_list">
+    pd_element_loss_list()
   </a>
 </li>
 </ul>
@@ -1046,7 +1124,7 @@ cfg_tspf<span class="p">(</span><span class="n">distSys</span><span class="p">,<
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="dssdata.pfmodes.run_static_pf">
 <code class="highlight language-python">
-run_static_pf<span class="p">(</span><span class="n">distSys</span><span class="p">,</span> <span class="n">actions</span><span class="o">=</span><span class="p">(</span><span class="o">&lt;</span><span class="n">function</span> <span class="o">&lt;</span><span class="k">lambda</span><span class="o">&gt;</span> <span class="n">at</span> <span class="mh">0x7ff65da6c5f0</span><span class="o">&gt;</span><span class="p">,),</span> <span class="n">tools</span><span class="o">=</span><span class="p">(</span><span class="o">&lt;</span><span class="n">function</span> <span class="o">&lt;</span><span class="k">lambda</span><span class="o">&gt;</span> <span class="n">at</span> <span class="mh">0x7ff65da6c560</span><span class="o">&gt;</span><span class="p">,))</span> </code>
+run_static_pf<span class="p">(</span><span class="n">distSys</span><span class="p">,</span> <span class="n">actions</span><span class="o">=</span><span class="p">(</span><span class="o">&lt;</span><span class="n">function</span> <span class="o">&lt;</span><span class="k">lambda</span><span class="o">&gt;</span> <span class="n">at</span> <span class="mh">0x7f22544650d0</span><span class="o">&gt;</span><span class="p">,),</span> <span class="n">tools</span><span class="o">=</span><span class="p">(</span><span class="o">&lt;</span><span class="n">function</span> <span class="o">&lt;</span><span class="k">lambda</span><span class="o">&gt;</span> <span class="n">at</span> <span class="mh">0x7f2254465160</span><span class="o">&gt;</span><span class="p">,))</span> </code>
 </h3>
 <div class="doc doc-contents">
 <p>Run the static power flow mode.
@@ -1076,7 +1154,7 @@ To see how it works, see <a href="../tutorial/#static-power-flow">Learning DSSDa
 <td>
 <p>Actions functions.</p>
 </td>
-<td><code>(&lt;function &lt;lambda&gt; at 0x7ff65da6c5f0&gt;,)</code></td>
+<td><code>(&lt;function &lt;lambda&gt; at 0x7f22544650d0&gt;,)</code></td>
 </tr>
 <tr>
 <td><code>tools</code></td>
@@ -1084,7 +1162,7 @@ To see how it works, see <a href="../tutorial/#static-power-flow">Learning DSSDa
 <td>
 <p>Tools functions.</p>
 </td>
-<td><code>(&lt;function &lt;lambda&gt; at 0x7ff65da6c560&gt;,)</code></td>
+<td><code>(&lt;function &lt;lambda&gt; at 0x7f2254465160&gt;,)</code></td>
 </tr>
 </tbody>
 </table>
@@ -1110,7 +1188,7 @@ To see how it works, see <a href="../tutorial/#static-power-flow">Learning DSSDa
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="dssdata.pfmodes.run_tspf">
 <code class="highlight language-python">
-run_tspf<span class="p">(</span><span class="n">distSys</span><span class="p">,</span> <span class="n">num_steps</span><span class="p">,</span> <span class="n">actions</span><span class="o">=</span><span class="p">(</span><span class="o">&lt;</span><span class="n">function</span> <span class="o">&lt;</span><span class="k">lambda</span><span class="o">&gt;</span> <span class="n">at</span> <span class="mh">0x7ff65da0b200</span><span class="o">&gt;</span><span class="p">,),</span> <span class="n">tools</span><span class="o">=</span><span class="p">(</span><span class="o">&lt;</span><span class="n">function</span> <span class="o">&lt;</span><span class="k">lambda</span><span class="o">&gt;</span> <span class="n">at</span> <span class="mh">0x7ff65da0b290</span><span class="o">&gt;</span><span class="p">,))</span> </code>
+run_tspf<span class="p">(</span><span class="n">distSys</span><span class="p">,</span> <span class="n">num_steps</span><span class="p">,</span> <span class="n">actions</span><span class="o">=</span><span class="p">(</span><span class="o">&lt;</span><span class="n">function</span> <span class="o">&lt;</span><span class="k">lambda</span><span class="o">&gt;</span> <span class="n">at</span> <span class="mh">0x7f2254465430</span><span class="o">&gt;</span><span class="p">,),</span> <span class="n">tools</span><span class="o">=</span><span class="p">(</span><span class="o">&lt;</span><span class="n">function</span> <span class="o">&lt;</span><span class="k">lambda</span><span class="o">&gt;</span> <span class="n">at</span> <span class="mh">0x7f22544654c0</span><span class="o">&gt;</span><span class="p">,))</span> </code>
 </h3>
 <div class="doc doc-contents">
 <p>Run the time series power flow.
@@ -1148,7 +1226,7 @@ To see how it works, see <a href="../tutorial/#time-series-power-flow">Learning 
 <td>
 <p>Actions functions.</p>
 </td>
-<td><code>(&lt;function &lt;lambda&gt; at 0x7ff65da0b200&gt;,)</code></td>
+<td><code>(&lt;function &lt;lambda&gt; at 0x7f2254465430&gt;,)</code></td>
 </tr>
 <tr>
 <td><code>tools</code></td>
@@ -1156,7 +1234,7 @@ To see how it works, see <a href="../tutorial/#time-series-power-flow">Learning 
 <td>
 <p>Tools functions.</p>
 </td>
-<td><code>(&lt;function &lt;lambda&gt; at 0x7ff65da0b290&gt;,)</code></td>
+<td><code>(&lt;function &lt;lambda&gt; at 0x7f22544654c0&gt;,)</code></td>
 </tr>
 </tbody>
 </table>
@@ -1478,6 +1556,701 @@ Ex:</p>
 <td><code>DataFrame</code></td>
 <td>
 <p>Lines infos.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-module">
+<h3 class="doc doc-heading" id="dssdata.tools.losses">
+<code>losses</code>
+<span class="doc doc-properties">
+<small class="doc doc-property doc-property-special"><code>special</code></small>
+</span>
+</h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-function">
+<h4 class="doc doc-heading" id="dssdata.tools.losses.get_all_line_losses">
+<code class="highlight language-python">
+get_all_line_losses<span class="p">(</span><span class="n">distSys</span><span class="p">)</span> </code>
+</h4>
+<div class="doc doc-contents">
+<p>Get all lines losses. 
+!!! ex</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">type</th>
+<th align="center">name</th>
+<th align="center">kw_losses</th>
+<th align="center">kvar_losses</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td align="center">Line</td>
+<td align="center">650632</td>
+<td align="center">60.73738438443188</td>
+<td align="center">196.01456922721653</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">Line</td>
+<td align="center">632670</td>
+<td align="center">12.990633124585496</td>
+<td align="center">41.49451118066639</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">Line</td>
+<td align="center">670671</td>
+<td align="center">22.728758590972518</td>
+<td align="center">72.33414340631373</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">Line</td>
+<td align="center">671680</td>
+<td align="center">8.613828479544935e-12</td>
+<td align="center">-0.004169229516017848</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">Line</td>
+<td align="center">632633</td>
+<td align="center">0.8244871671261499</td>
+<td align="center">1.0561418323197722</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">Line</td>
+<td align="center">632645</td>
+<td align="center">2.75857850181032</td>
+<td align="center">2.4159107795492454</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center">Line</td>
+<td align="center">645646</td>
+<td align="center">0.5274715389783668</td>
+<td align="center">0.41973513183818434</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="center">Line</td>
+<td align="center">692675</td>
+<td align="center">4.1629544212549225</td>
+<td align="center">2.419339661740261</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="center">Line</td>
+<td align="center">671684</td>
+<td align="center">0.5794876384501113</td>
+<td align="center">0.47068061342113654</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td align="center">Line</td>
+<td align="center">684611</td>
+<td align="center">0.3824044250881998</td>
+<td align="center">0.38734916932047053</td>
+</tr>
+<tr>
+<td align="center">10</td>
+<td align="center">Line</td>
+<td align="center">684652</td>
+<td align="center">0.7998267312559038</td>
+<td align="center">0.230879175578375</td>
+</tr>
+<tr>
+<td align="center">11</td>
+<td align="center">Line</td>
+<td align="center">671692</td>
+<td align="center">9.054614813067019e-06</td>
+<td align="center">4.3655745685100556e-14</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>distSys</code></td>
+<td><code>SystemClass</code></td>
+<td>
+<p>An instance of  <a href="https://felipemarkson.github.io/dssdata/api/#dssdata.SystemClass">SystemClass</a></p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DataFrame</code></td>
+<td>
+<p>A DataFrame containing all line losses.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h4 class="doc doc-heading" id="dssdata.tools.losses.get_all_pd_elements_losses">
+<code class="highlight language-python">
+get_all_pd_elements_losses<span class="p">(</span><span class="n">distSys</span><span class="p">)</span> </code>
+</h4>
+<div class="doc doc-contents">
+<p>Get all PD Elements losses. 
+!!! ex</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">type</th>
+<th align="center">name</th>
+<th align="center">kw_losses</th>
+<th align="center">kvar_losses</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td align="center">Transformer</td>
+<td align="center">sub</td>
+<td align="center">0.03228776756674051</td>
+<td align="center">0.26246840671868993</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">Transformer</td>
+<td align="center">reg1</td>
+<td align="center">0.12209426402417012</td>
+<td align="center">0.12385869008488953</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">Transformer</td>
+<td align="center">reg2</td>
+<td align="center">0.06534502545557916</td>
+<td align="center">0.06707698704162612</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">Transformer</td>
+<td align="center">reg3</td>
+<td align="center">0.1350894299906213</td>
+<td align="center">0.13685391995031387</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">Transformer</td>
+<td align="center">xfm1</td>
+<td align="center">5.552671994055243</td>
+<td align="center">10.09627035828575</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">Line</td>
+<td align="center">650632</td>
+<td align="center">60.73738438443188</td>
+<td align="center">196.01456922721653</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center">Line</td>
+<td align="center">632670</td>
+<td align="center">12.990633124585496</td>
+<td align="center">41.49451118066639</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="center">Line</td>
+<td align="center">670671</td>
+<td align="center">22.728758590972518</td>
+<td align="center">72.33414340631373</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="center">Line</td>
+<td align="center">671680</td>
+<td align="center">8.613828479544935e-12</td>
+<td align="center">-0.004169229516017848</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td align="center">Line</td>
+<td align="center">632633</td>
+<td align="center">0.8244871671261499</td>
+<td align="center">1.0561418323197722</td>
+</tr>
+<tr>
+<td align="center">10</td>
+<td align="center">Line</td>
+<td align="center">632645</td>
+<td align="center">2.75857850181032</td>
+<td align="center">2.4159107795492454</td>
+</tr>
+<tr>
+<td align="center">11</td>
+<td align="center">Line</td>
+<td align="center">645646</td>
+<td align="center">0.5274715389783668</td>
+<td align="center">0.41973513183818434</td>
+</tr>
+<tr>
+<td align="center">12</td>
+<td align="center">Line</td>
+<td align="center">692675</td>
+<td align="center">4.1629544212549225</td>
+<td align="center">2.419339661740261</td>
+</tr>
+<tr>
+<td align="center">13</td>
+<td align="center">Line</td>
+<td align="center">671684</td>
+<td align="center">0.5794876384501113</td>
+<td align="center">0.47068061342113654</td>
+</tr>
+<tr>
+<td align="center">14</td>
+<td align="center">Line</td>
+<td align="center">684611</td>
+<td align="center">0.3824044250881998</td>
+<td align="center">0.38734916932047053</td>
+</tr>
+<tr>
+<td align="center">15</td>
+<td align="center">Line</td>
+<td align="center">684652</td>
+<td align="center">0.7998267312559038</td>
+<td align="center">0.230879175578375</td>
+</tr>
+<tr>
+<td align="center">16</td>
+<td align="center">Line</td>
+<td align="center">671692</td>
+<td align="center">9.054614813067019e-06</td>
+<td align="center">4.3655745685100556e-14</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>distSys</code></td>
+<td><code>SystemClass</code></td>
+<td>
+<p>An instance of  <a href="https://felipemarkson.github.io/dssdata/api/#dssdata.SystemClass">SystemClass</a></p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DataFrame</code></td>
+<td>
+<p>A DataFrame containing all PD Elements losses.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h4 class="doc doc-heading" id="dssdata.tools.losses.get_all_transformers_losses">
+<code class="highlight language-python">
+get_all_transformers_losses<span class="p">(</span><span class="n">distSys</span><span class="p">)</span> </code>
+</h4>
+<div class="doc doc-contents">
+<p>Get all transformers losses. 
+!!! ex</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">type</th>
+<th align="center">name</th>
+<th align="center">kw_losses</th>
+<th align="center">kvar_losses</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td align="center">Transformer</td>
+<td align="center">sub</td>
+<td align="center">0.03228776756674051</td>
+<td align="center">0.26246840671868993</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">Transformer</td>
+<td align="center">reg1</td>
+<td align="center">0.12209426402417012</td>
+<td align="center">0.12385869008488953</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">Transformer</td>
+<td align="center">reg2</td>
+<td align="center">0.06534502545557916</td>
+<td align="center">0.06707698704162612</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">Transformer</td>
+<td align="center">reg3</td>
+<td align="center">0.1350894299906213</td>
+<td align="center">0.13685391995031387</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">Transformer</td>
+<td align="center">xfm1</td>
+<td align="center">5.552671994055243</td>
+<td align="center">10.09627035828575</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>distSys</code></td>
+<td><code>SystemClass</code></td>
+<td>
+<p>An instance of  <a href="https://felipemarkson.github.io/dssdata/api/#dssdata.SystemClass">SystemClass</a></p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DataFrame</code></td>
+<td>
+<p>A DataFrame containing all transformers losses.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h4 class="doc doc-heading" id="dssdata.tools.losses.get_total_pd_elements_losses">
+<code class="highlight language-python">
+get_total_pd_elements_losses<span class="p">(</span><span class="n">distSys</span><span class="p">)</span> </code>
+</h4>
+<div class="doc doc-contents">
+<p>Get Total PD Elements losses. 
+!!! ex</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">name</th>
+<th align="center">kw_losses_total</th>
+<th align="center">kvar_losses_total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td align="center">all_pd_elements</td>
+<td align="center">112.39948405966965</td>
+<td align="center">327.9256193105294</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>distSys</code></td>
+<td><code>SystemClass</code></td>
+<td>
+<p>An instance of  <a href="https://felipemarkson.github.io/dssdata/api/#dssdata.SystemClass">SystemClass</a></p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DataFrame</code></td>
+<td>
+<p>A DataFrame containing the sum of losses of all PD Elements.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h4 class="doc doc-heading" id="dssdata.tools.losses.pd_element_loss">
+<code class="highlight language-python">
+pd_element_loss<span class="p">(</span><span class="n">distSys</span><span class="p">,</span> <span class="n">element_name</span><span class="p">,</span> <span class="n">element_type</span><span class="p">)</span> </code>
+</h4>
+<div class="doc doc-contents">
+<p>Get PD Element loss. 
+!!! ex</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">type</th>
+<th align="center">name</th>
+<th align="center">kw_losses</th>
+<th align="center">kvar_losses</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td align="center">Transformer</td>
+<td align="center">xfm1</td>
+<td align="center">5.552671994055243</td>
+<td align="center">10.09627035828575</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>distSys</code></td>
+<td><code>SystemClass</code></td>
+<td>
+<p>An instance of  <a href="https://felipemarkson.github.io/dssdata/api/#dssdata.SystemClass">SystemClass</a></p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>element_name</code></td>
+<td><code>str</code></td>
+<td>
+<p>The name of the desired PD element</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>element_type</code></td>
+<td><code>str</code></td>
+<td>
+<p>The type of the PD element (Line or Transformer)</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DataFrame</code></td>
+<td>
+<p>A DataFrame containing the losses of the desired PD element.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h4 class="doc doc-heading" id="dssdata.tools.losses.pd_element_loss_list">
+<code class="highlight language-python">
+pd_element_loss_list<span class="p">(</span><span class="n">distSys</span><span class="p">,</span> <span class="n">element_names</span><span class="p">,</span> <span class="n">element_type</span><span class="p">)</span> </code>
+</h4>
+<div class="doc doc-contents">
+<p>Get PD Element loss List. 
+!!! ex</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">type</th>
+<th align="center">name</th>
+<th align="center">kw_losses</th>
+<th align="center">kvar_losses</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td align="center">Transformer</td>
+<td align="center">sub</td>
+<td align="center">0.03228776756674051</td>
+<td align="center">0.26246840671868993</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">Transformer</td>
+<td align="center">reg1</td>
+<td align="center">0.12209426402417012</td>
+<td align="center">0.12385869008488953</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">Transformer</td>
+<td align="center">reg2</td>
+<td align="center">0.06534502545557916</td>
+<td align="center">0.06707698704162612</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">Transformer</td>
+<td align="center">reg3</td>
+<td align="center">0.1350894299906213</td>
+<td align="center">0.13685391995031387</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">Transformer</td>
+<td align="center">xfm1</td>
+<td align="center">5.552671994055243</td>
+<td align="center">10.09627035828575</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>distSys</code></td>
+<td><code>SystemClass</code></td>
+<td>
+<p>An instance of  <a href="https://felipemarkson.github.io/dssdata/api/#dssdata.SystemClass">SystemClass</a></p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>element_names</code></td>
+<td><code>list</code></td>
+<td>
+<p>A list of names of the desired PD elements</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>element_type</code></td>
+<td><code>str</code></td>
+<td>
+<p>The type of the PD elements (Line or Transformer)</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DataFrame</code></td>
+<td>
+<p>A DataFrame containing the losses of the desired list of PD elements.</p>
 </td>
 </tr>
 </tbody>
@@ -1833,14 +2606,14 @@ get_from_buses<span class="p">(</span><span class="n">distSys</span><span class=
 </div>
 </footer>
 </div>
-<script src="../assets/javascripts/vendor.83fe6e3c.min.js"></script>
-<script src="../assets/javascripts/bundle.7e1cb91c.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+<script src="../assets/javascripts/vendor.d710d30a.min.js"></script>
+<script src="../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
 <script>
         app = initialize({
           base: "..",
           features: ["instant"],
           search: Object.assign({
-            worker: "../assets/javascripts/worker/search.37585f48.min.js"
+            worker: "../assets/javascripts/worker/search.a68abb33.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
