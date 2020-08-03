@@ -27,19 +27,18 @@ class Verifica_Losses_Tools(unittest.TestCase):
 
     def test_pd_element_loss(self):
         [element_loss] = run_static_pf(
+            self.distSys,
+            tools=[
+                lambda distSys: losses.pd_element_loss(
                     self.distSys,
-                    tools=[
-                        lambda distSys: losses.pd_element_loss(
-                            self.distSys, element_name='xfm1',
-                            element_type='Transformer'
-                            )
-                    ]
+                    element_name="xfm1",
+                    element_type="Transformer",
+                )
+            ],
         )
         try:
             assert_frame_equal(
-                self.pd_element_loss,
-                element_loss,
-                check_dtype=False,
+                self.pd_element_loss, element_loss, check_dtype=False,
             )
         except AssertionError as err:
             raise err
@@ -47,13 +46,14 @@ class Verifica_Losses_Tools(unittest.TestCase):
 
     def test_pd_list_loss(self):
         [element_list_loss] = run_static_pf(
-                self.distSys, tools=[
-                        lambda distSys: losses.pd_element_loss_list(
-                            self.distSys,
-                            distSys.dss.Transformers.AllNames(),
-                            element_type='Transformer'
-                        )
-                ]
+            self.distSys,
+            tools=[
+                lambda distSys: losses.pd_element_loss_list(
+                    self.distSys,
+                    distSys.dss.Transformers.AllNames(),
+                    element_type="Transformer",
+                )
+            ],
         )
         try:
             assert_frame_equal(
@@ -67,9 +67,7 @@ class Verifica_Losses_Tools(unittest.TestCase):
 
     def test_pd_loss(self):
         [LossDataFrame] = run_static_pf(
-                self.distSys, tools=[
-                    losses.get_all_pd_elements_losses
-                ]
+            self.distSys, tools=[losses.get_all_pd_elements_losses]
         )
         try:
             assert_frame_equal(
@@ -83,9 +81,7 @@ class Verifica_Losses_Tools(unittest.TestCase):
 
     def test_line_loss(self):
         [LinesDataFrame] = run_static_pf(
-                self.distSys, tools=[
-                    losses.get_all_line_losses
-                ]
+            self.distSys, tools=[losses.get_all_line_losses]
         )
         try:
             assert_frame_equal(
@@ -99,9 +95,7 @@ class Verifica_Losses_Tools(unittest.TestCase):
 
     def test_trafo_loss(self):
         [TrafoDataFrame] = run_static_pf(
-                self.distSys, tools=[
-                    losses.get_all_transformers_losses
-                ]
+            self.distSys, tools=[losses.get_all_transformers_losses]
         )
         try:
             assert_frame_equal(
@@ -115,9 +109,7 @@ class Verifica_Losses_Tools(unittest.TestCase):
 
     def test_total_loss(self):
         [TotalDataFrame] = run_static_pf(
-                self.distSys, tools=[
-                    losses.get_total_pd_elements_losses
-                ]
+            self.distSys, tools=[losses.get_total_pd_elements_losses]
         )
         try:
             assert_frame_equal(
@@ -130,5 +122,5 @@ class Verifica_Losses_Tools(unittest.TestCase):
         self.assertTrue(True)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

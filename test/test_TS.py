@@ -42,7 +42,7 @@ class Verifica_Voltage_toolsTS(unittest.TestCase):
                 self.all_v_pu_ang,
                 df_all_v_pu_ang,
                 check_dtype=False,
-                atol = 1e-4,
+                atol=1e-4,
             )
         except AssertionError as err:
             raise err
@@ -58,7 +58,7 @@ class Verifica_Voltage_toolsTS(unittest.TestCase):
                 self.all_v_pu_ang.reset_index(drop=True),
                 df_v_pu_ang.reset_index(drop=True),
                 check_dtype=False,
-                atol = 1e-4,
+                atol=1e-4,
             )
 
         except AssertionError as err:
@@ -100,7 +100,7 @@ class Verifica_Line_toolsTS(unittest.TestCase):
                 self.all_line_infos,
                 df_all_line_infos,
                 check_dtype=False,
-                atol = 1e-4,
+                atol=1e-4,
             )
         except AssertionError as err:
             raise err
@@ -118,7 +118,7 @@ class Verifica_Line_toolsTS(unittest.TestCase):
                 self.all_line_infos.reset_index(drop=True),
                 df_all_line_infos.reset_index(drop=True),
                 check_dtype=False,
-                atol = 1e-4,
+                atol=1e-4,
             )
 
         except AssertionError as err:
@@ -159,7 +159,7 @@ class Verifica_reg_toolsTS(unittest.TestCase):
                 self.reg_number,
                 df_all_taps_number,
                 check_dtype=False,
-                atol = 1e-4,
+                atol=1e-4,
             )
         except AssertionError as err:
             raise err
@@ -177,7 +177,7 @@ class Verifica_reg_toolsTS(unittest.TestCase):
                 self.reg_number,
                 df_all_taps_number,
                 check_dtype=False,
-                atol = 1e-4,
+                atol=1e-4,
             )
         except AssertionError as err:
             raise err
@@ -186,10 +186,7 @@ class Verifica_reg_toolsTS(unittest.TestCase):
         df_taps_chngs = reg_redc.get_taps_changes(self.reg_number)
         try:
             assert_frame_equal(
-                self.reg_chngs,
-                df_taps_chngs,
-                check_dtype=False,
-                atol = 1e-4,
+                self.reg_chngs, df_taps_chngs, check_dtype=False, atol=1e-4,
             )
         except AssertionError as err:
             raise err

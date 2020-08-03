@@ -19,9 +19,7 @@ def get_all_taps_number(distSys: SystemClass) -> pandas.DataFrame:
 
 
 @tools
-def get_tap_number(
-    distSys: SystemClass, names: List[str]
-) -> pandas.DataFrame:
+def get_tap_number(distSys: SystemClass, names: List[str]) -> pandas.DataFrame:
     """
     Get the tap number of regulators.
 

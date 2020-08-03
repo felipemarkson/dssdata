@@ -22,7 +22,7 @@ def run_static_pf(
 
     Returns:
         Tools functions returns
-    """ # noqa
+    """  # noqa
     [action(distSys) for action in actions]
     distSys.run_command("set mode=Snap")
     distSys.dss.Solution.Solve()
