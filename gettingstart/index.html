@@ -9,9 +9,9 @@
 <link href="https://felipemarkson.github.io/dssdata/gettingstart/" rel="canonical"/>
 <meta content="Felipe M. S. Monteiro" name="author"/>
 <link href="../assets/images/favicon.png" rel="shortcut icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-5.4.0" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-5.5.2" name="generator"/>
 <title>Getting Started - DSSData</title>
-<link href="../assets/stylesheets/main.fe0cca5b.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.25b81cc6.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
 <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
@@ -270,8 +270,8 @@
 </div>
 <h2 id="samples">Samples</h2>
 <h3 id="static-power-flow-snapshot">Static Power Flow (Snapshot)</h3>
-<p>Instance the class <a href="api/#dssdata.SystemClass"><code>SystemClass</code></a> indicating the path to the <code>.dss</code> file and the base system voltage.</p>
-<p>Execute a static power flow using <a href="#dssdata.pfmodes.run_static_pf"><code>run_static_pf</code></a>, informing the instance of <a href="api/#dssdata.SystemClass"><code>SystemClass</code></a> and a <a href="tutorial/#creating-your-first-tool"><code>Tool</code></a>. The DSSData provides some <a href="api/#dssdata.tools">tools</a> to a quick start. </p>
+<p>Instance the class <a href="../api/#dssdata.SystemClass"><code>SystemClass</code></a> indicating the path to the <code>.dss</code> file and the base system voltage.</p>
+<p>Execute a static power flow using <a href="../api/#dssdata.pfmodes.run_static_pf"><code>run_static_pf</code></a>, informing the instance of <a href="../api/#dssdata.SystemClass"><code>SystemClass</code></a> and a <a href="../tutorial/#creating-your-first-tool"><code>Tool</code></a>. The DSSData provides some <a href="../api/#dssdata.tools">tools</a> to a quick start. </p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">dssdata</span> <span class="kn">import</span> <span class="n">SystemClass</span>
 <span class="kn">from</span> <span class="nn">dssdata.pfmodes</span> <span class="kn">import</span> <span class="n">run_static_pf</span>
 <span class="kn">from</span> <span class="nn">dssdata.tools</span> <span class="kn">import</span> <span class="n">voltages</span>
@@ -282,8 +282,8 @@
 <span class="p">[</span><span class="n">voltageDataFrame</span><span class="p">]</span> <span class="o">=</span> <span class="n">run_static_pf</span><span class="p">(</span><span class="n">distSys</span><span class="p">,</span> <span class="n">tools</span><span class="o">=</span><span class="p">[</span><span class="n">voltages</span><span class="o">.</span><span class="n">get_all</span><span class="p">])</span>
 </code></pre></div>
 <h3 id="time-series-power-flow">Time series Power Flow</h3>
-<p>Instance the class <a href="api/#dssdata.SystemClass"><code>SystemClass</code></a> indicating the path to the <code>.dss</code> file and the base system voltage.</p>
-<p>Execute a time series power flow using <a href="#dssdata.pfmodes.cfg_tspf"><code>cfg_tspf</code></a> and <a href="#dssdata.pfmodes.run_tspf"><code>run_tspf</code></a>, informing the instance of <a href="api/#dssdata.SystemClass"><code>SystemClass</code></a> and a <a href="tutorial/#creating-your-first-tool"><code>Tool</code></a>. The DSSData provides some <a href="api/#dssdata.tools">tools</a> to a quick start. </p>
+<p>Instance the class <a href="../api/#dssdata.SystemClass"><code>SystemClass</code></a> indicating the path to the <code>.dss</code> file and the base system voltage.</p>
+<p>Execute a time series power flow using <a href="../api/#dssdata.pfmodes.cfg_tspf"><code>cfg_tspf</code></a> and <a href="../api/#dssdata.pfmodes.run_tspf"><code>run_tspf</code></a>, informing the instance of <a href="../api/#dssdata.SystemClass"><code>SystemClass</code></a> and a <a href="../tutorial/#creating-your-first-tool"><code>Tool</code></a>. The DSSData provides some <a href="../api/#dssdata.tools">tools</a> to a quick start. </p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">dssdata</span> <span class="kn">import</span> <span class="n">SystemClass</span>
 <span class="kn">from</span> <span class="nn">dssdata.pfmodes</span> <span class="kn">import</span> <span class="n">cfg_tspf</span><span class="p">,</span> <span class="n">run_tspf</span>
 <span class="kn">from</span> <span class="nn">dssdata.tools</span> <span class="kn">import</span> <span class="n">lines</span><span class="p">,</span> <span class="n">voltages</span>
@@ -348,14 +348,14 @@
 </div>
 </footer>
 </div>
-<script src="../assets/javascripts/vendor.d710d30a.min.js"></script>
-<script src="../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+<script src="../assets/javascripts/vendor.592d4e23.min.js"></script>
+<script src="../assets/javascripts/bundle.806ca5c4.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
 <script>
         app = initialize({
           base: "..",
           features: ["instant"],
           search: Object.assign({
-            worker: "../assets/javascripts/worker/search.a68abb33.min.js"
+            worker: "../assets/javascripts/worker/search.01088dc6.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
