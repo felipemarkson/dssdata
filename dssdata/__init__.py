@@ -85,7 +85,7 @@ class SystemClass:
     def loadmult(self) -> float:
         """
         Returns:
-            The load multiplier.  See ```loadmult``` in [OpenDSS User Manual](http://svn.code.sf.net/p/electricdss/code/trunk/Distrib/Doc/> OpenDSSManual.pdf)..
+            The load multiplier.  See ```loadmult``` in [OpenDSS User Manual](http://svn.code.sf.net/p/electricdss/code/trunk/Distrib/Doc/OpenDSSManual.pdf)..
         """  # noqa: E501
         return self.__loadmult
 
