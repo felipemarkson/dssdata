@@ -12,7 +12,7 @@ def get_taps_changes(tapDataFrame: pandas.DataFrame) -> pandas.DataFrame:
 
     Returns:
         The number of taps changes after time series power flow.
-    """ # noqa
+    """  # noqa
 
     def calc_one_step_chgs(first: list, second: list):
         return map(lambda data1, data2: abs(data1 - data2), first, second)

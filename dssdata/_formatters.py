@@ -22,9 +22,8 @@ def __get_mag_vanish(list_ph: list, data: list) -> tuple:
     mag_indexes = filter(__iseven, range(0, len(data)))
 
     mag_formatted = tuple(
-        map(
-            lambda indx: __format_mag(data[indx]), mag_indexes
-        ))
+        map(lambda indx: __format_mag(data[indx]), mag_indexes)
+    )
 
     func_aux = partial(__aux_vanish, list_ph, mag_formatted)
 
@@ -36,9 +35,8 @@ def __get_ang_vanish(list_ph: list, data: list) -> tuple:
     ang_indexes = filter(__isodd, range(0, len(data)))
 
     ang_formatted = tuple(
-        map(
-            lambda indx: __format_ang(data[indx]), ang_indexes
-        ))
+        map(lambda indx: __format_ang(data[indx]), ang_indexes)
+    )
 
     func_aux = partial(__aux_vanish, list_ph, ang_formatted)
 
@@ -54,7 +52,7 @@ def __identify_ph_config(phs: list) -> str:
         elif ph == 3:
             return "c"
         else:
-            msg = f"The phase {ph} is not a valid number. Only 1, 2 or 3 is aceppted. This phase will be ignored" # noqa
+            msg = f"The phase {ph} is not a valid number. Only 1, 2 or 3 is aceppted. This phase will be ignored"  # noqa
             warnings.warn(msg, SyntaxWarning)
             return ""
 
@@ -84,7 +82,7 @@ def __check_elements(element_names: list, all_elements_names: list) -> None:
     Raises:
         Exception:  Se algum item de element_names não estiver em
                     all_elements_names
-    """ # noqa
+    """  # noqa
     for element_name in element_names:
         if element_name not in all_elements_names:
             raise ValueError(
