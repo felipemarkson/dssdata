@@ -1,16 +1,29 @@
 name: Deploy Documentation
 
-on: release
+on: 
+  release:
+    types:
+      - prereleased
 
 jobs:
   build:
     name: Deploy docs
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout master
-        uses: actions/checkout@v1
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it      
+    - uses: actions/checkout@v2
+      
+    - name: Setup Python      
+      uses: actions/setup-python@v1.2.0
+      with:
+        python-version: '3.8.x'
+        architecture: 'x64'
+      
+    - name: Install Poetry
+      uses: dschep/install-poetry-action@v1.3
 
-      - name: Deploy docs
-        uses: mhausenblas/mkdocs-deploy-gh-pages@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Install requirements
+      run: poetry install
+
+    - name: Deploy
+      run: poetry run mkdocs gh-deploy
