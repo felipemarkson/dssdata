@@ -1,5 +1,4 @@
 import pandas
-from functools import reduce
 from .. import SystemClass
 from ..decorators import actions, mode
 from typing import Iterable, Tuple, Callable
@@ -69,26 +68,6 @@ def run_tspf(
         Tools functions returns for all steps
     """  # noqa
 
-    def concat_dfs(list_df1, list_df2):
-        """
-        Concatena dois conjuntos de DF par a par. Ex:
-        list_df1 = [df1, df2, df3]
-        list_df2 = [df4, df5, df6]
-        return [pd.concat(df1,df4), pd.concat(df2,df5), pd.concat(df3,df6)]
-
-        Args:
-            list_df1 ([type]): [description]
-            list_df2 ([type]): [description]
-
-        Returns:
-            [type]: [description]
-        """
-        return map(
-            lambda df1, df2: pandas.concat([df1, df2], ignore_index=True),
-            list_df1,
-            list_df2,
-        )
-
     def runmode_one_step(distSys):
         distSys.dss.Solution.Number(1)
         distSys.dss.Solution.Solve()
@@ -98,11 +77,27 @@ def run_tspf(
         df["step"] = step
         return df
 
-    def run_concetps(distSys, step):
-        [action(distSys) for action in actions]
+    def run_concepts(distSys, actions, tools, step):
+        for action in actions:
+            action(distSys)
+
         runmode_one_step(distSys)
-        return tuple(run_tool(distSys, tool, step) for tool in tools)
 
-    all_steps = (run_concetps(distSys, step) for step in range(0, num_steps))
+        return [run_tool(distSys, tool, step) for tool in tools]
 
-    return tuple(reduce(concat_dfs, all_steps))
+    def all_steps_tool(all_steps_result, steps, indx_tool):
+        return pandas.concat(
+            [all_steps_result[step][indx_tool] for step in steps],
+            ignore_index=True,
+        )
+
+    steps = range(0, num_steps)
+
+    all_steps_result = [
+        run_concepts(distSys, actions, tools, step) for step in steps
+    ]
+
+    return [
+        all_steps_tool(all_steps_result, steps, indx)
+        for indx, _ in enumerate(tools)
+    ]
