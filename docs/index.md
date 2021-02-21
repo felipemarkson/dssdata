@@ -12,7 +12,7 @@ The rest of the docs describe each component of  DSSData in detail, with a full 
 
 Please, if you find some bug, report to us in our [Issues Section](https://github.com/felipemarkson/power-flow-analysis/issues).
 
-DSSData is built on [OpenDSSDirect.py](https://github.com/dss-extensions/OpenDSSDirect.py). The documentation for this library can be found [here](https://felipemarkson.github.io/dssdata/api).
+DSSData is built on [OpenDSSDirect.py](https://github.com/dss-extensions/OpenDSSDirect.py).
 
 
 ## Mode support
@@ -23,7 +23,7 @@ DSSData is built on [OpenDSSDirect.py](https://github.com/dss-extensions/OpenDSS
 
 ## Requirements
 
-- Python >= 3.7 < 3.9
+- Python >= 3.7
 
 
 ## Contributors

@@ -112,5 +112,4 @@ dmypy.json
 Sistema*/
 .vscode
 Meuteste*.py
-*.lock
 .venv/
