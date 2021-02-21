@@ -43,4 +43,4 @@ jobs:
       run: poetry run python -m unittest
     
     - name: Deploying the Documentation
-      run: mkdocs gh-deploy
+      run: poetry run mkdocs gh-deploy
