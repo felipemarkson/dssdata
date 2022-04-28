@@ -5,6 +5,60 @@ from typing import Iterable, List
 __version__ = "0.1.6"
 
 
+def _redirect_handler(path) -> List[str]:
+    """
+    If a redirect command is found, call the function recursively
+    Args:
+        path: The path to the file.
+        acc: A buffer to store the commands.
+    Returns:
+        True if the file has a solve command.
+    """
+    with open(path, "rt") as file:
+        lines = file.readlines()
+
+    commands = _remove_comments_dss(lines)
+    no_redirect_cmds = []
+
+    for line in commands:
+        if "redirect" in line.lower().strip():
+            cmd = " ".join(line.split(" ")[1:]).strip()
+            head = pathfunc.split(path)[0]
+            no_redirect_cmds += _redirect_handler(pathfunc.join(head, cmd))
+        else:
+            no_redirect_cmds.append(line)
+
+    return no_redirect_cmds
+
+
+def _remove_comments_dss(list_cmd: List[str]) -> List[str]:
+
+    vanished: List[str] = []
+    in_a_comment = False
+    for cmd in list_cmd:
+        if cmd.strip().startswith("/*"):
+            in_a_comment = True
+            continue
+        elif cmd.strip().endswith("*/"):
+            in_a_comment = False
+            continue
+        if in_a_comment:
+            continue
+        elif cmd.strip().startswith("!"):
+            continue
+        elif cmd.strip().startswith("//"):
+            continue
+        elif len(cmd.strip()) == 0:
+            continue
+
+        if cmd.strip().startswith("~"):
+            vanished[-1] += cmd.strip()[1:].split("!")[0]
+        else:
+            vanished.append(cmd.strip())
+
+    return vanished
+
+
 class SystemClass:
     """
     The distribution system abstraction class.
@@ -20,8 +74,7 @@ class SystemClass:
             loadmult (float, optional): The load multiplier.  See ```loadmult``` in [OpenDSS User Manual](http://svn.code.sf.net/p/electricdss/code/trunk/Distrib/Doc/> OpenDSSManual.pdf).
         """  # noqa: E501
 
-        with open(path, "rt") as file:
-            self._dsscontent = file.read().splitlines()
+        self._dsscontent = _redirect_handler(path)
 
         self.__path = path
         self.__folder = pathfunc.split(path)[0]
@@ -118,10 +171,20 @@ class SystemClass:
         self.dss.Basic.ClearAll()
         if self.__folder != "":
             chdir(self.__folder)
-            list(map(self.run_command, self._dsscontent,))
+            list(
+                map(
+                    self.run_command,
+                    self._dsscontent,
+                )
+            )
             chdir(directory)
         else:
-            list(map(self.run_command, self._dsscontent,))
+            list(
+                map(
+                    self.run_command,
+                    self._dsscontent,
+                )
+            )
 
         self.run_command(f"Set voltagebases={self.__kV}")
         self.run_command("calcv")
