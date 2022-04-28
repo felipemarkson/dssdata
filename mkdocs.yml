@@ -13,12 +13,10 @@ theme:
   name: material
   language: en
   features:
-    - instant
+    - navigation.instant
 
 markdown_extensions:
   - codehilite
-
-
 
 plugins:
   - search
@@ -43,7 +41,6 @@ nav:
   - API Reference: api/index.md
 
   - License: LICENSE.md
-
 
 extra_css:
   - css/termynal.css
