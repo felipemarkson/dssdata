@@ -46,8 +46,3 @@ jobs:
       
     - name: Run Tests
       run: poetry run python -m unittest
-
-    - name: Build and publish to pypi
-      uses: JRubics/poetry-publish@v1
-      with:
-        pypi_token: ${{ secrets.PYPI_TOKEN }}
