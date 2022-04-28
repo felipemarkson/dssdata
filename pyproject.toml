@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "dssdata"
-version = "0.1.5"
+version = "0.1.6"
 description = "Organizing OpenDSS data"
 authors = ["Felipe M. S. Monteiro <fmarkson@outlook.com>"]
 license = "MIT"
@@ -15,16 +15,16 @@ classifiers = [
 
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.8"
 "OpenDSSDirect.py" = "^0.6.*"
 pandas = "^1.*"
 
 [tool.poetry.dev-dependencies]
-flake8 = "^3.7.9"
-black = "^19.10b0"
-matplotlib = "^3.3.4"
+flake8 = "^4.*"
+black = "^22.*"
+matplotlib = "^3.*"
 notebook = "^6.*"
-mkdocs-material = "^6.*"
+mkdocs-material = "^8.*"
 mkdocstrings = "^0.*"
 mkdocs-jupyter = "^0.*"
 

@@ -2,7 +2,7 @@ from os import getcwd, chdir
 from os import path as pathfunc
 from typing import Iterable, List
 
-__version__ = "0.1.2"
+__version__ = "0.1.6"
 
 
 class SystemClass:
