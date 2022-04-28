@@ -5,7 +5,7 @@
 ![Tests](https://github.com/felipemarkson/dssdata/actions/workflows/test.yml/badge.svg)
 
 [![PyPI Downloads](https://img.shields.io/pypi/dm/dssdata.svg?label=PyPI%20downloads)](
-https://pypi.org/project/numpy/)
+https://pypi.org/project/dssdata/)
 ![stars](https://img.shields.io/github/stars/felipemarkson/dssdata)
 
 _**⚡A python micro-framework for steady-state simulation and data analysis of electrical distribution systems modeled on [OpenDSS](https://www.epri.com/#/pages/sa/opendss?lang=en).**_
