@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "dssdata"
-version = "0.1.6"
+version = "0.1.7"
 description = "Organizing OpenDSS data"
 authors = ["Felipe M. S. Monteiro <fmarkson@outlook.com>"]
 license = "MIT"

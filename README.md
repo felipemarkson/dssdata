@@ -13,10 +13,9 @@ _**⚡A python micro-framework for steady-state simulation and data analysis of 
 Mode support: Static and Time-series.
 
 ## Why DSSData?
+The purpose of DSSData is to facilitate the steady-state simulation of modern electrical distribution systems, such as microgrids, smart grids, and smart cities.
 
-The propose of DSSData is to facilitate the steady-state simulation of modern electrical distribution systems, such as microgrid, smart grids, and smart cities.
-
-With DSSData you can easily make your own super new fancy operation strategies with storage or generators, probabilistic simulation, or a simple impact studies of a distributed generator. See an example in our [Tutorial](https://felipemarkson.github.io/dssdata/tutorial/).
+With DSSData you can easily make your own super new fancy operation strategies with storage or generators, probabilistic simulation, or simple impact studies of a distributed generator. See an example in our [Tutorial](https://felipemarkson.github.io/dssdata/tutorial/).
 
 **_All you need is your base distribution system modeled in OpenDSS!!!_**
 
