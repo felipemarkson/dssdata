@@ -45,6 +45,22 @@ pip install dssdata
 poetry add dssdata
 ```
 
+## Citing
+
+If you find DSSData useful in your work, we kindly request that you cite it as below: 
+```bibitex
+@software{Monteiro_felipemarkson_dssdata_v0_1_7_2022,
+  author = {Monteiro, Felipe},
+  doi = {10.5281/zenodo.6784238},
+  license = {MIT},
+  month = {6},
+  title = {{felipemarkson/dssdata: v0.1.7}},
+  url = {https://github.com/felipemarkson/dssdata},
+  version = {0.1.7},
+  year = {2022}
+}
+```
+
 ## Help us to improve DSSData
 
 See our [Issue](https://github.com/felipemarkson/dssdata/issues) section!
