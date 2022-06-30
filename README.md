@@ -48,7 +48,7 @@ poetry add dssdata
 ## Citing
 
 If you find DSSData useful in your work, we kindly request that you cite it as below: 
-```bibitex
+```bibtex
 @software{Monteiro_felipemarkson_dssdata_v0_1_7_2022,
   author = {Monteiro, Felipe},
   doi = {10.5281/zenodo.6784238},
