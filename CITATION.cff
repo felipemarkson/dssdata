@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Monteiro"
+  given-names: "Felipe"
+  orcid: "https://orcid.org/0000-0002-3774-8384"
+title: "felipemarkson/dssdata: v0.1.7"
+type: software
+version: 0.1.7
+doi: 10.5281/zenodo.6784238
+date-released: 2022-06-30
+url: "https://github.com/felipemarkson/dssdata"
+contact:
+- email: "fmarkson@outlook.com"
+  given-names: "Felipe"
+  family-names: "Monteiro"
+license: MIT
