@@ -1,9 +1,10 @@
 # DSSData
 
 [![PyPI version](https://badge.fury.io/py/dssdata.svg)](https://pypi.org/project/dssdata/)
+[![DOI](https://zenodo.org/badge/250637349.svg)](https://zenodo.org/badge/latestdoi/250637349)
 [![License](https://img.shields.io/github/license/felipemarkson/dssdata)](https://github.com/felipemarkson/dssdata/blob/master/LICENSE)
-![Tests](https://github.com/felipemarkson/dssdata/actions/workflows/test.yml/badge.svg)
 
+![Tests](https://github.com/felipemarkson/dssdata/actions/workflows/test.yml/badge.svg)
 [![PyPI Downloads](https://img.shields.io/pypi/dm/dssdata.svg?label=PyPI%20downloads)](
 https://pypi.org/project/dssdata/)
 ![stars](https://img.shields.io/github/stars/felipemarkson/dssdata)
