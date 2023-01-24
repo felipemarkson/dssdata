@@ -9,14 +9,13 @@
         <meta name="description" content="A python micro-framework for simulation and data analysis of electrical distribution systems modeled on OpenDSS">
       
       
-      
         <meta name="author" content="Felipe M. S. Monteiro">
       
       
         <link rel="canonical" href="https://felipemarkson.github.io/dssdata/api/">
       
-      <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
@@ -24,30 +23,37 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.cb6bc1d0.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.975780f9.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
         
       
+      
+
     
     
     
       
+        
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
     
       <link rel="stylesheet" href="../css/termynal.css">
     
       <link rel="stylesheet" href="../css/custom.css">
     
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+
+    
     
     
   </head>
@@ -58,9 +64,9 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
-      
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="None" data-md-color-accent="None">
   
+    
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -77,27 +83,28 @@
       
     </div>
     
+    
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="https://felipemarkson.github.io/dssdata/" title="DSSData" class="md-header-nav__button md-logo" aria-label="DSSData">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="DSSData" class="md-header__button md-logo" aria-label="DSSData" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    <label class="md-header-nav__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
     </label>
-    <div class="md-header-nav__title" data-md-component="header-title">
-      <div class="md-header-nav__ellipsis">
-        <div class="md-header-nav__topic">
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
           <span class="md-ellipsis">
             DSSData
           </span>
         </div>
-        <div class="md-header-nav__topic">
+        <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
               API Reference
@@ -107,22 +114,27 @@
       </div>
     </div>
     
-      <label class="md-header-nav__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -138,12 +150,11 @@
 </div>
     
     
-      <div class="md-header-nav__source">
-        
-<a href="https://github.com/felipemarkson/dssdata/" title="Go to repository" class="md-source">
+      <div class="md-header__source">
+        <a href="https://github.com/felipemarkson/dssdata" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     felipemarkson/dssdata
@@ -152,11 +163,14 @@
       </div>
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -164,31 +178,28 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
 
 
-
-
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="https://felipemarkson.github.io/dssdata/" title="DSSData" class="md-nav__button md-logo" aria-label="DSSData">
+    <a href=".." title="DSSData" class="md-nav__button md-logo" aria-label="DSSData" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
     DSSData
   </label>
   
     <div class="md-nav__source">
-      
-<a href="https://github.com/felipemarkson/dssdata/" title="Go to repository" class="md-source">
+      <a href="https://github.com/felipemarkson/dssdata" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     felipemarkson/dssdata
@@ -256,6 +267,7 @@
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
+      
         
       
       
@@ -269,7 +281,9 @@
       </a>
       
         
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -279,7 +293,7 @@
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#dssdata" class="md-nav__link">
@@ -645,11 +659,13 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -659,7 +675,7 @@
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#dssdata" class="md-nav__link">
@@ -1002,831 +1018,1132 @@
               </div>
             
           
-          <div class="md-content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
-                  <a href="https://github.com/felipemarkson/dssdata/edit/master/docs/api/index.md" title="Edit this page" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-                  </a>
-                
-                
-                <h1 id="api-reference">API Reference</h1>
-<div class="doc doc-object doc-module">
-<h2 class="hidden-toc" id="dssdata" style="visibility: hidden; position: absolute;">
-        </h2>
-<div class="doc doc-contents first">
-<div class="doc doc-children">
-<div class="doc doc-object doc-class">
-<h2 class="doc doc-heading" id="dssdata.SystemClass">
+                  
 
+  <a href="https://github.com/felipemarkson/dssdata/edit/master/docs/api/index.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="api-reference">API Reference</h1>
+
+
+<div class="doc doc-object doc-module">
+
+
+<a id="dssdata"></a>
+  <div class="doc doc-contents first">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="dssdata.SystemClass" class="doc doc-heading">
         <code>SystemClass</code>
 
 
+</h2>
 
-      </h2>
-<div class="doc doc-contents ">
-<p>The distribution system abstraction class.</p>
-<div class="doc doc-children">
+
+  <div class="doc doc-contents ">
+
+  
+      <p>The distribution system abstraction class.</p>
+
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
 <div class="doc doc-object doc-attribute">
-<h3 class="doc doc-heading" id="dssdata.SystemClass.dss">
 
-<code class="highlight language-python"><span class="n">dss</span></code>
 
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-property"><code>property</code></small>
-      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+
+<h3 id="dssdata.SystemClass.dss" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">dss</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
   </span>
 
-      </h3>
-<div class="doc doc-contents ">
-<p>The instance of <a href="https://github.com/dss-extensions/OpenDSSDirect.py">OpenDSSDirect.py</a>.</p>
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>The instance of <a href="https://github.com/dss-extensions/OpenDSSDirect.py">OpenDSSDirect.py</a>.</p>
+  </div>
+
 </div>
-</div>
+
 <div class="doc doc-object doc-attribute">
-<h3 class="doc doc-heading" id="dssdata.SystemClass.dsscontent">
 
-<code class="highlight language-python"><span class="n">dsscontent</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span></code>
 
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-property"><code>property</code></small>
-      <small class="doc doc-property doc-property-writable"><code>writable</code></small>
+
+<h3 id="dssdata.SystemClass.dsscontent" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">dsscontent</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+      <small class="doc doc-label doc-label-writable"><code>writable</code></small>
   </span>
 
-      </h3>
-<div class="doc doc-contents ">
-<p>The OpenDSS commands of the <code>.dss</code> file in <a href="#dssdata.SystemClass.path">path</a>.</p>
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>The OpenDSS commands of the <code>.dss</code> file in <a class="autorefs autorefs-internal" href="#dssdata.SystemClass.path">path</a>.</p>
 <p>As well, you can change the list of commands.</p>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>List[str]</code></td>
-<td>
-<p>OpenDSS commands.</p>
-</td>
-</tr>
-</tbody>
-</table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="typing.List">List</span>[str]</code>
+          </td>
+          <td><p>OpenDSS commands.</p></td>
+        </tr>
+    </tbody>
+  </table>
+  </div>
+
 </div>
-</div>
+
 <div class="doc doc-object doc-attribute">
-<h3 class="doc doc-heading" id="dssdata.SystemClass.error">
 
-<code class="highlight language-python"><span class="n">error</span><span class="p">:</span> <span class="nb">str</span></code>
 
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-property"><code>property</code></small>
-      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+
+<h3 id="dssdata.SystemClass.error" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">error</span><span class="p">:</span> <span class="nb">str</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
   </span>
 
-      </h3>
-<div class="doc doc-contents ">
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>str</code></td>
-<td>
-<p>The error of the last OpenDSS command.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The error of the last OpenDSS command.</p></td>
+        </tr>
+    </tbody>
+  </table>
+  </div>
+
 </div>
-</div>
+
 <div class="doc doc-object doc-attribute">
-<h3 class="doc doc-heading" id="dssdata.SystemClass.kV">
 
-<code class="highlight language-python"><span class="n">kV</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span></code>
 
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-property"><code>property</code></small>
-      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+
+<h3 id="dssdata.SystemClass.kV" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">kV</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
   </span>
 
-      </h3>
-<div class="doc doc-contents ">
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Iterable[float]</code></td>
-<td>
-<p>The base voltages. See <code>voltagebases</code> in <a href="http://svn.code.sf.net/p/electricdss/code/trunk/Distrib/Doc/OpenDSSManual.pdf">OpenDSS User Manual</a>.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="typing.Iterable">Iterable</span>[float]</code>
+          </td>
+          <td><p>The base voltages. See <code>voltagebases</code> in <a href="http://svn.code.sf.net/p/electricdss/code/trunk/Distrib/Doc/OpenDSSManual.pdf">OpenDSS User Manual</a>.</p></td>
+        </tr>
+    </tbody>
+  </table>
+  </div>
+
 </div>
-</div>
+
 <div class="doc doc-object doc-attribute">
-<h3 class="doc doc-heading" id="dssdata.SystemClass.loadmult">
 
-<code class="highlight language-python"><span class="n">loadmult</span><span class="p">:</span> <span class="nb">float</span></code>
 
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-property"><code>property</code></small>
-      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+
+<h3 id="dssdata.SystemClass.loadmult" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">loadmult</span><span class="p">:</span> <span class="nb">float</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
   </span>
 
-      </h3>
-<div class="doc doc-contents ">
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>float</code></td>
-<td>
-<p>The load multiplier.  See <code>loadmult</code> in <a href="http://svn.code.sf.net/p/electricdss/code/trunk/Distrib/Doc/OpenDSSManual.pdf">OpenDSS User Manual</a>..</p>
-</td>
-</tr>
-</tbody>
-</table>
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>float</code>
+          </td>
+          <td><p>The load multiplier.  See <code>loadmult</code> in <a href="http://svn.code.sf.net/p/electricdss/code/trunk/Distrib/Doc/OpenDSSManual.pdf">OpenDSS User Manual</a>..</p></td>
+        </tr>
+    </tbody>
+  </table>
+  </div>
+
 </div>
-</div>
+
 <div class="doc doc-object doc-attribute">
-<h3 class="doc doc-heading" id="dssdata.SystemClass.name">
 
-<code class="highlight language-python"><span class="n">name</span><span class="p">:</span> <span class="nb">str</span></code>
 
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-property"><code>property</code></small>
-      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+
+<h3 id="dssdata.SystemClass.name" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">name</span><span class="p">:</span> <span class="nb">str</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
   </span>
 
-      </h3>
-<div class="doc doc-contents ">
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>str</code></td>
-<td>
-<p>The name of the distribution system.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The name of the distribution system.</p></td>
+        </tr>
+    </tbody>
+  </table>
+  </div>
+
 </div>
-</div>
+
 <div class="doc doc-object doc-attribute">
-<h3 class="doc doc-heading" id="dssdata.SystemClass.path">
 
-<code class="highlight language-python"><span class="n">path</span><span class="p">:</span> <span class="nb">str</span></code>
 
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-property"><code>property</code></small>
-      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+
+<h3 id="dssdata.SystemClass.path" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">path</span><span class="p">:</span> <span class="nb">str</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
   </span>
 
-      </h3>
-<div class="doc doc-contents ">
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>str</code></td>
-<td>
-<p>The path of the <code>.dss</code> file.</p>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="dssdata.SystemClass.__init__">
-
-<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">kV</span><span class="p">,</span> <span class="n">loadmult</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span></code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
-
-      </h3>
-<div class="doc doc-contents ">
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>path</code></td>
-<td><code>str</code></td>
-<td>
-<p>The path to the file that describes the distribution system.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>kV</code></td>
-<td><code>Iterable[float]</code></td>
-<td>
-<p>The base voltages. See <code>voltagebases</code> in <a href="http://svn.code.sf.net/p/electricdss/code/trunk/Distrib/Doc/OpenDSSManual.pdf">OpenDSS User Manual</a>.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>loadmult</code></td>
-<td><code>float</code></td>
-<td>
-<p>The load multiplier.  See <code>loadmult</code> in <a href="http://svn.code.sf.net/p/electricdss/code/trunk/Distrib/Doc/&gt; OpenDSSManual.pdf">OpenDSS User Manual</a>.</p>
-</td>
-<td><code>1</code></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="dssdata.SystemClass.init_sys">
-
-<code class="highlight language-python"><span class="n">init_sys</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></code>
+</h3>
 
 
-      </h3>
-<div class="doc doc-contents ">
-<p>Run the commands in <a href="#dssdata.SystemClass.dsscontent">dsscontent</a>.</p>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="dssdata.SystemClass.run_command">
+  <div class="doc doc-contents ">
+  
 
-<code class="highlight language-python"><span class="n">run_command</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="p">)</span></code>
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The path of the <code>.dss</code> file.</p></td>
+        </tr>
+    </tbody>
+  </table>
+  </div>
+
+</div>
 
 
-      </h3>
-<div class="doc doc-contents ">
-<p>Run a comand on OpenDSS.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>cmd</code></td>
-<td><code>str</code></td>
-<td>
-<p>A OpenDSS command.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Exceptions:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Exception</code></td>
-<td>
-<p>If the command is invalid.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>str</code></td>
-<td>
-<p>The OpenDSS command returns</p>
-</td>
-</tr>
-</tbody>
-</table>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="dssdata.SystemClass.__init__" class="doc doc-heading">
+<code class="codehilite language-python"><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">kV</span><span class="p">,</span> <span class="n">loadmult</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>path</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The path to the file that describes the distribution system.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>kV</code></td>
+          <td>
+                <code><span title="typing.Iterable">Iterable</span>[float]</code>
+          </td>
+          <td><p>The base voltages. See <code>voltagebases</code> in <a href="http://svn.code.sf.net/p/electricdss/code/trunk/Distrib/Doc/OpenDSSManual.pdf">OpenDSS User Manual</a>.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>loadmult</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td><p>The load multiplier.  See <code>loadmult</code> in <a href="http://svn.code.sf.net/p/electricdss/code/trunk/Distrib/Doc/&gt; OpenDSSManual.pdf">OpenDSS User Manual</a>.</p></td>
+          <td>
+                <code>1</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
 </div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="dssdata.SystemClass.init_sys" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">init_sys</span><span class="p">()</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Run the commands in <a class="autorefs autorefs-internal" href="#dssdata.SystemClass.dsscontent">dsscontent</a>.</p>
+
+  </div>
+
 </div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="dssdata.SystemClass.run_command" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">run_command</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Run a comand on OpenDSS.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>cmd</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>A OpenDSS command.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Raises:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>Exception</code>
+          </td>
+          <td><p>If the command is invalid.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The OpenDSS command returns</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
 </div>
+
+
+
+  </div>
+
+  </div>
+
 </div>
-</div>
+
+
+
 <div class="doc doc-object doc-module">
-<h2 class="doc doc-heading" id="dssdata.decorators">
-
-        <code>decorators</code>
 
 
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
 
-      </h2>
-<div class="doc doc-contents ">
-<div class="doc doc-children">
+<h2 id="dssdata.decorators" class="doc doc-heading">
+          <code>decorators</code>
+
+
+</h2>
+
+  <div class="doc doc-contents ">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
 <div class="doc doc-object doc-function">
-<h3 class="doc doc-heading" id="dssdata.decorators.actions">
-
-<code class="highlight language-python"><span class="n">actions</span><span class="p">(</span><span class="n">func</span><span class="p">)</span></code>
 
 
-      </h3>
-<div class="doc doc-contents ">
-<p>See <a href="/tutorial/#creating-your-first-action">Creating your first action</a>.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>func</code></td>
-<td><code>Callable</code></td>
-<td>
-<p>A action function</p>
-</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
-</table>
+
+<h3 id="dssdata.decorators.actions" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">actions</span><span class="p">(</span><span class="n">func</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>See <a href="/tutorial/#creating-your-first-action">Creating your first action</a>.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>func</code></td>
+          <td>
+                <code><span title="typing.Callable">Callable</span></code>
+          </td>
+          <td><p>A action function</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
 </div>
-</div>
+
 <div class="doc doc-object doc-function">
-<h3 class="doc doc-heading" id="dssdata.decorators.tools">
-
-<code class="highlight language-python"><span class="n">tools</span><span class="p">(</span><span class="n">func</span><span class="p">)</span></code>
 
 
-      </h3>
-<div class="doc doc-contents ">
-<p>See <a href="/tutorial/#creating-your-first-tool">Creating your first tool</a>.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>func</code></td>
-<td><code>Callable</code></td>
-<td>
-<p>A tool function</p>
-</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Callable</code></td>
-<td>
-<p>The return of the tool function</p>
-</td>
-</tr>
-</tbody>
-</table>
+
+<h3 id="dssdata.decorators.tools" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">tools</span><span class="p">(</span><span class="n">func</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>See <a href="/tutorial/#creating-your-first-tool">Creating your first tool</a>.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>func</code></td>
+          <td>
+                <code><span title="typing.Callable">Callable</span></code>
+          </td>
+          <td><p>A tool function</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="typing.Callable">Callable</span></code>
+          </td>
+          <td><p>The return of the tool function</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
 </div>
+
+
+
+  </div>
+
+  </div>
+
 </div>
-</div>
-</div>
-</div>
+
 <div class="doc doc-object doc-module">
-<h2 class="doc doc-heading" id="dssdata.pfmodes">
-
-        <code>pfmodes</code>
 
 
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
 
-      </h2>
-<div class="doc doc-contents ">
-<div class="doc doc-children">
+<h2 id="dssdata.pfmodes" class="doc doc-heading">
+          <code>pfmodes</code>
+
+
+</h2>
+
+  <div class="doc doc-contents ">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
 <div class="doc doc-object doc-function">
-<h3 class="doc doc-heading" id="dssdata.pfmodes.cfg_tspf">
-
-<code class="highlight language-python"><span class="n">cfg_tspf</span><span class="p">(</span><span class="n">distSys</span><span class="p">,</span> <span class="n">step_size</span><span class="o">=</span><span class="s1">'1h'</span><span class="p">,</span> <span class="n">initial_time</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span></code>
 
 
-      </h3>
-<div class="doc doc-contents ">
-<p>Set the time series mode in the distribution system.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>distSys</code></td>
-<td><code>SystemClass</code></td>
-<td>
-<p>An instance of <a href="#dssdata.SystemClass">SystemClass</a></p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>step_size</code></td>
-<td><code>str</code></td>
-<td>
-<p>The size of step time. See "Stepsize" in <a href="http://svn.code.sf.net/p/electricdss/code/trunk/Distrib/Doc/OpenDSSManual.pdf">OpenDSS User Manual</a>.</p>
-</td>
-<td><code>'1h'</code></td>
-</tr>
-<tr>
-<td><code>initial_time</code></td>
-<td><code>tuple</code></td>
-<td>
-<p>See "Time" in <a href="http://svn.code.sf.net/p/electricdss/code/trunk/Distrib/Doc/OpenDSSManual.pdf">OpenDSS User Manual</a>.</p>
-</td>
-<td><code>(0, 0)</code></td>
-</tr>
-</tbody>
-</table>
+
+<h3 id="dssdata.pfmodes.cfg_tspf" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">cfg_tspf</span><span class="p">(</span><span class="n">distSys</span><span class="p">,</span> <span class="n">step_size</span><span class="o">=</span><span class="s1">&#39;1h&#39;</span><span class="p">,</span> <span class="n">initial_time</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Set the time series mode in the distribution system.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>distSys</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="dssdata.SystemClass" href="#dssdata.SystemClass">SystemClass</a></code>
+          </td>
+          <td><p>An instance of <a class="autorefs autorefs-internal" href="#dssdata.SystemClass">SystemClass</a></p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>step_size</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The size of step time. See "Stepsize" in <a href="http://svn.code.sf.net/p/electricdss/code/trunk/Distrib/Doc/OpenDSSManual.pdf">OpenDSS User Manual</a>.</p></td>
+          <td>
+                <code>&#39;1h&#39;</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>initial_time</code></td>
+          <td>
+                <code>tuple</code>
+          </td>
+          <td><p>See "Time" in <a href="http://svn.code.sf.net/p/electricdss/code/trunk/Distrib/Doc/OpenDSSManual.pdf">OpenDSS User Manual</a>.</p></td>
+          <td>
+                <code>(0, 0)</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
 </div>
-</div>
+
 <div class="doc doc-object doc-function">
-<h3 class="doc doc-heading" id="dssdata.pfmodes.run_static_pf">
-
-<code class="highlight language-python"><span class="n">run_static_pf</span><span class="p">(</span><span class="n">distSys</span><span class="p">,</span> <span class="n">actions</span><span class="o">=</span><span class="p">(</span><span class="o">&lt;</span><span class="n">function</span> <span class="o">&lt;</span><span class="k">lambda</span><span class="o">&gt;</span> <span class="n">at</span> <span class="mh">0x7f88f870a550</span><span class="o">&gt;</span><span class="p">,),</span> <span class="n">tools</span><span class="o">=</span><span class="p">(</span><span class="o">&lt;</span><span class="n">function</span> <span class="o">&lt;</span><span class="k">lambda</span><span class="o">&gt;</span> <span class="n">at</span> <span class="mh">0x7f88f870a670</span><span class="o">&gt;</span><span class="p">,))</span></code>
 
 
-      </h3>
-<div class="doc doc-contents ">
-<p>Run the static power flow mode.
+
+<h3 id="dssdata.pfmodes.run_static_pf" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">run_static_pf</span><span class="p">(</span><span class="n">distSys</span><span class="p">,</span> <span class="n">actions</span><span class="o">=</span><span class="p">(</span><span class="k">lambda</span> <span class="n">distSys</span><span class="p">:</span> <span class="kc">None</span><span class="p">),</span> <span class="n">tools</span><span class="o">=</span><span class="p">(</span><span class="k">lambda</span> <span class="n">distSys</span><span class="p">:</span> <span class="kc">None</span><span class="p">))</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Run the static power flow mode.
 To see how it works, see <a href="../tutorial/#static-power-flow">Learning DSSData</a>.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>distSys</code></td>
-<td><code>SystemClass</code></td>
-<td>
-<p>An instance of <a href="#dssdata.SystemClass">SystemClass</a></p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>actions</code></td>
-<td><code>Iterable[Callable]</code></td>
-<td>
-<p>Actions functions.</p>
-</td>
-<td><code>(&lt;function &lt;lambda&gt; at 0x7f88f870a550&gt;,)</code></td>
-</tr>
-<tr>
-<td><code>tools</code></td>
-<td><code>Iterable[Callable]</code></td>
-<td>
-<p>Tools functions.</p>
-</td>
-<td><code>(&lt;function &lt;lambda&gt; at 0x7f88f870a670&gt;,)</code></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>tuple</code></td>
-<td>
-<p>Tools functions returns</p>
-</td>
-</tr>
-</tbody>
-</table>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>distSys</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="dssdata.SystemClass" href="#dssdata.SystemClass">SystemClass</a></code>
+          </td>
+          <td><p>An instance of <a class="autorefs autorefs-internal" href="#dssdata.SystemClass">SystemClass</a></p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>actions</code></td>
+          <td>
+                <code><span title="typing.Iterable">Iterable</span>[<span title="typing.Callable">Callable</span>]</code>
+          </td>
+          <td><p>Actions functions.</p></td>
+          <td>
+                <code>(lambda distSys: None)</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>tools</code></td>
+          <td>
+                <code><span title="typing.Iterable">Iterable</span>[<span title="typing.Callable">Callable</span>]</code>
+          </td>
+          <td><p>Tools functions.</p></td>
+          <td>
+                <code>(lambda distSys: None)</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>tuple</code>
+          </td>
+          <td><p>Tools functions returns</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
 </div>
-</div>
+
 <div class="doc doc-object doc-function">
-<h3 class="doc doc-heading" id="dssdata.pfmodes.run_tspf">
-
-<code class="highlight language-python"><span class="n">run_tspf</span><span class="p">(</span><span class="n">distSys</span><span class="p">,</span> <span class="n">num_steps</span><span class="p">,</span> <span class="n">actions</span><span class="o">=</span><span class="p">(</span><span class="o">&lt;</span><span class="n">function</span> <span class="o">&lt;</span><span class="k">lambda</span><span class="o">&gt;</span> <span class="n">at</span> <span class="mh">0x7f88f870a940</span><span class="o">&gt;</span><span class="p">,),</span> <span class="n">tools</span><span class="o">=</span><span class="p">(</span><span class="o">&lt;</span><span class="n">function</span> <span class="o">&lt;</span><span class="k">lambda</span><span class="o">&gt;</span> <span class="n">at</span> <span class="mh">0x7f88f870a9d0</span><span class="o">&gt;</span><span class="p">,))</span></code>
 
 
-      </h3>
-<div class="doc doc-contents ">
-<p>Run the time series power flow.
+
+<h3 id="dssdata.pfmodes.run_tspf" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">run_tspf</span><span class="p">(</span><span class="n">distSys</span><span class="p">,</span> <span class="n">num_steps</span><span class="p">,</span> <span class="n">actions</span><span class="o">=</span><span class="p">(</span><span class="k">lambda</span> <span class="n">distSys</span><span class="p">:</span> <span class="kc">None</span><span class="p">),</span> <span class="n">tools</span><span class="o">=</span><span class="p">(</span><span class="k">lambda</span> <span class="n">distSys</span><span class="p">:</span> <span class="kc">None</span><span class="p">))</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Run the time series power flow.
 To see how it works, see <a href="../tutorial/#time-series-power-flow">Learning DSSData</a>.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>distSys</code></td>
-<td><code>SystemClass</code></td>
-<td>
-<p>An instance of <a href="#dssdata.SystemClass">SystemClass</a></p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>num_steps</code></td>
-<td><code>int</code></td>
-<td>
-<p>Number of time steps.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>actions</code></td>
-<td><code>Iterable[Callable]</code></td>
-<td>
-<p>Actions functions.</p>
-</td>
-<td><code>(&lt;function &lt;lambda&gt; at 0x7f88f870a940&gt;,)</code></td>
-</tr>
-<tr>
-<td><code>tools</code></td>
-<td><code>Iterable[Callable]</code></td>
-<td>
-<p>Tools functions.</p>
-</td>
-<td><code>(&lt;function &lt;lambda&gt; at 0x7f88f870a9d0&gt;,)</code></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Tuple[pandas.core.frame.DataFrame]</code></td>
-<td>
-<p>Tools functions returns for all steps</p>
-</td>
-</tr>
-</tbody>
-</table>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>distSys</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="dssdata.SystemClass" href="#dssdata.SystemClass">SystemClass</a></code>
+          </td>
+          <td><p>An instance of <a class="autorefs autorefs-internal" href="#dssdata.SystemClass">SystemClass</a></p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>num_steps</code></td>
+          <td>
+          </td>
+          <td><p>Number of time steps.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>actions</code></td>
+          <td>
+                <code><span title="typing.Iterable">Iterable</span>[<span title="typing.Callable">Callable</span>]</code>
+          </td>
+          <td><p>Actions functions.</p></td>
+          <td>
+                <code>(lambda distSys: None)</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>tools</code></td>
+          <td>
+                <code><span title="typing.Iterable">Iterable</span>[<span title="typing.Callable">Callable</span>]</code>
+          </td>
+          <td><p>Tools functions.</p></td>
+          <td>
+                <code>(lambda distSys: None)</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="typing.Tuple">Tuple</span>[pandas.<span title="pandas.DataFrame">DataFrame</span>]</code>
+          </td>
+          <td><p>Tools functions returns for all steps</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
 </div>
+
+
+
+  </div>
+
+  </div>
+
 </div>
-</div>
-</div>
-</div>
+
 <div class="doc doc-object doc-module">
-<h2 class="doc doc-heading" id="dssdata.reductions">
-
-        <code>reductions</code>
 
 
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
 
-      </h2>
-<div class="doc doc-contents ">
-<div class="doc doc-children">
+<h2 id="dssdata.reductions" class="doc doc-heading">
+          <code>reductions</code>
+
+
+</h2>
+
+  <div class="doc doc-contents ">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
 <div class="doc doc-object doc-module">
-<h3 class="doc doc-heading" id="dssdata.reductions.regs">
-
-        <code>regs</code>
 
 
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
 
-      </h3>
-<div class="doc doc-contents ">
-<div class="doc doc-children">
+<h3 id="dssdata.reductions.regs" class="doc doc-heading">
+          <code>regs</code>
+
+
+</h3>
+
+  <div class="doc doc-contents ">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
 <div class="doc doc-object doc-function">
-<h4 class="doc doc-heading" id="dssdata.reductions.regs.get_taps_changes">
-
-<code class="highlight language-python"><span class="n">get_taps_changes</span><span class="p">(</span><span class="n">tapDataFrame</span><span class="p">)</span></code>
 
 
-      </h4>
-<div class="doc doc-contents ">
-<p>Count the taps changes. That function is a reduction function.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>tapDataFrame</code></td>
-<td><code>DataFrame</code></td>
-<td>
-<p>The return of <a href="#dssdata.tools.regs.get_all_taps_number">get_all_taps_number</a> or <a href="#dssdata.tools.regs.get_tap_number">get_tap_number</a>.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>DataFrame</code></td>
-<td>
-<p>The number of taps changes after time series power flow.</p>
-</td>
-</tr>
-</tbody>
-</table>
+
+<h4 id="dssdata.reductions.regs.get_taps_changes" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">get_taps_changes</span><span class="p">(</span><span class="n">tapDataFrame</span><span class="p">)</span></code>
+
+</h4>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Count the taps changes. That function is a reduction function.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>tapDataFrame</code></td>
+          <td>
+                <code>pandas.<span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td><p>The return of <a class="autorefs autorefs-internal" href="#dssdata.tools.regs.get_all_taps_number">get_all_taps_number</a> or <a class="autorefs autorefs-internal" href="#dssdata.tools.regs.get_tap_number">get_tap_number</a>.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>pandas.<span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td><p>The number of taps changes after time series power flow.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
 </div>
+
+
+
+  </div>
+
+  </div>
+
 </div>
+
+
+  </div>
+
+  </div>
+
 </div>
-</div>
-</div>
-</div>
-</div>
-</div>
+
 <div class="doc doc-object doc-module">
-<h2 class="doc doc-heading" id="dssdata.tools">
-
-        <code>tools</code>
 
 
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
 
-      </h2>
-<div class="doc doc-contents ">
-<div class="doc doc-children">
+<h2 id="dssdata.tools" class="doc doc-heading">
+          <code>tools</code>
+
+
+</h2>
+
+  <div class="doc doc-contents ">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
 <div class="doc doc-object doc-module">
-<h3 class="doc doc-heading" id="dssdata.tools.lines">
-
-        <code>lines</code>
 
 
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
 
-      </h3>
-<div class="doc doc-contents ">
-<div class="doc doc-children">
+<h3 id="dssdata.tools.lines" class="doc doc-heading">
+          <code>lines</code>
+
+
+</h3>
+
+  <div class="doc doc-contents ">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
 <div class="doc doc-object doc-function">
-<h4 class="doc doc-heading" id="dssdata.tools.lines.get_all_infos">
-
-<code class="highlight language-python"><span class="n">get_all_infos</span><span class="p">(</span><span class="n">distSys</span><span class="p">)</span></code>
 
 
-      </h4>
-<div class="doc doc-contents ">
-<p>Get some relevant infos from all lines. See <a href="#dssdata.tools.lines.get_infos">get_infos</a>.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>distSys</code></td>
-<td><code>SystemClass</code></td>
-<td>
-<p>An instance of  <a href="#dssdata.SystemClass">SystemClass</a></p>
-</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>DataFrame</code></td>
-<td>
-<p>All lines infos</p>
-</td>
-</tr>
-</tbody>
-</table>
+
+<h4 id="dssdata.tools.lines.get_all_infos" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">get_all_infos</span><span class="p">(</span><span class="n">distSys</span><span class="p">)</span></code>
+
+</h4>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Get some relevant infos from all lines. See <a class="autorefs autorefs-internal" href="#dssdata.tools.lines.get_infos">get_infos</a>.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>distSys</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="dssdata.SystemClass" href="#dssdata.SystemClass">SystemClass</a></code>
+          </td>
+          <td><p>An instance of  <a class="autorefs autorefs-internal" href="#dssdata.SystemClass">SystemClass</a></p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="pandas">pd</span>.<span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td><p>All lines infos</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
 </div>
-</div>
+
 <div class="doc doc-object doc-function">
-<h4 class="doc doc-heading" id="dssdata.tools.lines.get_infos">
-
-<code class="highlight language-python"><span class="n">get_infos</span><span class="p">(</span><span class="n">distSys</span><span class="p">,</span> <span class="n">names</span><span class="p">)</span></code>
 
 
-      </h4>
-<div class="doc doc-contents ">
-<p>Get some relevant infos from lines.
+
+<h4 id="dssdata.tools.lines.get_infos" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">get_infos</span><span class="p">(</span><span class="n">distSys</span><span class="p">,</span> <span class="n">names</span><span class="p">)</span></code>
+
+</h4>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Get some relevant infos from lines.
 Ex:</p>
 <table>
 <thead>
@@ -1938,80 +2255,107 @@ Ex:</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>distSys</code></td>
-<td><code>SystemClass</code></td>
-<td>
-<p>An instance of <a href="#dssdata.SystemClass">SystemClass</a>.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>names</code></td>
-<td><code>List[str]</code></td>
-<td>
-<p>Lines names.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>DataFrame</code></td>
-<td>
-<p>Lines infos.</p>
-</td>
-</tr>
-</tbody>
-</table>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>distSys</code></td>
+          <td>
+          </td>
+          <td><p>An instance of <a class="autorefs autorefs-internal" href="#dssdata.SystemClass">SystemClass</a>.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>names</code></td>
+          <td>
+          </td>
+          <td><p>Lines names.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="pandas">pd</span>.<span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td><p>Lines infos.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
 </div>
+
+
+
+  </div>
+
+  </div>
+
 </div>
-</div>
-</div>
-</div>
+
 <div class="doc doc-object doc-module">
-<h3 class="doc doc-heading" id="dssdata.tools.losses">
-
-        <code>losses</code>
 
 
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
 
-      </h3>
-<div class="doc doc-contents ">
-<div class="doc doc-children">
+<h3 id="dssdata.tools.losses" class="doc doc-heading">
+          <code>losses</code>
+
+
+</h3>
+
+  <div class="doc doc-contents ">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
 <div class="doc doc-object doc-function">
-<h4 class="doc doc-heading" id="dssdata.tools.losses.get_all_line_losses">
-
-<code class="highlight language-python"><span class="n">get_all_line_losses</span><span class="p">(</span><span class="n">distSys</span><span class="p">)</span></code>
 
 
-      </h4>
-<div class="doc doc-contents ">
-<p>Get all lines losses. 
-!!! ex</p>
+
+<h4 id="dssdata.tools.losses.get_all_line_losses" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">get_all_line_losses</span><span class="p">(</span><span class="n">distSys</span><span class="p">)</span></code>
+
+</h4>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Get all lines losses. 
+Ex:</p>
 <table>
 <thead>
 <tr>
@@ -2109,56 +2453,67 @@ Ex:</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>distSys</code></td>
-<td><code>SystemClass</code></td>
-<td>
-<p>An instance of  <a href="#dssdata.SystemClass">SystemClass</a></p>
-</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>DataFrame</code></td>
-<td>
-<p>A DataFrame containing all line losses.</p>
-</td>
-</tr>
-</tbody>
-</table>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>distSys</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="dssdata.SystemClass" href="#dssdata.SystemClass">SystemClass</a></code>
+          </td>
+          <td><p>An instance of  <a class="autorefs autorefs-internal" href="#dssdata.SystemClass">SystemClass</a></p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="pandas">pd</span>.<span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td><p>A DataFrame containing all line losses.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
 </div>
-</div>
+
 <div class="doc doc-object doc-function">
-<h4 class="doc doc-heading" id="dssdata.tools.losses.get_all_pd_elements_losses">
-
-<code class="highlight language-python"><span class="n">get_all_pd_elements_losses</span><span class="p">(</span><span class="n">distSys</span><span class="p">)</span></code>
 
 
-      </h4>
-<div class="doc doc-contents ">
-<p>Get all PD Elements losses. 
-!!! ex</p>
+
+<h4 id="dssdata.tools.losses.get_all_pd_elements_losses" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">get_all_pd_elements_losses</span><span class="p">(</span><span class="n">distSys</span><span class="p">)</span></code>
+
+</h4>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Get all PD Elements losses. 
+Ex:</p>
 <table>
 <thead>
 <tr>
@@ -2291,56 +2646,67 @@ Ex:</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>distSys</code></td>
-<td><code>SystemClass</code></td>
-<td>
-<p>An instance of  <a href="#dssdata.SystemClass">SystemClass</a></p>
-</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>DataFrame</code></td>
-<td>
-<p>A DataFrame containing all PD Elements losses.</p>
-</td>
-</tr>
-</tbody>
-</table>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>distSys</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="dssdata.SystemClass" href="#dssdata.SystemClass">SystemClass</a></code>
+          </td>
+          <td><p>An instance of  <a class="autorefs autorefs-internal" href="#dssdata.SystemClass">SystemClass</a></p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="pandas">pd</span>.<span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td><p>A DataFrame containing all PD Elements losses.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
 </div>
-</div>
+
 <div class="doc doc-object doc-function">
-<h4 class="doc doc-heading" id="dssdata.tools.losses.get_all_transformers_losses">
-
-<code class="highlight language-python"><span class="n">get_all_transformers_losses</span><span class="p">(</span><span class="n">distSys</span><span class="p">)</span></code>
 
 
-      </h4>
-<div class="doc doc-contents ">
-<p>Get all transformers losses. 
-!!! ex</p>
+
+<h4 id="dssdata.tools.losses.get_all_transformers_losses" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">get_all_transformers_losses</span><span class="p">(</span><span class="n">distSys</span><span class="p">)</span></code>
+
+</h4>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Get all transformers losses. 
+Ex:</p>
 <table>
 <thead>
 <tr>
@@ -2389,56 +2755,67 @@ Ex:</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>distSys</code></td>
-<td><code>SystemClass</code></td>
-<td>
-<p>An instance of  <a href="#dssdata.SystemClass">SystemClass</a></p>
-</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>DataFrame</code></td>
-<td>
-<p>A DataFrame containing all transformers losses.</p>
-</td>
-</tr>
-</tbody>
-</table>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>distSys</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="dssdata.SystemClass" href="#dssdata.SystemClass">SystemClass</a></code>
+          </td>
+          <td><p>An instance of  <a class="autorefs autorefs-internal" href="#dssdata.SystemClass">SystemClass</a></p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="pandas">pd</span>.<span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td><p>A DataFrame containing all transformers losses.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
 </div>
-</div>
+
 <div class="doc doc-object doc-function">
-<h4 class="doc doc-heading" id="dssdata.tools.losses.get_total_pd_elements_losses">
-
-<code class="highlight language-python"><span class="n">get_total_pd_elements_losses</span><span class="p">(</span><span class="n">distSys</span><span class="p">)</span></code>
 
 
-      </h4>
-<div class="doc doc-contents ">
-<p>Get Total PD Elements losses. 
-!!! ex</p>
+
+<h4 id="dssdata.tools.losses.get_total_pd_elements_losses" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">get_total_pd_elements_losses</span><span class="p">(</span><span class="n">distSys</span><span class="p">)</span></code>
+
+</h4>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Get Total PD Elements losses. 
+Ex:</p>
 <table>
 <thead>
 <tr>
@@ -2457,56 +2834,67 @@ Ex:</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>distSys</code></td>
-<td><code>SystemClass</code></td>
-<td>
-<p>An instance of  <a href="#dssdata.SystemClass">SystemClass</a></p>
-</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>DataFrame</code></td>
-<td>
-<p>A DataFrame containing the sum of losses of all PD Elements.</p>
-</td>
-</tr>
-</tbody>
-</table>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>distSys</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="dssdata.SystemClass" href="#dssdata.SystemClass">SystemClass</a></code>
+          </td>
+          <td><p>An instance of  <a class="autorefs autorefs-internal" href="#dssdata.SystemClass">SystemClass</a></p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="pandas">pd</span>.<span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td><p>A DataFrame containing the sum of losses of all PD Elements.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
 </div>
-</div>
+
 <div class="doc doc-object doc-function">
-<h4 class="doc doc-heading" id="dssdata.tools.losses.pd_element_loss">
-
-<code class="highlight language-python"><span class="n">pd_element_loss</span><span class="p">(</span><span class="n">distSys</span><span class="p">,</span> <span class="n">element_name</span><span class="p">,</span> <span class="n">element_type</span><span class="p">)</span></code>
 
 
-      </h4>
-<div class="doc doc-contents ">
-<p>Get PD Element loss. 
-!!! ex</p>
+
+<h4 id="dssdata.tools.losses.pd_element_loss" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">pd_element_loss</span><span class="p">(</span><span class="n">distSys</span><span class="p">,</span> <span class="n">element_name</span><span class="p">,</span> <span class="n">element_type</span><span class="p">)</span></code>
+
+</h4>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Get PD Element loss. 
+Ex:</p>
 <table>
 <thead>
 <tr>
@@ -2527,72 +2915,87 @@ Ex:</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>distSys</code></td>
-<td><code>SystemClass</code></td>
-<td>
-<p>An instance of  <a href="#dssdata.SystemClass">SystemClass</a></p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>element_name</code></td>
-<td><code>str</code></td>
-<td>
-<p>The name of the desired PD element</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>element_type</code></td>
-<td><code>str</code></td>
-<td>
-<p>The type of the PD element (Line or Transformer)</p>
-</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>DataFrame</code></td>
-<td>
-<p>A DataFrame containing the losses of the desired PD element.</p>
-</td>
-</tr>
-</tbody>
-</table>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>distSys</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="dssdata.SystemClass" href="#dssdata.SystemClass">SystemClass</a></code>
+          </td>
+          <td><p>An instance of  <a class="autorefs autorefs-internal" href="#dssdata.SystemClass">SystemClass</a></p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>element_name</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The name of the desired PD element</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>element_type</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The type of the PD element (Line or Transformer)</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="pandas">pd</span>.<span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td><p>A DataFrame containing the losses of the desired PD element.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
 </div>
-</div>
+
 <div class="doc doc-object doc-function">
-<h4 class="doc doc-heading" id="dssdata.tools.losses.pd_element_loss_list">
-
-<code class="highlight language-python"><span class="n">pd_element_loss_list</span><span class="p">(</span><span class="n">distSys</span><span class="p">,</span> <span class="n">element_names</span><span class="p">,</span> <span class="n">element_type</span><span class="p">)</span></code>
 
 
-      </h4>
-<div class="doc doc-contents ">
-<p>Get PD Element loss List. 
-!!! ex</p>
+
+<h4 id="dssdata.tools.losses.pd_element_loss_list" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">pd_element_loss_list</span><span class="p">(</span><span class="n">distSys</span><span class="p">,</span> <span class="n">element_names</span><span class="p">,</span> <span class="n">element_type</span><span class="p">)</span></code>
+
+</h4>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Get PD Element loss List. 
+Ex:</p>
 <table>
 <thead>
 <tr>
@@ -2641,258 +3044,337 @@ Ex:</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>distSys</code></td>
-<td><code>SystemClass</code></td>
-<td>
-<p>An instance of  <a href="#dssdata.SystemClass">SystemClass</a></p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>element_names</code></td>
-<td><code>list</code></td>
-<td>
-<p>A list of names of the desired PD elements</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>element_type</code></td>
-<td><code>str</code></td>
-<td>
-<p>The type of the PD elements (Line or Transformer)</p>
-</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>DataFrame</code></td>
-<td>
-<p>A DataFrame containing the losses of the desired list of PD elements.</p>
-</td>
-</tr>
-</tbody>
-</table>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>distSys</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="dssdata.SystemClass" href="#dssdata.SystemClass">SystemClass</a></code>
+          </td>
+          <td><p>An instance of  <a class="autorefs autorefs-internal" href="#dssdata.SystemClass">SystemClass</a></p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>element_names</code></td>
+          <td>
+                <code>list</code>
+          </td>
+          <td><p>A list of names of the desired PD elements</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>element_type</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The type of the PD elements (Line or Transformer)</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="pandas">pd</span>.<span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td><p>A DataFrame containing the losses of the desired list of PD elements.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
 </div>
+
+
+
+  </div>
+
+  </div>
+
 </div>
-</div>
-</div>
-</div>
+
 <div class="doc doc-object doc-module">
-<h3 class="doc doc-heading" id="dssdata.tools.regs">
-
-        <code>regs</code>
 
 
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
 
-      </h3>
-<div class="doc doc-contents ">
-<div class="doc doc-children">
+<h3 id="dssdata.tools.regs" class="doc doc-heading">
+          <code>regs</code>
+
+
+</h3>
+
+  <div class="doc doc-contents ">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
 <div class="doc doc-object doc-function">
-<h4 class="doc doc-heading" id="dssdata.tools.regs.get_all_taps_number">
-
-<code class="highlight language-python"><span class="n">get_all_taps_number</span><span class="p">(</span><span class="n">distSys</span><span class="p">)</span></code>
 
 
-      </h4>
-<div class="doc doc-contents ">
-<p>Get the tap number of all regulators.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>distSys</code></td>
-<td><code>SystemClass</code></td>
-<td>
-<p>An instance of  <a href="#dssdata.SystemClass">SystemClass</a>.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>DataFrame</code></td>
-<td>
-<p>The tap number of all regulators.</p>
-</td>
-</tr>
-</tbody>
-</table>
+
+<h4 id="dssdata.tools.regs.get_all_taps_number" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">get_all_taps_number</span><span class="p">(</span><span class="n">distSys</span><span class="p">)</span></code>
+
+</h4>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Get the tap number of all regulators.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>distSys</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="dssdata.SystemClass" href="#dssdata.SystemClass">SystemClass</a></code>
+          </td>
+          <td><p>An instance of  <a class="autorefs autorefs-internal" href="#dssdata.SystemClass">SystemClass</a>.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>pandas.<span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td><p>The tap number of all regulators.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
 </div>
-</div>
+
 <div class="doc doc-object doc-function">
-<h4 class="doc doc-heading" id="dssdata.tools.regs.get_tap_number">
-
-<code class="highlight language-python"><span class="n">get_tap_number</span><span class="p">(</span><span class="n">distSys</span><span class="p">,</span> <span class="n">names</span><span class="p">)</span></code>
 
 
-      </h4>
-<div class="doc doc-contents ">
-<p>Get the tap number of regulators.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>distSys</code></td>
-<td><code>SystemClass</code></td>
-<td>
-<p>An instance of  <a href="#dssdata.SystemClass">SystemClass</a>.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>names</code></td>
-<td><code>List[str]</code></td>
-<td>
-<p>Regulators names</p>
-</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>DataFrame</code></td>
-<td>
-<p>The tap number of regulators.</p>
-</td>
-</tr>
-</tbody>
-</table>
+
+<h4 id="dssdata.tools.regs.get_tap_number" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">get_tap_number</span><span class="p">(</span><span class="n">distSys</span><span class="p">,</span> <span class="n">names</span><span class="p">)</span></code>
+
+</h4>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Get the tap number of regulators.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>distSys</code></td>
+          <td>
+          </td>
+          <td><p>An instance of  <a class="autorefs autorefs-internal" href="#dssdata.SystemClass">SystemClass</a>.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>names</code></td>
+          <td>
+          </td>
+          <td><p>Regulators names</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>pandas.<span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td><p>The tap number of regulators.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
 </div>
+
+
+
+  </div>
+
+  </div>
+
 </div>
-</div>
-</div>
-</div>
+
 <div class="doc doc-object doc-module">
-<h3 class="doc doc-heading" id="dssdata.tools.voltages">
-
-        <code>voltages</code>
 
 
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
 
-      </h3>
-<div class="doc doc-contents ">
-<div class="doc doc-children">
+<h3 id="dssdata.tools.voltages" class="doc doc-heading">
+          <code>voltages</code>
+
+
+</h3>
+
+  <div class="doc doc-contents ">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
 <div class="doc doc-object doc-function">
-<h4 class="doc doc-heading" id="dssdata.tools.voltages.get_all">
-
-<code class="highlight language-python"><span class="n">get_all</span><span class="p">(</span><span class="n">distSys</span><span class="p">)</span></code>
 
 
-      </h4>
-<div class="doc doc-contents ">
-<p>Get line to neutral voltages (module and angle) in p.u. and phases configuration from buses. See <a href="#dssdata.tools.voltages.get_from_buses">get_from_buses</a>.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>distSys</code></td>
-<td><code>SystemClass</code></td>
-<td>
-<p>An instance of  <a href="#dssdata.SystemClass">SystemClass</a>.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>DataFrame</code></td>
-<td>
-<p>[type]: Line to neutral voltages (module and angle) in p.u. and phases configuration from buses. </p>
-</td>
-</tr>
-</tbody>
-</table>
+
+<h4 id="dssdata.tools.voltages.get_all" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">get_all</span><span class="p">(</span><span class="n">distSys</span><span class="p">)</span></code>
+
+</h4>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Get line to neutral voltages (module and angle) in p.u. and phases configuration from buses. See <a class="autorefs autorefs-internal" href="#dssdata.tools.voltages.get_from_buses">get_from_buses</a>.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>distSys</code></td>
+          <td>
+          </td>
+          <td><p>An instance of  <a class="autorefs autorefs-internal" href="#dssdata.SystemClass">SystemClass</a>.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>pandas.<span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td><p>[type]: Line to neutral voltages (module and angle) in p.u. and phases configuration from buses.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
 </div>
-</div>
+
 <div class="doc doc-object doc-function">
-<h4 class="doc doc-heading" id="dssdata.tools.voltages.get_from_buses">
-
-<code class="highlight language-python"><span class="n">get_from_buses</span><span class="p">(</span><span class="n">distSys</span><span class="p">,</span> <span class="n">buses</span><span class="p">)</span></code>
 
 
-      </h4>
-<div class="doc doc-contents ">
-<p>Get line to neutral voltages (module and angle) in p.u. and phases configuration from buses. </p>
+
+<h4 id="dssdata.tools.voltages.get_from_buses" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">get_from_buses</span><span class="p">(</span><span class="n">distSys</span><span class="p">,</span> <span class="n">buses</span><span class="p">)</span></code>
+
+</h4>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Get line to neutral voltages (module and angle) in p.u. and phases configuration from buses. </p>
 <table>
 <thead>
 <tr>
@@ -2954,148 +3436,167 @@ Ex:</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>distSys</code></td>
-<td><code>SystemClass</code></td>
-<td>
-<p>An instance of  <a href="#dssdata.SystemClass">SystemClass</a>.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>buses</code></td>
-<td><code>List[str]</code></td>
-<td>
-<p>Buses names.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>DataFrame</code></td>
-<td>
-<p>[type]: Line to neutral voltages (module and angle) in p.u. and phases configuration from buses. </p>
-</td>
-</tr>
-</tbody>
-</table>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>distSys</code></td>
+          <td>
+          </td>
+          <td><p>An instance of  <a class="autorefs autorefs-internal" href="#dssdata.SystemClass">SystemClass</a>.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>buses</code></td>
+          <td>
+          </td>
+          <td><p>Buses names.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>pandas.<span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td><p>[type]: Line to neutral voltages (module and angle) in p.u. and phases configuration from buses.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
 </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-                
-              
-              
-                
 
 
-              
-            </article>
-          </div>
+
+  </div>
+
+  </div>
+
+</div>
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
         </div>
+        
       </main>
       
-        
-<footer class="md-footer">
+        <footer class="md-footer">
   
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
         
-          <a href="../tutorial/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        <a href="../tutorial/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Learning DSSData" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Learning DSSData
             </div>
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Learning DSSData
-              </div>
-            </div>
-          </a>
+          </div>
+        </a>
+      
+      
         
-        
-          <a href="../LICENSE/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                License
-              </div>
+        <a href="../LICENSE/" class="md-footer__link md-footer__link--next" aria-label="Next: License" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              License
             </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2020 Felipe M. S. Monteiro
-          </div>
-        
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
-      </div>
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2020 Felipe M. S. Monteiro
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
     </div>
   </div>
 </footer>
       
     </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
     
-      <script src="../assets/javascripts/vendor.18f0862e.min.js"></script>
-      <script src="../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
-      
-      <script>
-        app = initialize({
-          base: "..",
-          features: ['instant'],
-          search: Object.assign({
-            worker: "../assets/javascripts/worker/search.9c0e82ba.min.js"
-          }, typeof search !== "undefined" && search)
-        })
-      </script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
       
         <script src="../js/termynal.js"></script>
       
+    
     
   </body>
 </html>
