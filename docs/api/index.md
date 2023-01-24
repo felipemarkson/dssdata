@@ -1,5 +1,6 @@
 # API Reference
 
 ::: dssdata
-    rendering:
+    options:
+      show_submodules: true
       show_source: false

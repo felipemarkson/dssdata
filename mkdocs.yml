@@ -20,14 +20,9 @@ markdown_extensions:
 
 plugins:
   - search
+  - autorefs
   - mkdocstrings:
       default_handler: python
-      handlers:
-        python:
-          rendering:
-            show_source: true
-      watch:
-        - dssdata
 
   - mkdocs-jupyter
 
