@@ -24,16 +24,16 @@ jobs:
     - name: Setup Python      
       uses: actions/setup-python@v2
       with:
-        python-version: '3.8.X' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+        python-version: '3.9.X' # Version range or exact version of a Python version to use, using SemVer's version range syntax
         architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
         
     - name: Python Poetry Action
       # You may pin to the exact commit or the version.
       # uses: abatilo/actions-poetry@8284d202bc272a8d0597e26e1c0b4a0d0c73db93
-      uses: abatilo/actions-poetry@v2.1.0
+      uses: abatilo/actions-poetry@v2
       with:
         # The version of poetry to install
-        poetry-version: '1.1.4' # default is 1.1.2
+        poetry-version: '1.1.13' # default is 1.1.2
 
     - name: Install requirements
       run: poetry install --no-dev
@@ -41,8 +41,11 @@ jobs:
     - name: Install flake8
       run: pip install flake8
 
-    - name: Run Linting
-      run: poetry run flake8 .
+    - name: Run Linting in dssdata
+      run: poetry run flake8 ./dssdata
+
+    - name: Run Linting in tests
+      run: poetry run flake8 ./test
       
     - name: Run Tests
       run: poetry run python -m unittest

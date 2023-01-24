@@ -15,7 +15,7 @@ classifiers = [
 
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.9"
 "OpenDSSDirect.py" = "^0.7.*"
 pandas = "^1.*"
 
