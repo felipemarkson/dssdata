@@ -4,23 +4,17 @@ import pandas as pd
 def load_data_static():
     with open("test/test_datas/bus_names.json") as json_file:
         bus_names = (
-            pd.read_json(json_file, dtype="str")["bus_name"]
-            .sort_index()
-            .tolist()
+            pd.read_json(json_file, dtype="str")["bus_name"].sort_index().tolist()
         )
 
     with open("test/test_datas/line_names.json") as json_file:
         line_names = (
-            pd.read_json(json_file, dtype="str")["line_name"]
-            .sort_index()
-            .tolist()
+            pd.read_json(json_file, dtype="str")["line_name"].sort_index().tolist()
         )
 
     with open("test/test_datas/reg_names.json") as json_file:
         reg_names = (
-            pd.read_json(json_file, dtype="str")["reg_name"]
-            .sort_index()
-            .tolist()
+            pd.read_json(json_file, dtype="str")["reg_name"].sort_index().tolist()
         )
 
     with open("test/test_datas/all_v_pu_ang.json") as json_file:
@@ -69,9 +63,7 @@ def load_data_static():
         )
 
     with open("test/test_datas/taps_number.json") as json_file:
-        taps_number = pd.read_json(
-            json_file, dtype={"reg_name": str, "tap": int}
-        )
+        taps_number = pd.read_json(json_file, dtype={"reg_name": str, "tap": int})
 
     return (
         bus_names,
@@ -87,23 +79,17 @@ def load_data_TS():
 
     with open("test/test_datas/bus_names.json") as json_file:
         bus_names = (
-            pd.read_json(json_file, dtype="str")["bus_name"]
-            .sort_index()
-            .tolist()
+            pd.read_json(json_file, dtype="str")["bus_name"].sort_index().tolist()
         )
 
     with open("test/test_datas/line_names.json") as json_file:
         line_names = (
-            pd.read_json(json_file, dtype="str")["line_name"]
-            .sort_index()
-            .tolist()
+            pd.read_json(json_file, dtype="str")["line_name"].sort_index().tolist()
         )
 
     with open("test/test_datas/reg_names.json") as json_file:
         reg_names = (
-            pd.read_json(json_file, dtype="str")["reg_name"]
-            .sort_index()
-            .tolist()
+            pd.read_json(json_file, dtype="str")["reg_name"].sort_index().tolist()
         )
 
     with open("test/test_datas/v_pu_ang_all_13busTS.json") as json_file:
@@ -159,9 +145,7 @@ def load_data_TS():
         )
 
     with open("test/test_datas/taps_changesTS.json") as json_file:
-        taps_chgs = pd.read_json(
-            json_file, dtype={"reg_name": str, "tap": int}
-        )
+        taps_chgs = pd.read_json(json_file, dtype={"reg_name": str, "tap": int})
 
     return (
         bus_names,

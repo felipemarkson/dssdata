@@ -2,7 +2,7 @@ import unittest
 from dssdata import SystemClass
 from dssdata.pfmodes import run_static_pf
 from dssdata.tools import losses
-from pandas._testing import assert_frame_equal
+from .utils import assert_df_no_ang
 from .load_loss_data import load_loss_data
 
 
@@ -37,8 +37,8 @@ class Verifica_Losses_Tools(unittest.TestCase):
             ],
         )
         try:
-            assert_frame_equal(
-                self.pd_element_loss, element_loss, check_dtype=False,
+            assert_df_no_ang(
+                self.pd_element_loss, element_loss
             )
         except AssertionError as err:
             raise err
@@ -56,10 +56,9 @@ class Verifica_Losses_Tools(unittest.TestCase):
             ],
         )
         try:
-            assert_frame_equal(
+            assert_df_no_ang(
                 self.pd_trafos_losses.reset_index(drop=True),
                 element_list_loss.reset_index(drop=True),
-                check_dtype=False,
             )
         except AssertionError as err:
             raise err
@@ -70,10 +69,9 @@ class Verifica_Losses_Tools(unittest.TestCase):
             self.distSys, tools=[losses.get_all_pd_elements_losses]
         )
         try:
-            assert_frame_equal(
+            assert_df_no_ang(
                 self.pd_losses.reset_index(drop=True),
                 LossDataFrame.reset_index(drop=True),
-                check_dtype=False,
             )
         except AssertionError as err:
             raise err
@@ -84,10 +82,9 @@ class Verifica_Losses_Tools(unittest.TestCase):
             self.distSys, tools=[losses.get_all_line_losses]
         )
         try:
-            assert_frame_equal(
+            assert_df_no_ang(
                 self.pd_line_losses.reset_index(drop=True),
                 LinesDataFrame.reset_index(drop=True),
-                check_dtype=False,
             )
         except AssertionError as err:
             raise err
@@ -98,10 +95,9 @@ class Verifica_Losses_Tools(unittest.TestCase):
             self.distSys, tools=[losses.get_all_transformers_losses]
         )
         try:
-            assert_frame_equal(
+            assert_df_no_ang(
                 self.pd_trafos_losses.reset_index(drop=True),
                 TrafoDataFrame.reset_index(drop=True),
-                check_dtype=False,
             )
         except AssertionError as err:
             raise err
@@ -112,10 +108,9 @@ class Verifica_Losses_Tools(unittest.TestCase):
             self.distSys, tools=[losses.get_total_pd_elements_losses]
         )
         try:
-            assert_frame_equal(
+            assert_df_no_ang(
                 self.pd_total_losses.reset_index(drop=True),
                 TotalDataFrame,
-                check_dtype=False,
             )
         except AssertionError as err:
             raise err

@@ -3,16 +3,14 @@ from dssdata import SystemClass
 from dssdata.pfmodes import cfg_tspf, run_tspf
 from dssdata.tools import lines, voltages, regs
 from dssdata.reductions import regs as reg_redc
-from pandas._testing import assert_frame_equal
+from .utils import assert_df_no_ang
 from .load_datas import load_data_TS
 
 
 class Verifica_Voltage_toolsTS(unittest.TestCase):
     def setUp(self):
 
-        path_of_system = (
-            "test/syste_test_IEEE13bus_timeSeries/IEEE13Nodeckt.dss"
-        )
+        path_of_system = "test/syste_test_IEEE13bus_timeSeries/IEEE13Nodeckt.dss"
         value_of_kV = [115, 4.16, 0.48]
         value_of_load_mult = 1
 
@@ -37,15 +35,7 @@ class Verifica_Voltage_toolsTS(unittest.TestCase):
             self.distSys, tools=[voltages.get_all], num_steps=288
         )
 
-        try:
-            assert_frame_equal(
-                self.all_v_pu_ang,
-                df_all_v_pu_ang,
-                check_dtype=False,
-                atol=1e-4,
-            )
-        except AssertionError as err:
-            raise err
+        assert_df_no_ang(self.all_v_pu_ang, df_all_v_pu_ang)
 
     def test_get_bus_v_pu_ang(self):
         def get_one(distSys):
@@ -53,24 +43,16 @@ class Verifica_Voltage_toolsTS(unittest.TestCase):
 
         [df_v_pu_ang] = run_tspf(self.distSys, tools=[get_one], num_steps=288)
 
-        try:
-            assert_frame_equal(
-                self.all_v_pu_ang.reset_index(drop=True),
-                df_v_pu_ang.reset_index(drop=True),
-                check_dtype=False,
-                atol=1e-4,
-            )
-
-        except AssertionError as err:
-            raise err
+        assert_df_no_ang(
+            self.all_v_pu_ang.reset_index(drop=True),
+            df_v_pu_ang.reset_index(drop=True),
+        )
 
 
 class Verifica_Line_toolsTS(unittest.TestCase):
     def setUp(self):
 
-        path_of_system = (
-            "test/syste_test_IEEE13bus_timeSeries/IEEE13Nodeckt.dss"
-        )
+        path_of_system = "test/syste_test_IEEE13bus_timeSeries/IEEE13Nodeckt.dss"
         value_of_kV = [115, 4.16, 0.48]
         value_of_load_mult = 1
 
@@ -96,11 +78,9 @@ class Verifica_Line_toolsTS(unittest.TestCase):
         )
 
         try:
-            assert_frame_equal(
+            assert_df_no_ang(
                 self.all_line_infos,
                 df_all_line_infos,
-                check_dtype=False,
-                atol=1e-4,
             )
         except AssertionError as err:
             raise err
@@ -110,15 +90,15 @@ class Verifica_Line_toolsTS(unittest.TestCase):
             return lines.get_infos(distSys, self.line_names)
 
         [df_all_line_infos] = run_tspf(
-            self.distSys, tools=[get_one], num_steps=288,
+            self.distSys,
+            tools=[get_one],
+            num_steps=288,
         )
 
         try:
-            assert_frame_equal(
+            assert_df_no_ang(
                 self.all_line_infos.reset_index(drop=True),
                 df_all_line_infos.reset_index(drop=True),
-                check_dtype=False,
-                atol=1e-4,
             )
 
         except AssertionError as err:
@@ -127,9 +107,7 @@ class Verifica_Line_toolsTS(unittest.TestCase):
 
 class Verifica_reg_toolsTS(unittest.TestCase):
     def setUp(self):
-        path_of_system = (
-            "test/syste_test_IEEE13bus_timeSeries/IEEE13Nodeckt.dss"
-        )
+        path_of_system = "test/syste_test_IEEE13bus_timeSeries/IEEE13Nodeckt.dss"
         value_of_kV = [115, 4.16, 0.48]
         value_of_load_mult = 1
 
@@ -155,11 +133,9 @@ class Verifica_reg_toolsTS(unittest.TestCase):
         )
 
         try:
-            assert_frame_equal(
+            assert_df_no_ang(
                 self.reg_number,
                 df_all_taps_number,
-                check_dtype=False,
-                atol=1e-4,
             )
         except AssertionError as err:
             raise err
@@ -168,16 +144,12 @@ class Verifica_reg_toolsTS(unittest.TestCase):
         def get_one(distSys):
             return regs.get_tap_number(distSys, self.reg_names)
 
-        [df_all_taps_number] = run_tspf(
-            self.distSys, tools=[get_one], num_steps=288
-        )
+        [df_all_taps_number] = run_tspf(self.distSys, tools=[get_one], num_steps=288)
 
         try:
-            assert_frame_equal(
+            assert_df_no_ang(
                 self.reg_number,
                 df_all_taps_number,
-                check_dtype=False,
-                atol=1e-4,
             )
         except AssertionError as err:
             raise err
@@ -185,8 +157,9 @@ class Verifica_reg_toolsTS(unittest.TestCase):
     def test_buil_dataset_tspf_taps_chngs(self):
         df_taps_chngs = reg_redc.get_taps_changes(self.reg_number)
         try:
-            assert_frame_equal(
-                self.reg_chngs, df_taps_chngs, check_dtype=False, atol=1e-4,
+            assert_df_no_ang(
+                self.reg_chngs,
+                df_taps_chngs,
             )
         except AssertionError as err:
             raise err
