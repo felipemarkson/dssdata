@@ -105,7 +105,7 @@ python-versions = "*"
 
 [[package]]
 name = "beautifulsoup4"
-version = "4.11.1"
+version = "4.12.0"
 description = "Screen-scraping library"
 category = "dev"
 optional = false
@@ -120,7 +120,7 @@ lxml = ["lxml"]
 
 [[package]]
 name = "black"
-version = "22.12.0"
+version = "23.1.0"
 description = "The uncompromising code formatter."
 category = "dev"
 optional = false
@@ -129,9 +129,10 @@ python-versions = ">=3.7"
 [package.dependencies]
 click = ">=8.0.0"
 mypy-extensions = ">=0.4.3"
+packaging = ">=22.0"
 pathspec = ">=0.9.0"
 platformdirs = ">=2"
-tomli = {version = ">=1.1.0", markers = "python_full_version < \"3.11.0a7\""}
+tomli = {version = ">=1.1.0", markers = "python_version < \"3.11\""}
 typing-extensions = {version = ">=3.10.0.0", markers = "python_version < \"3.10\""}
 
 [package.extras]
@@ -176,11 +177,11 @@ pycparser = "*"
 
 [[package]]
 name = "charset-normalizer"
-version = "3.0.1"
+version = "3.1.0"
 description = "The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet."
 category = "dev"
 optional = false
-python-versions = "*"
+python-versions = ">=3.7.0"
 
 [[package]]
 name = "click"
@@ -203,7 +204,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7
 
 [[package]]
 name = "comm"
-version = "0.1.2"
+version = "0.1.3"
 description = "Jupyter Python Comm implementation, for usage in ipykernel, xeus-python etc."
 category = "dev"
 optional = false
@@ -213,7 +214,9 @@ python-versions = ">=3.6"
 traitlets = ">=5.3"
 
 [package.extras]
+lint = ["black (>=22.6.0)", "mdformat-gfm (>=0.3.5)", "mdformat (>0.7)", "ruff (>=0.0.156)"]
 test = ["pytest"]
+typing = ["mypy (>=0.990)"]
 
 [[package]]
 name = "contourpy"
@@ -281,14 +284,6 @@ numpy = ">=1.19.5"
 plot = ["matplotlib", "scipy"]
 
 [[package]]
-name = "entrypoints"
-version = "0.4"
-description = "Discover and load entry points from installed packages."
-category = "dev"
-optional = false
-python-versions = ">=3.6"
-
-[[package]]
 name = "executing"
 version = "1.2.0"
 description = "Get the currently executing AST node of a frame, and other information"
@@ -301,7 +296,7 @@ tests = ["asttokens", "pytest", "littleutils", "rich"]
 
 [[package]]
 name = "fastjsonschema"
-version = "2.16.2"
+version = "2.16.3"
 description = "Fastest Python implementation of JSON schema"
 category = "dev"
 optional = false
@@ -325,14 +320,14 @@ pyflakes = ">=3.0.0,<3.1.0"
 
 [[package]]
 name = "fonttools"
-version = "4.38.0"
+version = "4.39.2"
 description = "Tools to manipulate font files"
 category = "dev"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 
 [package.extras]
-all = ["fs (>=2.2.0,<3)", "lxml (>=4.0,<5)", "zopfli (>=0.1.4)", "lz4 (>=1.7.4.2)", "matplotlib", "sympy", "skia-pathops (>=0.5.0)", "uharfbuzz (>=0.23.0)", "brotlicffi (>=0.8.0)", "scipy", "brotli (>=1.0.1)", "munkres", "unicodedata2 (>=14.0.0)", "xattr"]
+all = ["fs (>=2.2.0,<3)", "lxml (>=4.0,<5)", "zopfli (>=0.1.4)", "lz4 (>=1.7.4.2)", "matplotlib", "sympy", "skia-pathops (>=0.5.0)", "uharfbuzz (>=0.23.0)", "brotlicffi (>=0.8.0)", "scipy", "brotli (>=1.0.1)", "munkres", "unicodedata2 (>=15.0.0)", "xattr"]
 graphite = ["lz4 (>=1.7.4.2)"]
 interpolatable = ["scipy", "munkres"]
 lxml = ["lxml (>=4.0,<5)"]
@@ -342,7 +337,7 @@ repacker = ["uharfbuzz (>=0.23.0)"]
 symfont = ["sympy"]
 type1 = ["xattr"]
 ufo = ["fs (>=2.2.0,<3)"]
-unicode = ["unicodedata2 (>=14.0.0)"]
+unicode = ["unicodedata2 (>=15.0.0)"]
 woff = ["zopfli (>=0.1.4)", "brotlicffi (>=0.8.0)", "brotli (>=1.0.1)"]
 
 [[package]]
@@ -369,7 +364,7 @@ dev = ["twine", "markdown", "flake8", "wheel"]
 
 [[package]]
 name = "griffe"
-version = "0.25.4"
+version = "0.25.5"
 description = "Signatures for entire Python programs. Extract the structure, the frame, the skeleton of your project, to generate API documentation or find breaking changes in your API."
 category = "dev"
 optional = false
@@ -391,7 +386,7 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "importlib-metadata"
-version = "6.0.0"
+version = "6.1.0"
 description = "Read metadata from Python packages"
 category = "dev"
 optional = false
@@ -406,8 +401,23 @@ perf = ["ipython"]
 testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "flake8 (<5)", "pytest-cov", "pytest-enabler (>=1.3)", "packaging", "pyfakefs", "flufl.flake8", "pytest-perf (>=0.9.2)", "pytest-black (>=0.3.7)", "pytest-mypy (>=0.9.1)", "pytest-flake8", "importlib-resources (>=1.3)"]
 
 [[package]]
+name = "importlib-resources"
+version = "5.12.0"
+description = "Read resources from Python packages"
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+zipp = {version = ">=3.1.0", markers = "python_version < \"3.10\""}
+
+[package.extras]
+docs = ["sphinx (>=3.5)", "jaraco.packaging (>=9)", "rst.linker (>=1.9)", "furo", "sphinx-lint", "jaraco.tidelift (>=1.4)"]
+testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "flake8 (<5)", "pytest-cov", "pytest-enabler (>=1.3)", "pytest-black (>=0.3.7)", "pytest-mypy (>=0.9.1)", "pytest-flake8"]
+
+[[package]]
 name = "ipykernel"
-version = "6.20.2"
+version = "6.22.0"
 description = "IPython Kernel for Jupyter"
 category = "dev"
 optional = false
@@ -416,14 +426,15 @@ python-versions = ">=3.8"
 [package.dependencies]
 appnope = {version = "*", markers = "platform_system == \"Darwin\""}
 comm = ">=0.1.1"
-debugpy = ">=1.0"
+debugpy = ">=1.6.5"
 ipython = ">=7.23.1"
 jupyter-client = ">=6.1.12"
+jupyter-core = ">=4.12,<5.0.0 || >=5.1.0"
 matplotlib-inline = ">=0.1"
 nest-asyncio = "*"
 packaging = "*"
 psutil = "*"
-pyzmq = ">=17"
+pyzmq = ">=20"
 tornado = ">=6.1"
 traitlets = ">=5.4.0"
 
@@ -436,7 +447,7 @@ test = ["flaky", "ipyparallel", "pre-commit", "pytest-asyncio", "pytest-cov", "p
 
 [[package]]
 name = "ipython"
-version = "8.8.0"
+version = "8.11.0"
 description = "IPython: Productive Interactive Computing"
 category = "dev"
 optional = false
@@ -451,13 +462,13 @@ jedi = ">=0.16"
 matplotlib-inline = "*"
 pexpect = {version = ">4.3", markers = "sys_platform != \"win32\""}
 pickleshare = "*"
-prompt-toolkit = ">=3.0.11,<3.1.0"
+prompt-toolkit = ">=3.0.30,<3.0.37 || >3.0.37,<3.1.0"
 pygments = ">=2.4.0"
 stack-data = "*"
 traitlets = ">=5"
 
 [package.extras]
-all = ["black", "ipykernel", "setuptools (>=18.5)", "sphinx (>=1.3)", "sphinx-rtd-theme", "docrepr", "matplotlib", "stack-data", "pytest (<7)", "typing-extensions", "pytest (<7.1)", "pytest-asyncio", "testpath", "nbconvert", "nbformat", "ipywidgets", "notebook", "ipyparallel", "qtconsole", "curio", "matplotlib (!=3.2.0)", "numpy (>=1.20)", "pandas", "trio"]
+all = ["black", "ipykernel", "setuptools (>=18.5)", "sphinx (>=1.3)", "sphinx-rtd-theme", "docrepr", "matplotlib", "stack-data", "pytest (<7)", "typing-extensions", "pytest (<7.1)", "pytest-asyncio", "testpath", "nbconvert", "nbformat", "ipywidgets", "notebook", "ipyparallel", "qtconsole", "curio", "matplotlib (!=3.2.0)", "numpy (>=1.21)", "pandas", "trio"]
 black = ["black"]
 doc = ["ipykernel", "setuptools (>=18.5)", "sphinx (>=1.3)", "sphinx-rtd-theme", "docrepr", "matplotlib", "stack-data", "pytest (<7)", "typing-extensions", "pytest (<7.1)", "pytest-asyncio", "testpath"]
 kernel = ["ipykernel"]
@@ -467,7 +478,7 @@ notebook = ["ipywidgets", "notebook"]
 parallel = ["ipyparallel"]
 qtconsole = ["qtconsole"]
 test = ["pytest (<7.1)", "pytest-asyncio", "testpath"]
-test_extra = ["pytest (<7.1)", "pytest-asyncio", "testpath", "curio", "matplotlib (!=3.2.0)", "nbformat", "numpy (>=1.20)", "pandas", "trio"]
+test_extra = ["pytest (<7.1)", "pytest-asyncio", "testpath", "curio", "matplotlib (!=3.2.0)", "nbformat", "numpy (>=1.21)", "pandas", "trio"]
 
 [[package]]
 name = "ipython-genutils"
@@ -552,28 +563,27 @@ format-nongpl = ["fqdn", "idna", "isoduration", "jsonpointer (>1.13)", "rfc3339-
 
 [[package]]
 name = "jupyter-client"
-version = "7.4.9"
+version = "8.1.0"
 description = "Jupyter protocol implementation and client libraries"
 category = "dev"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 
 [package.dependencies]
-entrypoints = "*"
-jupyter-core = ">=4.9.2"
-nest-asyncio = ">=1.5.4"
+importlib-metadata = {version = ">=4.8.3", markers = "python_version < \"3.10\""}
+jupyter-core = ">=4.12,<5.0.0 || >=5.1.0"
 python-dateutil = ">=2.8.2"
 pyzmq = ">=23.0"
 tornado = ">=6.2"
-traitlets = "*"
+traitlets = ">=5.3"
 
 [package.extras]
-doc = ["ipykernel", "myst-parser", "sphinx-rtd-theme", "sphinx (>=1.3.6)", "sphinxcontrib-github-alt"]
-test = ["codecov", "coverage", "ipykernel (>=6.12)", "ipython", "mypy", "pre-commit", "pytest", "pytest-asyncio (>=0.18)", "pytest-cov", "pytest-timeout"]
+docs = ["ipykernel", "myst-parser", "pydata-sphinx-theme", "sphinx-autodoc-typehints", "sphinx (>=4)", "sphinxcontrib-github-alt", "sphinxcontrib-spelling"]
+test = ["codecov", "coverage", "ipykernel (>=6.14)", "mypy", "paramiko", "pre-commit", "pytest", "pytest-cov", "pytest-jupyter[client] (>=0.4.1)", "pytest-timeout"]
 
 [[package]]
 name = "jupyter-core"
-version = "5.1.4"
+version = "5.3.0"
 description = "Jupyter core package. A base package on which Jupyter projects rely."
 category = "dev"
 optional = false
@@ -581,7 +591,7 @@ python-versions = ">=3.8"
 
 [package.dependencies]
 platformdirs = ">=2.5"
-pywin32 = {version = ">=1.0", markers = "sys_platform == \"win32\" and platform_python_implementation != \"PyPy\""}
+pywin32 = {version = ">=300", markers = "sys_platform == \"win32\" and platform_python_implementation != \"PyPy\""}
 traitlets = ">=5.3"
 
 [package.extras]
@@ -611,14 +621,14 @@ test = ["click", "coverage", "pre-commit", "pytest-asyncio (>=0.19.0)", "pytest-
 
 [[package]]
 name = "jupyter-server"
-version = "2.1.0"
+version = "2.5.0"
 description = "The backend—i.e. core services, APIs, and REST endpoints—to Jupyter web applications."
 category = "dev"
 optional = false
 python-versions = ">=3.8"
 
 [package.dependencies]
-anyio = ">=3.1.0,<4"
+anyio = ">=3.1.0"
 argon2-cffi = "*"
 jinja2 = "*"
 jupyter-client = ">=7.4.4"
@@ -638,7 +648,7 @@ traitlets = ">=5.6.0"
 websocket-client = "*"
 
 [package.extras]
-docs = ["docutils (<0.20)", "ipykernel", "jinja2", "jupyter-client", "jupyter-server", "mistune (<1.0.0)", "myst-parser", "nbformat", "prometheus-client", "pydata-sphinx-theme", "send2trash", "sphinx-autodoc-typehints", "sphinxcontrib-github-alt", "sphinxcontrib-openapi", "sphinxcontrib-spelling", "sphinxemoji", "tornado"]
+docs = ["docutils (<0.20)", "ipykernel", "jinja2", "jupyter-client", "jupyter-server", "mistune (<1.0.0)", "myst-parser", "nbformat", "prometheus-client", "pydata-sphinx-theme", "send2trash", "sphinx-autodoc-typehints", "sphinxcontrib-github-alt", "sphinxcontrib-openapi", "sphinxcontrib-spelling", "sphinxemoji", "tornado", "typing-extensions"]
 test = ["ipykernel", "pre-commit", "pytest-console-scripts", "pytest-jupyter[server] (>=0.4)", "pytest-timeout", "pytest (>=7.0)", "requests"]
 
 [[package]]
@@ -667,7 +677,7 @@ python-versions = ">=3.7"
 
 [[package]]
 name = "jupytext"
-version = "1.14.4"
+version = "1.14.5"
 description = "Jupyter notebooks as Markdown documents, Julia, Python or R scripts"
 category = "dev"
 optional = false
@@ -693,20 +703,6 @@ optional = false
 python-versions = ">=3.7"
 
 [[package]]
-name = "lxml"
-version = "4.9.2"
-description = "Powerful and Pythonic XML processing library combining libxml2/libxslt with the ElementTree API."
-category = "dev"
-optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, != 3.4.*"
-
-[package.extras]
-cssselect = ["cssselect (>=0.7)"]
-html5 = ["html5lib"]
-htmlsoup = ["beautifulsoup4"]
-source = ["Cython (>=0.29.7)"]
-
-[[package]]
 name = "markdown"
 version = "3.3.7"
 description = "Python implementation of Markdown."
@@ -722,7 +718,7 @@ testing = ["coverage", "pyyaml"]
 
 [[package]]
 name = "markdown-it-py"
-version = "2.1.0"
+version = "2.2.0"
 description = "Python port of markdown-it. Markdown parsing, done right!"
 category = "dev"
 optional = false
@@ -732,10 +728,10 @@ python-versions = ">=3.7"
 mdurl = ">=0.1,<1.0"
 
 [package.extras]
-benchmarking = ["psutil", "pytest", "pytest-benchmark (>=3.2,<4.0)"]
-code_style = ["pre-commit (==2.6)"]
-compare = ["commonmark (>=0.9.1,<0.10.0)", "markdown (>=3.3.6,<3.4.0)", "mistletoe (>=0.8.1,<0.9.0)", "mistune (>=2.0.2,<2.1.0)", "panflute (>=2.1.3,<2.2.0)"]
-linkify = ["linkify-it-py (>=1.0,<2.0)"]
+benchmarking = ["psutil", "pytest", "pytest-benchmark"]
+code_style = ["pre-commit (>=3.0,<4.0)"]
+compare = ["commonmark (>=0.9,<1.0)", "markdown (>=3.4,<4.0)", "mistletoe (>=1.0,<2.0)", "mistune (>=2.0,<3.0)", "panflute (>=2.3,<3.0)"]
+linkify = ["linkify-it-py (>=1,<3)"]
 plugins = ["mdit-py-plugins"]
 profiling = ["gprof2dot"]
 rtd = ["attrs", "myst-parser", "pyyaml", "sphinx", "sphinx-copybutton", "sphinx-design", "sphinx-book-theme"]
@@ -751,7 +747,7 @@ python-versions = ">=3.7"
 
 [[package]]
 name = "matplotlib"
-version = "3.6.3"
+version = "3.7.1"
 description = "Python plotting package"
 category = "dev"
 optional = false
@@ -761,11 +757,12 @@ python-versions = ">=3.8"
 contourpy = ">=1.0.1"
 cycler = ">=0.10"
 fonttools = ">=4.22.0"
+importlib-resources = {version = ">=3.2.0", markers = "python_version < \"3.10\""}
 kiwisolver = ">=1.0.1"
-numpy = ">=1.19"
+numpy = ">=1.20"
 packaging = ">=20.0"
 pillow = ">=6.2.0"
-pyparsing = ">=2.2.1"
+pyparsing = ">=2.3.1"
 python-dateutil = ">=2.7"
 setuptools_scm = ">=7"
 
@@ -790,7 +787,7 @@ python-versions = ">=3.6"
 
 [[package]]
 name = "mdit-py-plugins"
-version = "0.3.3"
+version = "0.3.5"
 description = "Collection of plugins for markdown-it-py"
 category = "dev"
 optional = false
@@ -822,8 +819,8 @@ python-versions = ">=3.6"
 
 [[package]]
 name = "mistune"
-version = "0.8.4"
-description = "The fastest markdown parser in pure Python"
+version = "2.0.5"
+description = "A sane Markdown parser with useful plugins and renderers"
 category = "dev"
 optional = false
 python-versions = "*"
@@ -867,34 +864,39 @@ mkdocs = ">=1.1"
 
 [[package]]
 name = "mkdocs-jupyter"
-version = "0.22.0"
+version = "0.24.0"
 description = "Use Jupyter in mkdocs websites"
 category = "dev"
 optional = false
-python-versions = ">=3.7.1,<4"
+python-versions = ">=3.7"
 
 [package.dependencies]
-jupytext = ">=1.13.8,<2.0.0"
-mkdocs = ">=1.2.3,<2.0.0"
-mkdocs-material = ">=8.0.0,<9.0.0"
-nbconvert = ">=6.2.0,<7.0.0"
-Pygments = ">=2.12.0,<3.0.0"
+jupytext = ">1.13.8,<2"
+mkdocs = ">=1.4.0,<2"
+mkdocs-material = ">9.0.0"
+nbconvert = ">=7.2.9,<8"
+pygments = ">2.12.0"
+
+[package.extras]
+test = ["pytest", "pytest-cov"]
 
 [[package]]
 name = "mkdocs-material"
-version = "8.5.11"
+version = "9.1.3"
 description = "Documentation that simply works"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 
 [package.dependencies]
-jinja2 = ">=3.0.2"
+colorama = ">=0.4"
+jinja2 = ">=3.0"
 markdown = ">=3.2"
-mkdocs = ">=1.4.0"
+mkdocs = ">=1.4.2"
 mkdocs-material-extensions = ">=1.1"
-pygments = ">=2.12"
-pymdown-extensions = ">=9.4"
+pygments = ">=2.14"
+pymdown-extensions = ">=9.9.1"
+regex = ">=2022.4.24"
 requests = ">=2.26"
 
 [[package]]
@@ -941,16 +943,16 @@ mkdocstrings = ">=0.19"
 
 [[package]]
 name = "mypy-extensions"
-version = "0.4.3"
-description = "Experimental type system extensions for programs checked with the mypy typechecker."
+version = "1.0.0"
+description = "Type system extensions for programs checked with the mypy type checker."
 category = "dev"
 optional = false
-python-versions = "*"
+python-versions = ">=3.5"
 
 [[package]]
 name = "nbclassic"
-version = "0.4.8"
-description = "A web-based notebook environment for interactive computing"
+version = "0.5.3"
+description = "Jupyter Notebook as a Jupyter Server extension."
 category = "dev"
 optional = false
 python-versions = ">=3.7"
@@ -977,7 +979,7 @@ traitlets = ">=4.2.1"
 [package.extras]
 docs = ["sphinx", "nbsphinx", "sphinxcontrib-github-alt", "sphinx-rtd-theme", "myst-parser"]
 json-logging = ["json-logging"]
-test = ["pytest", "coverage", "requests", "testpath", "nbval", "pytest-playwright", "pytest-cov", "pytest-tornasync", "requests-unixsocket"]
+test = ["pytest", "coverage", "requests", "testpath", "nbval", "pytest-playwright", "pytest-cov", "pytest-jupyter", "pytest-tornasync", "requests-unixsocket"]
 
 [[package]]
 name = "nbclient"
@@ -1000,7 +1002,7 @@ test = ["ipykernel", "ipython", "ipywidgets", "nbconvert (>=7.0.0)", "pytest-asy
 
 [[package]]
 name = "nbconvert"
-version = "6.5.4"
+version = "7.2.10"
 description = "Converting Jupyter Notebooks"
 category = "dev"
 optional = false
@@ -1010,13 +1012,12 @@ python-versions = ">=3.7"
 beautifulsoup4 = "*"
 bleach = "*"
 defusedxml = "*"
-entrypoints = ">=0.2.2"
+importlib-metadata = {version = ">=3.6", markers = "python_version < \"3.10\""}
 jinja2 = ">=3.0"
 jupyter-core = ">=4.7"
 jupyterlab-pygments = "*"
-lxml = "*"
-MarkupSafe = ">=2.0"
-mistune = ">=0.8.1,<2"
+markupsafe = ">=2.0"
+mistune = ">=2.0.3,<3"
 nbclient = ">=0.5.0"
 nbformat = ">=5.1"
 packaging = "*"
@@ -1026,15 +1027,17 @@ tinycss2 = "*"
 traitlets = ">=5.0"
 
 [package.extras]
-all = ["pytest", "pytest-cov", "pytest-dependency", "ipykernel", "ipywidgets (>=7)", "pre-commit", "pyppeteer (>=1,<1.1)", "tornado (>=6.1)", "sphinx (>=1.5.1)", "sphinx-rtd-theme", "nbsphinx (>=0.2.12)", "ipython"]
-docs = ["sphinx (>=1.5.1)", "sphinx-rtd-theme", "nbsphinx (>=0.2.12)", "ipython"]
+all = ["nbconvert"]
+docs = ["ipykernel", "ipython", "myst-parser", "nbsphinx (>=0.2.12)", "pydata-sphinx-theme", "sphinx (==5.0.2)", "sphinxcontrib-spelling"]
+qtpdf = ["nbconvert"]
+qtpng = ["pyqtwebengine (>=5.15)"]
 serve = ["tornado (>=6.1)"]
-test = ["pytest", "pytest-cov", "pytest-dependency", "ipykernel", "ipywidgets (>=7)", "pre-commit", "pyppeteer (>=1,<1.1)"]
+test = ["ipykernel", "ipywidgets (>=7)", "pre-commit", "pytest", "pytest-dependency"]
 webpdf = ["pyppeteer (>=1,<1.1)"]
 
 [[package]]
 name = "nbformat"
-version = "5.7.3"
+version = "5.8.0"
 description = "The Jupyter Notebook format"
 category = "dev"
 optional = false
@@ -1060,7 +1063,7 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "notebook"
-version = "6.5.2"
+version = "6.5.3"
 description = "A web-based notebook environment for interactive computing"
 category = "dev"
 optional = false
@@ -1105,7 +1108,7 @@ test = ["pytest", "pytest-console-scripts", "pytest-tornasync"]
 
 [[package]]
 name = "numpy"
-version = "1.24.1"
+version = "1.24.2"
 description = "Fundamental package for array computing in Python"
 category = "main"
 optional = false
@@ -1176,7 +1179,7 @@ testing = ["docopt", "pytest (<6.0.0)"]
 
 [[package]]
 name = "pathspec"
-version = "0.10.3"
+version = "0.11.1"
 description = "Utility library for gitignore style pattern matching of file paths."
 category = "dev"
 optional = false
@@ -1215,15 +1218,15 @@ tests = ["check-manifest", "coverage", "defusedxml", "markdown2", "olefile", "pa
 
 [[package]]
 name = "platformdirs"
-version = "2.6.2"
+version = "3.1.1"
 description = "A small Python package for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 
 [package.extras]
-docs = ["furo (>=2022.12.7)", "proselint (>=0.13)", "sphinx-autodoc-typehints (>=1.19.5)", "sphinx (>=5.3)"]
-test = ["appdirs (==1.4.4)", "covdefaults (>=2.2.2)", "pytest-cov (>=4)", "pytest-mock (>=3.10)", "pytest (>=7.2)"]
+docs = ["furo (>=2022.12.7)", "proselint (>=0.13)", "sphinx-autodoc-typehints (>=1.22,!=1.23.4)", "sphinx (>=6.1.3)"]
+test = ["appdirs (==1.4.4)", "covdefaults (>=2.2.2)", "pytest-cov (>=4)", "pytest-mock (>=3.10)", "pytest (>=7.2.1)"]
 
 [[package]]
 name = "prometheus-client"
@@ -1238,11 +1241,11 @@ twisted = ["twisted"]
 
 [[package]]
 name = "prompt-toolkit"
-version = "3.0.36"
+version = "3.0.38"
 description = "Library for building powerful interactive command lines in Python"
 category = "dev"
 optional = false
-python-versions = ">=3.6.2"
+python-versions = ">=3.7.0"
 
 [package.dependencies]
 wcwidth = "*"
@@ -1314,7 +1317,7 @@ plugins = ["importlib-metadata"]
 
 [[package]]
 name = "pymdown-extensions"
-version = "9.9.2"
+version = "9.10"
 description = "Extension pack for Python Markdown."
 category = "dev"
 optional = false
@@ -1322,6 +1325,7 @@ python-versions = ">=3.7"
 
 [package.dependencies]
 markdown = ">=3.2"
+pyyaml = "*"
 
 [[package]]
 name = "pyparsing"
@@ -1355,11 +1359,11 @@ six = ">=1.5"
 
 [[package]]
 name = "python-json-logger"
-version = "2.0.4"
+version = "2.0.7"
 description = "A python library adding a json log formatter"
 category = "dev"
 optional = false
-python-versions = ">=3.5"
+python-versions = ">=3.6"
 
 [[package]]
 name = "pytz"
@@ -1406,7 +1410,7 @@ pyyaml = "*"
 
 [[package]]
 name = "pyzmq"
-version = "25.0.0"
+version = "25.0.2"
 description = "Python bindings for 0MQ"
 category = "dev"
 optional = false
@@ -1414,6 +1418,14 @@ python-versions = ">=3.6"
 
 [package.dependencies]
 cffi = {version = "*", markers = "implementation_name == \"pypy\""}
+
+[[package]]
+name = "regex"
+version = "2022.10.31"
+description = "Alternative regular expression module, to replace re."
+category = "dev"
+optional = false
+python-versions = ">=3.6"
 
 [[package]]
 name = "requests"
@@ -1500,11 +1512,11 @@ python-versions = ">=3.7"
 
 [[package]]
 name = "soupsieve"
-version = "2.3.2.post1"
+version = "2.4"
 description = "A modern CSS selector implementation for Beautiful Soup."
 category = "dev"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.7"
 
 [[package]]
 name = "stack-data"
@@ -1580,7 +1592,7 @@ python-versions = ">= 3.7"
 
 [[package]]
 name = "traitlets"
-version = "5.8.1"
+version = "5.9.0"
 description = "Traitlets Python configuration system"
 category = "dev"
 optional = false
@@ -1592,7 +1604,7 @@ test = ["argcomplete (>=2.0)", "pre-commit", "pytest", "pytest-mock"]
 
 [[package]]
 name = "typing-extensions"
-version = "4.4.0"
+version = "4.5.0"
 description = "Backported and Experimental Type Hints for Python 3.7+"
 category = "dev"
 optional = false
@@ -1611,7 +1623,7 @@ dev = ["mypy", "flake8 (<4.0.0)", "flake8-annotations", "flake8-bugbear", "flake
 
 [[package]]
 name = "urllib3"
-version = "1.26.14"
+version = "1.26.15"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
 category = "dev"
 optional = false
@@ -1624,11 +1636,11 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 
 [[package]]
 name = "watchdog"
-version = "2.2.1"
+version = "3.0.0"
 description = "Filesystem events monitoring"
 category = "dev"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.7"
 
 [package.extras]
 watchmedo = ["PyYAML (>=3.10)"]
@@ -1659,7 +1671,7 @@ python-versions = "*"
 
 [[package]]
 name = "websocket-client"
-version = "1.4.2"
+version = "1.5.1"
 description = "WebSocket client for Python with low level API options"
 category = "dev"
 optional = false
@@ -1672,20 +1684,20 @@ test = ["websockets"]
 
 [[package]]
 name = "zipp"
-version = "3.11.0"
+version = "3.15.0"
 description = "Backport of pathlib-compatible object wrapper for zip files"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 
 [package.extras]
-docs = ["sphinx (>=3.5)", "jaraco.packaging (>=9)", "rst.linker (>=1.9)", "furo", "jaraco.tidelift (>=1.4)"]
-testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "flake8 (<5)", "pytest-cov", "pytest-enabler (>=1.3)", "jaraco.itertools", "func-timeout", "jaraco.functools", "more-itertools", "pytest-black (>=0.3.7)", "pytest-mypy (>=0.9.1)", "pytest-flake8"]
+docs = ["sphinx (>=3.5)", "jaraco.packaging (>=9)", "rst.linker (>=1.9)", "furo", "sphinx-lint", "jaraco.tidelift (>=1.4)"]
+testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "flake8 (<5)", "pytest-cov", "pytest-enabler (>=1.3)", "jaraco.itertools", "jaraco.functools", "more-itertools", "big-o", "pytest-black (>=0.3.7)", "pytest-mypy (>=0.9.1)", "pytest-flake8"]
 
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "f3389a172371f8caad70e5f4ff2c0ec4015dadb26f582dd332985722e87cbbea"
+content-hash = "9fe5cb6ec40964b61215ac445ae085d10deaee4c9c610fc86c896f553bada37d"
 
 [metadata.files]
 anyio = []
@@ -1727,10 +1739,7 @@ backcall = [
     {file = "backcall-0.2.0-py2.py3-none-any.whl", hash = "sha256:fbbce6a29f263178a1f7915c1940bde0ec2b2a967566fe1c65c1dfb7422bd255"},
     {file = "backcall-0.2.0.tar.gz", hash = "sha256:5cbdbf27be5e7cfadb448baf0aa95508f91f2bbc6c6437cd9cd06e2a4c215e1e"},
 ]
-beautifulsoup4 = [
-    {file = "beautifulsoup4-4.11.1-py3-none-any.whl", hash = "sha256:58d5c3d29f5a36ffeb94f02f0d786cd53014cf9b3b3951d42e0080d8a9498d30"},
-    {file = "beautifulsoup4-4.11.1.tar.gz", hash = "sha256:ad9aa55b65ef2808eb405f46cf74df7fcb7044d5cbc26487f96eb2ef2e436693"},
-]
+beautifulsoup4 = []
 black = []
 bleach = []
 certifi = []
@@ -1757,10 +1766,6 @@ defusedxml = [
     {file = "defusedxml-0.7.1.tar.gz", hash = "sha256:1bb3032db185915b62d7c6209c5a8792be6a32ab2fedacc84e01b52c51aa3e69"},
 ]
 dss-python = []
-entrypoints = [
-    {file = "entrypoints-0.4-py3-none-any.whl", hash = "sha256:f174b5ff827504fd3cd97cc3f8649f3693f51538c7e4bdf3ef002c8429d42f9f"},
-    {file = "entrypoints-0.4.tar.gz", hash = "sha256:b706eddaa9218a19ebcd67b56818f05bb27589b1ca9e8d797b74affad4ccacd4"},
-]
 executing = []
 fastjsonschema = []
 flake8 = []
@@ -1770,6 +1775,7 @@ ghp-import = []
 griffe = []
 idna = []
 importlib-metadata = []
+importlib-resources = []
 ipykernel = []
 ipython = []
 ipython-genutils = [
@@ -1795,12 +1801,8 @@ jupyterlab-pygments = [
 ]
 jupytext = []
 kiwisolver = []
-lxml = []
 markdown = []
-markdown-it-py = [
-    {file = "markdown-it-py-2.1.0.tar.gz", hash = "sha256:cf7e59fed14b5ae17c0006eff14a2d9a00ed5f3a846148153899a0224e2c07da"},
-    {file = "markdown_it_py-2.1.0-py3-none-any.whl", hash = "sha256:93de681e5c021a432c63147656fe21790bc01231e0cd2da73626f1aa3ac0fe27"},
-]
+markdown-it-py = []
 markupsafe = []
 matplotlib = []
 matplotlib-inline = []
@@ -1811,10 +1813,7 @@ mergedeep = [
     {file = "mergedeep-1.3.4-py3-none-any.whl", hash = "sha256:70775750742b25c0d8f36c55aed03d24c3384d17c951b3175d898bd778ef0307"},
     {file = "mergedeep-1.3.4.tar.gz", hash = "sha256:0096d52e9dad9939c3d975a774666af186eda617e6ca84df4c94dec30004f2a8"},
 ]
-mistune = [
-    {file = "mistune-0.8.4-py2.py3-none-any.whl", hash = "sha256:88a1051873018da288eee8538d476dffe1262495144b33ecb586c4ab266bb8d4"},
-    {file = "mistune-0.8.4.tar.gz", hash = "sha256:59a3429db53c50b5c6bcc8a07f8848cb00d7dc8bdb431a4ab41920d201d4756e"},
-]
+mistune = []
 mkdocs = []
 mkdocs-autorefs = [
     {file = "mkdocs-autorefs-0.4.1.tar.gz", hash = "sha256:70748a7bd025f9ecd6d6feeba8ba63f8e891a1af55f48e366d6d6e78493aba84"},
@@ -1825,10 +1824,7 @@ mkdocs-material = []
 mkdocs-material-extensions = []
 mkdocstrings = []
 mkdocstrings-python = []
-mypy-extensions = [
-    {file = "mypy_extensions-0.4.3-py2.py3-none-any.whl", hash = "sha256:090fedd75945a69ae91ce1303b5824f428daf5a028d2f6ab8a299250a846f15d"},
-    {file = "mypy_extensions-0.4.3.tar.gz", hash = "sha256:2d82818f5bb3e369420cb3c4060a7970edba416647068eb4c5343488a6c604a8"},
-]
+mypy-extensions = []
 nbclassic = []
 nbclient = []
 nbconvert = []
@@ -1928,6 +1924,7 @@ pyyaml-env-tag = [
     {file = "pyyaml_env_tag-0.1.tar.gz", hash = "sha256:70092675bda14fdec33b31ba77e7543de9ddc88f2e5b99160396572d11525bdb"},
 ]
 pyzmq = []
+regex = []
 requests = []
 rfc3339-validator = []
 rfc3986-validator = []
@@ -1941,10 +1938,7 @@ six = [
     {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
 ]
 sniffio = []
-soupsieve = [
-    {file = "soupsieve-2.3.2.post1-py3-none-any.whl", hash = "sha256:3b2503d3c7084a42b1ebd08116e5f81aadfaea95863628c80a3b774a11b7c759"},
-    {file = "soupsieve-2.3.2.post1.tar.gz", hash = "sha256:fc53893b3da2c33de295667a0e19f078c14bf86544af307354de5fcf12a3f30d"},
-]
+soupsieve = []
 stack-data = []
 terminado = []
 tinycss2 = []
