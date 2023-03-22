@@ -29,6 +29,7 @@ mkdocs-material = "^8.*"
 mkdocstrings = {version = "^0.20.*", extras = ["python"]}
 mkdocs-jupyter = "^0.22.*"
 mkdocs-autorefs = "^0.4.1"
+Pygments = "^2.*"
 
 
 [build-system]

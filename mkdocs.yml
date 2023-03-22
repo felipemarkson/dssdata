@@ -16,7 +16,10 @@ theme:
     - navigation.instant
 
 markdown_extensions:
-  - codehilite
+  - pymdownx.highlight:
+      use_pygments: true
+  - pymdownx.superfences
+  
 
 plugins:
   - search
