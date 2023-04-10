@@ -4,10 +4,9 @@ authors:
 - family-names: "Monteiro"
   given-names: "Felipe"
   orcid: "https://orcid.org/0000-0002-3774-8384"
-title: "felipemarkson/dssdata: v0.1.7"
+title: "felipemarkson/dssdata"
 type: software
-version: 0.1.7
-doi: 10.5281/zenodo.6784238
+doi: 10.5281/zenodo.6784237
 date-released: 2022-06-30
 url: "https://github.com/felipemarkson/dssdata"
 contact:

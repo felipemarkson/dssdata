@@ -83,15 +83,15 @@ We provide an full API documentation and examples in the [DSSData Documentation]
 ## Citing
 
 If you find DSSData useful in your work, we kindly request that you cite it as below: 
+
 ```bibtex
-@software{Monteiro_felipemarkson_dssdata_v0_1_7_2022,
+@software{Monteiro_felipemarkson_dssdata_2022,
   author = {Monteiro, Felipe},
-  doi = {10.5281/zenodo.6784238},
+  doi = {10.5281/zenodo.6784237},
   license = {MIT},
   month = {6},
-  title = {{felipemarkson/dssdata: v0.1.7}},
+  title = {{felipemarkson/dssdata}},
   url = {https://github.com/felipemarkson/dssdata},
-  version = {0.1.7},
   year = {2022}
 }
 ```
