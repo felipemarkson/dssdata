@@ -26,25 +26,59 @@ We built the DSSData for you just write what you want in a simple function, plug
 
 You don't need anymore write a routine to run each power flow per time. 
 
-## Documentation
-
-See [DSSData Documentation](https://felipemarkson.github.io/dssdata).
-
-## Installation
+## Quick Start
+### Installation
 
 We strongly recommend the use of virtual environments manager.
-
-### Using pip
 
 ```console
 pip install dssdata
 ```
 
-### Using poetry
+### Static Power Flow (Snapshot)
 
-```console
-poetry add dssdata
+First, comment any `solve`, output command (e.g: `show`), or solve configurations (e.g: `set mode=Snap`) from your `.dss` file.
+
+_**NOTE**: Any `Monitor` is needed to get the data._
+
+Supposing that you file is in the path `master.dss`:
+
+```python
+from dssdata import SystemClass
+from dssdata.pfmodes import run_static_pf
+from dssdata.tools import voltages
+
+distSys = SystemClass(path="master.dss", kV=[13.8, 0.230], loadmult=1.0)
+
+[voltageDataFrame] = run_static_pf(distSys, tools=[voltages.get_all])
+print(voltageDataFrame)
 ```
+
+### Time series Power Flow
+
+First, comment any `solve`, output command (e.g: `show`), or solve configurations (e.g: `set mode=daily stepsize=5m time=...`) from your `.dss` file.
+
+_**NOTE**: Any `Monitor` is needed to get the data._
+
+_**NOTE**: The `Loadshape` must be defined in the `.dss` file_
+
+Supposing that you file is in the path `master.dss`:
+
+```python
+from dssdata import SystemClass
+from dssdata.pfmodes import cfg_tspf, run_tspf
+from dssdata.tools import lines, voltages
+
+distSys = SystemClass(path="master.dss", kV=[13.8], loadmult=1.2)
+cfg_tspf(distSys, step_size="5m", initial_time=(0, 0))
+
+[voltageDataFrame] = run_tspf(distSys, tools=[voltages.get_all], num_steps=288)
+print(voltageDataFrame)
+```
+
+## Documentation
+
+We provide an full API documentation and examples in the [DSSData Documentation](https://felipemarkson.github.io/dssdata).
 
 ## Citing
 
@@ -64,9 +98,8 @@ If you find DSSData useful in your work, we kindly request that you cite it as b
 
 ## Help us to improve DSSData
 
-See our [Issue](https://github.com/felipemarkson/dssdata/issues) section!
+See our [Issue](https://github.com/felipemarkson/dssdata/issues) section, our [Development Guidelines](DEV.md), and our [Code of conduct](CODE_OF_CONDUCT.md).
 
-
-## Contributors: 
+### Contributors: 
 
 - [JonasVil](https://github.com/felipemarkson/power-flow-analysis/commits?author=JonasVil)
