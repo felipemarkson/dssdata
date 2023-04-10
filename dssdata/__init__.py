@@ -2,7 +2,7 @@ from os import getcwd, chdir
 from os import path as pathfunc
 from typing import Iterable, List
 
-__version__ = "0.1.8"
+__version__ = "0.2"
 
 
 def _redirect_handler(path) -> List[str]:
